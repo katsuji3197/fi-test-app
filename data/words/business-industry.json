@@ -1,0 +1,252 @@
+[
+  {
+    "id": "business-industry-001",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "POSシステム",
+    "aliases": ["POS", "Point of Sale System", "販売時点情報管理システム"],
+    "question": "商品の販売時点で売上や在庫の情報をリアルタイムに収集・記録する仕組みを何というか。",
+    "hint": "レジでバーコードを読み取ると同時に情報が記録される。",
+    "explanation": "POS(Point of Sale:販売時点情報管理)システムは、商品販売の都度、単品ごとの売上・在庫データを収集し、経営判断や発注業務に活用する仕組みである。"
+  },
+  {
+    "id": "business-industry-002",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "ERPパッケージ",
+    "aliases": ["ERP", "Enterprise Resource Planning", "統合基幹業務システム"],
+    "question": "会計・人事・生産・販売など企業の基幹業務を統合的に管理し、経営資源の最適配分を図るソフトウェアを何というか。",
+    "hint": "企業内の様々な業務データを一つのシステムに統合する。",
+    "explanation": "ERP(Enterprise Resource Planning:企業資源計画)パッケージは、会計・人事・生産・物流など複数の基幹業務システムを統合し、経営資源の有効活用を図るための業務パッケージソフトウェアである。"
+  },
+  {
+    "id": "business-industry-003",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "マイナンバー",
+    "aliases": ["個人番号", "社会保障・税番号制度"],
+    "question": "行政の効率化や国民の利便性向上を目的に、住民票を持つ全ての人に付番される12桁の番号を何というか。",
+    "hint": "税・社会保障・災害対策の行政手続で利用される番号である。",
+    "explanation": "マイナンバー(個人番号)は、国民一人ひとりに付与される唯一無二の番号で、行政機関間の情報連携を効率化する。関連するオンラインサービスにマイナポータルがある。"
+  },
+  {
+    "id": "business-industry-004",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "JIT",
+    "aliases": ["Just In Time", "ジャストインタイム"],
+    "question": "必要な部品を必要な時に必要な量だけ生産・調達し、在庫を極限まで削減する生産方式を何というか。",
+    "hint": "トヨタ生産方式で採用され、かんばん方式で実現されることが多い。",
+    "explanation": "JIT(Just In Time:ジャストインタイム)は、後工程が必要とする部品を前工程から必要な分だけ引き取ることで、仕掛品や在庫の無駄を排除する生産管理手法である。"
+  },
+  {
+    "id": "business-industry-005",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "CAD",
+    "aliases": ["Computer Aided Design", "コンピュータ支援設計"],
+    "question": "コンピュータを用いて製品や建築物の設計図を作成・編集する仕組みを何というか。",
+    "hint": "図面のデジタル化により修正や再利用が容易になる。",
+    "explanation": "CAD(Computer Aided Design:コンピュータ支援設計)は、設計作業をコンピュータ上で行う仕組みで、製造工程を支援するCAM、解析を支援するCAEなどと連携して利用される。"
+  },
+  {
+    "id": "business-industry-006",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "CAM",
+    "aliases": ["Computer Aided Manufacturing", "コンピュータ支援製造"],
+    "question": "設計データを基に、工作機械の加工プログラムを自動生成して製造工程を支援する仕組みを何というか。",
+    "hint": "設計データをそのまま製造工程の制御に活用する仕組みである。",
+    "explanation": "CAM(Computer Aided Manufacturing:コンピュータ支援製造)は、CADの設計データを利用してNC工作機械の加工手順を自動生成するなど、製造工程をコンピュータで支援する仕組みである。"
+  },
+  {
+    "id": "business-industry-007",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "EDI",
+    "aliases": ["Electronic Data Interchange", "電子データ交換"],
+    "question": "企業間で受発注や決済などの取引情報を、標準化された形式で電子的にやり取りする仕組みを何というか。",
+    "hint": "伝票フォーマットを統一し企業間ネットワークで交換する。",
+    "explanation": "EDI(Electronic Data Interchange:電子データ交換)は、異なる企業間の取引データを標準規約に基づいて電子的に交換する仕組みで、Webを利用したWeb-EDIなどの形態もある。"
+  },
+  {
+    "id": "business-industry-008",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "NFT",
+    "aliases": ["Non-Fungible Token", "非代替性トークン"],
+    "question": "ブロックチェーン技術を用いて、デジタルデータに唯一性と所有証明を付与する仕組みを何というか。",
+    "hint": "同じものが二つと存在しない、複製できない資産価値を示す。",
+    "explanation": "NFT(Non-Fungible Token:非代替性トークン)は、ブロックチェーン上で発行され、デジタルアートなどの唯一性を証明できるトークンである。同一価値で交換可能な暗号資産とは対照的な性質を持つ。"
+  },
+  {
+    "id": "business-industry-009",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "IoT",
+    "aliases": ["Internet of Things", "モノのインターネット"],
+    "question": "家電や産業機器などあらゆる物をインターネットに接続し、相互に情報をやり取りする仕組みを何というか。",
+    "hint": "センサーで取得したデータをネットワーク経由で活用する。",
+    "explanation": "IoT(Internet of Things:モノのインターネット)は、様々な機器にセンサーや通信機能を組み込みインターネットに接続することで、データ収集や遠隔制御を可能にする概念・技術群である。"
+  },
+  {
+    "id": "business-industry-010",
+    "categoryId": "business-industry",
+    "difficulty": "easy",
+    "term": "ATM",
+    "aliases": ["Automated Teller Machine", "現金自動預払機"],
+    "question": "銀行のキャッシュカードなどを用いて、預金の引き出しや振込などを自動で行う機器を何というか。",
+    "hint": "銀行窓口が閉まっていても利用できる無人の金融端末である。",
+    "explanation": "ATM(Automated Teller Machine:現金自動預払機)は、顧客が自らカードや通帳を操作して入出金・振込などの取引を行える自動化端末で、産業機器の代表例の一つである。"
+  },
+  {
+    "id": "business-industry-011",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "CDN",
+    "aliases": ["Content Delivery Network", "コンテンツデリバリーネットワーク"],
+    "question": "世界各地に分散配置したサーバーを利用し、動画などのコンテンツを利用者に近い場所から高速に配信する仕組みを何というか。",
+    "hint": "キャッシュサーバーを地理的に分散させ配信遅延を減らす。",
+    "explanation": "CDN(Content Delivery Network)は、オリジンサーバーの負荷を軽減しつつ、利用者に地理的に近いキャッシュサーバーからコンテンツを配信することで、応答速度と可用性を高める仕組みである。"
+  },
+  {
+    "id": "business-industry-012",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "デジタルツイン",
+    "aliases": ["Digital Twin"],
+    "question": "現実の設備や製品の状態をセンサーなどで取得し、仮想空間上に忠実に再現してシミュレーションに活用する技術を何というか。",
+    "hint": "現実世界の双子をコンピュータ上に作るイメージの技術である。",
+    "explanation": "デジタルツインは、現実空間のモノや工程をIoTなどで得たデータを基に仮想空間上へリアルタイムに再現し、故障予測や改善シミュレーションなどに活用する技術で、サイバーフィジカルシステム(CPS)の一形態と位置付けられる。"
+  },
+  {
+    "id": "business-industry-013",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "ハルシネーション",
+    "aliases": ["Hallucination"],
+    "question": "AIが事実に基づかない、もっともらしい誤った情報をあたかも真実であるかのように生成してしまう現象を何というか。",
+    "hint": "生成AIを利活用する際に注意すべき出力リスクの一つである。",
+    "explanation": "ハルシネーションは、生成AIが学習データに存在しない、あるいは事実と異なる内容を確信度高く出力してしまう現象であり、AIの出力を人間が検証することの重要性の根拠となる。"
+  },
+  {
+    "id": "business-industry-014",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "FMS",
+    "aliases": ["Flexible Manufacturing System", "フレキシブル生産システム"],
+    "question": "産業用ロボットやNC工作機械を組み合わせ、多品種の製品を少ない段取り替えで柔軟に生産できるシステムを何というか。",
+    "hint": "需要変動や仕様変更に柔軟に対応できる自動化生産の仕組み。",
+    "explanation": "FMS(Flexible Manufacturing System:フレキシブル生産システム)は、複数のNC工作機械や搬送装置をコンピュータで統合制御し、多品種少量生産に柔軟に対応する生産システムである。"
+  },
+  {
+    "id": "business-industry-015",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "FinTech",
+    "aliases": ["フィンテック", "Finance Technology"],
+    "question": "金融とITを組み合わせ、決済や資産運用、融資などの新しい金融サービスを生み出す取り組みを何というか。",
+    "hint": "「Finance」と「Technology」を組み合わせた造語である。",
+    "explanation": "FinTech(フィンテック)は、金融(Finance)と技術(Technology)を融合させた造語で、キャッシュレス決済やスマートフォンによる資産管理など、新しい金融サービスの創出を指す。"
+  },
+  {
+    "id": "business-industry-016",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "DtoC",
+    "aliases": ["Direct to Consumer", "D2C"],
+    "question": "メーカーが卸売業者や小売業者を介さず、自社の通販サイトなどを通じて消費者に直接商品を販売する形態を何というか。",
+    "hint": "中間業者を挟まないことで顧客データを自社で得やすい。",
+    "explanation": "DtoC(Direct to Consumer)は、生産者が流通業者を介さず消費者へ直接販売する電子商取引の形態で、企業間取引のBtoBや企業対消費者のBtoCとは流通経路の点で異なる。"
+  },
+  {
+    "id": "business-industry-017",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "ロングテール",
+    "aliases": ["Long Tail"],
+    "question": "実店舗では扱いにくい売れ筋以外の多数の商品でも、ネット販売では全体として大きな売上を生み出す現象を何というか。",
+    "hint": "売上グラフの裾野部分が長く伸びる形状に由来する名称である。",
+    "explanation": "ロングテールは、販売数の少ない多品目の商品群(グラフの裾=テール部分)が積み重なることで、少数の売れ筋商品(ヘッド部分)に匹敵する売上を生むという、ネット通販に特徴的な現象を指す。"
+  },
+  {
+    "id": "business-industry-018",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "HEMS",
+    "aliases": ["Home Energy Management System", "家庭用エネルギー管理システム"],
+    "question": "家庭内の電力使用量を計測・見える化し、家電機器の制御によって省エネルギーを支援するシステムを何というか。",
+    "hint": "家庭版のエネルギーマネジメントで、スマートグリッドとも連携する。",
+    "explanation": "HEMS(Home Energy Management System:家庭用エネルギー管理システム)は、家庭内の電力消費を可視化・自動制御し、省エネや電力の効率利用を実現する民生機器向けの仕組みである。"
+  },
+  {
+    "id": "business-industry-019",
+    "categoryId": "business-industry",
+    "difficulty": "medium",
+    "term": "クラウドソーシング",
+    "aliases": ["Crowdsourcing"],
+    "question": "インターネットを通じて不特定多数の人に業務やアイデアを公募し、外部の労働力を活用する形態を何というか。",
+    "hint": "「群衆(crowd)」と「委託(sourcing)」を組み合わせた語である。",
+    "explanation": "クラウドソーシングは、企業が業務をインターネット上で不特定多数に発注し、必要な労働力やアイデアを調達する仕組みで、e-ビジネスにおける新しい業務委託の形態として普及している。"
+  },
+  {
+    "id": "business-industry-020",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "スマートコントラクト",
+    "aliases": ["Smart Contract"],
+    "question": "ブロックチェーン上で契約条件をあらかじめプログラムしておき、条件成立時に自動的に契約内容を実行する仕組みを何というか。",
+    "hint": "仲介者なしで契約の履行を自動化するブロックチェーン応用技術。",
+    "explanation": "スマートコントラクトは、契約条件をプログラムとしてブロックチェーン上に記述し、条件が満たされると人手を介さず自動的に取引や契約の履行を実行する仕組みで、トレーサビリティ確保などにも応用される。"
+  },
+  {
+    "id": "business-industry-021",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "XAI",
+    "aliases": ["Explainable AI", "説明可能なAI"],
+    "question": "AIがどのような根拠に基づいてその判断や予測結果を導き出したのかを、人間が理解できる形で示す技術を何というか。",
+    "hint": "AIの「ブラックボックス」問題を解消するための取り組みである。",
+    "explanation": "XAI(Explainable AI:説明可能なAI)は、AIの推論過程や判断根拠を人間が解釈・検証できるようにする技術・研究分野で、AIサービスの責任論や信頼性確保の観点から重視されている。"
+  },
+  {
+    "id": "business-industry-022",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "CAPP",
+    "aliases": ["Computer Aided Process Planning", "コンピュータ支援工程設計"],
+    "question": "製品の設計データを基に、加工手順や使用する工作機械などの製造工程計画をコンピュータで自動的に立案する仕組みを何というか。",
+    "hint": "CADとCAMの間をつなぐ、工程そのものを設計する支援技術。",
+    "explanation": "CAPP(Computer Aided Process Planning:コンピュータ支援工程設計)は、製品の加工方法や作業順序といった工程計画をコンピュータで支援・自動生成する仕組みで、CAD/CAMと連携して生産準備の効率化を図る。"
+  },
+  {
+    "id": "business-industry-023",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "CBDC",
+    "aliases": ["Central Bank Digital Currency", "中央銀行発行デジタル通貨"],
+    "question": "中央銀行が発行し、法定通貨としての価値を持つデジタル形式の通貨を何というか。",
+    "hint": "民間発行の暗号資産とは異なり、国の信用に裏付けられている。",
+    "explanation": "CBDC(Central Bank Digital Currency:中央銀行発行デジタル通貨)は、各国の中央銀行が発行主体となるデジタル通貨で、価格変動の大きい暗号資産(仮想通貨)とは異なり法定通貨として安定した価値を持つ。"
+  },
+  {
+    "id": "business-industry-024",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "eKYC",
+    "aliases": ["electronic Know Your Customer", "電子本人確認"],
+    "question": "オンライン上で本人確認書類や顔写真などを用いて、非対面のまま顧客の本人確認を完結させる仕組みを何というか。",
+    "hint": "「顧客を知る」手続をオンライン完結させる金融分野の仕組み。",
+    "explanation": "eKYC(electronic Know Your Customer:電子本人確認)は、口座開設などの際に必要な本人確認手続を、対面や郵送ではなくスマートフォンなどを使いオンラインで完結させる仕組みで、マネーロンダリング対策(AML・CFT)にも関連する。"
+  },
+  {
+    "id": "business-industry-025",
+    "categoryId": "business-industry",
+    "difficulty": "hard",
+    "term": "M2M",
+    "aliases": ["Machine to Machine", "機器間通信"],
+    "question": "人を介さず機械同士が相互に通信し、データの収集や制御を自動的に行う仕組みを何というか。",
+    "hint": "IoTの基盤となる、機器同士が直接やり取りする通信形態。",
+    "explanation": "M2M(Machine to Machine)は、センサーや機器同士がネットワークを介して自律的にデータをやり取りする通信形態で、スマートファクトリーやスマート農業など産業機器分野のIoT活用の基盤となる概念である。"
+  }
+]

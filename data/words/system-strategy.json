@@ -1,0 +1,162 @@
+[
+  {
+    "id": "system-strategy-001",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "ITガバナンス",
+    "aliases": ["IT Governance"],
+    "question": "経営陣がステークホルダのニーズを踏まえ、ITの利活用のあるべき姿を示す戦略と方針を策定し、実現に向けて統制・監視する活動を何というか。",
+    "hint": "コーポレートガバナンスの構成要素の一つで、システム監査とも関連が深い。",
+    "explanation": "ITガバナンス(IT Governance)は、組織のガバナンスの一環として、取締役会などがIT戦略・方針を策定し、その実現を統制・監視する活動である。システム監査や情報セキュリティ監査、ソフトウェア資産管理などを通じて実現される。"
+  },
+  {
+    "id": "system-strategy-002",
+    "categoryId": "system-strategy",
+    "difficulty": "easy",
+    "term": "CIO",
+    "aliases": ["Chief Information Officer", "最高情報責任者"],
+    "question": "企業の情報システム戦略の策定・実行に関する責任を負う経営層の役職を何というか。",
+    "hint": "情報セキュリティを専門に統括する役職とは役割が異なる。",
+    "explanation": "CIO(Chief Information Officer:最高情報責任者)は、企業の情報システム戦略の立案・実行に責任を持つ経営幹部である。情報セキュリティを専門に統括するCISOと混同しないよう注意する。"
+  },
+  {
+    "id": "system-strategy-003",
+    "categoryId": "system-strategy",
+    "difficulty": "easy",
+    "term": "EA",
+    "aliases": ["Enterprise Architecture", "エンタープライズアーキテクチャ"],
+    "question": "組織全体の業務とシステムを統一的な手法でモデル化し、業務とシステムを同時に改善する組織の設計・管理手法を何というか。",
+    "hint": "ビジネス・データ・アプリケーション・テクノロジの4領域に分けて整理する。",
+    "explanation": "EA(Enterprise Architecture:エンタープライズアーキテクチャ)は、全体最適化を図るために業務とシステムを統一的にモデル化する設計・管理手法である。ビジネス、データ、アプリケーション、テクノロジの4領域のアーキテクチャに分けて整理する。"
+  },
+  {
+    "id": "system-strategy-004",
+    "categoryId": "system-strategy",
+    "difficulty": "hard",
+    "term": "ザックマンフレームワーク",
+    "aliases": ["Zachman Framework"],
+    "question": "組織のシステムを「What・How・Where・Who・When・Why」の視点と複数の利害関係者の階層でマトリクス状に整理する代表的な手法を何というか。",
+    "hint": "エンタープライズアーキテクチャの代表的な分析・整理手法の一つである。",
+    "explanation": "ザックマンフレームワークは、システムを6つの疑問詞による視点と、計画者・所有者・設計者などの利害関係者の階層の軸でマトリクス化して整理する、エンタープライズアーキテクチャの代表的な手法である。"
+  },
+  {
+    "id": "system-strategy-005",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "BA",
+    "aliases": ["Business Architecture", "ビジネスアーキテクチャ"],
+    "question": "エンタープライズアーキテクチャにおいて、組織の目標や業務を体系化したアーキテクチャを何というか。",
+    "hint": "DFDやUMLなどを用いて業務の流れを表現する領域である。",
+    "explanation": "BA(Business Architecture:ビジネスアーキテクチャ)は、組織の目標や業務を体系化したアーキテクチャで、業務説明書やDFD、UMLなどを用いて表現される。データの構成を扱うデータアーキテクチャ(DA)と区別すること。"
+  },
+  {
+    "id": "system-strategy-006",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "DA",
+    "aliases": ["Data Architecture", "データアーキテクチャ"],
+    "question": "組織の業務に必要なデータの構成やデータ間の関連を体系化したアーキテクチャを何というか。",
+    "hint": "E-R図やデータ定義表などで表現される領域である。",
+    "explanation": "DA(Data Architecture:データアーキテクチャ)は、業務に必要なデータの構成やデータ間の関連を体系化したもので、E-R図やデータ定義表、UMLのクラス図などで表現される。業務そのものを扱うビジネスアーキテクチャ(BA)との違いに注意する。"
+  },
+  {
+    "id": "system-strategy-007",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "BPM",
+    "aliases": ["Business Process Management", "ビジネスプロセスマネジメント"],
+    "question": "業務プロセスの可視化・分析・改善を継続的に繰り返すことで、業務全体の効率と品質を高めていく経営管理の手法を何というか。",
+    "hint": "抜本的な変革を目指す手法に対して、継続的な改善サイクルを回す点が特徴。",
+    "explanation": "BPM(Business Process Management:ビジネスプロセスマネジメント)は、業務プロセスを可視化・分析し、継続的な改善サイクルを繰り返すことで業務全体の効率と品質を高めていく経営管理手法である。抜本的な変革を一度に行うBPR(Business Process Reengineering)に対し、PDCAサイクルによる継続的改善を重視する点が特徴である。"
+  },
+  {
+    "id": "system-strategy-008",
+    "categoryId": "system-strategy",
+    "difficulty": "hard",
+    "term": "COBIT",
+    "aliases": [],
+    "question": "ITガバナンスとITマネジメントを実現するための国際的なフレームワークで、IT統制の観点から目標と成熟度を評価する枠組みを何というか。",
+    "hint": "情報システムコントロール協会が策定した、IT統制のベストプラクティス集である。",
+    "explanation": "COBITは、ISACA(情報システムコントロール協会)が策定したITガバナンス・IT統制のための国際的なフレームワークであり、企業がITを適切に統制・管理するための評価指標を提供する。運用面のベストプラクティスであるITILとは目的が異なる点に注意。"
+  },
+  {
+    "id": "system-strategy-009",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "プラットフォームビジネス",
+    "aliases": ["Platform Business"],
+    "question": "自社では商品やサービスを直接提供せず、売り手と買い手など複数の利用者グループが取引・交流できる「場」を提供することで収益を得るビジネスモデルを何というか。",
+    "hint": "利用者が増えるほど利便性が高まるネットワーク効果が働きやすい仕組み。",
+    "explanation": "プラットフォームビジネスは、自らは商品やサービスを直接生産せず、売り手と買い手など異なる利用者グループが出会い取引できる基盤(プラットフォーム)を提供することで収益を得るビジネスモデルである。利用者が増えるほど価値が高まるネットワーク効果が働きやすく、ECモールやシェアリングサービスなどが代表例である。"
+  },
+  {
+    "id": "system-strategy-010",
+    "categoryId": "system-strategy",
+    "difficulty": "hard",
+    "term": "共通フレーム",
+    "aliases": ["SLCP-JCF", "SLCP"],
+    "question": "システムの企画から開発、運用、保守、廃棄に至るまでのソフトウェアライフサイクル全体の作業項目や用語を共通化した指針を何というか。",
+    "hint": "発注者と受注者の認識のずれを防ぐために、用語や作業範囲を統一する目的がある。",
+    "explanation": "共通フレーム(SLCP-JCF)は、ソフトウェアライフサイクルにおける作業項目や用語を標準化し、発注者・受注者間の認識の齟齬を防ぐための指針である。IPAが公表しており、システム開発の契約時の作業範囲の明確化などに用いられる。"
+  },
+  {
+    "id": "system-strategy-011",
+    "categoryId": "system-strategy",
+    "difficulty": "easy",
+    "term": "KGI",
+    "aliases": ["Key Goal Indicator", "重要目標達成指標"],
+    "question": "経営戦略やプロジェクトが最終的に達成すべき目標を定量的に示す指標を何というか。",
+    "hint": "達成度合いを測る中間指標とは区別される、最終的なゴールを表す指標である。",
+    "explanation": "KGI(Key Goal Indicator:重要目標達成指標)は、経営戦略や事業目標が最終的にどの程度達成されたかを定量的に測る指標である。目標達成に向けたプロセスの状態を測るKPIと対で用いられることが多い。"
+  },
+  {
+    "id": "system-strategy-012",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "シェアードサービス",
+    "aliases": ["Shared Service"],
+    "question": "企業グループ内で複数の会社に共通する間接部門の業務を1か所に集約し、コスト削減や品質向上を図る経営手法を何というか。",
+    "hint": "経理や人事、情報システムなど、複数のグループ会社で重複する業務を一元化する取り組み。",
+    "explanation": "シェアードサービス(Shared Service)は、企業グループ内の複数の会社に共通する経理・人事・情報システムなどの間接部門業務を1か所に集約し、業務の標準化・効率化によってコスト削減や品質向上を図る経営手法である。専門の子会社(シェアードサービスセンター)を設立して運営されることが多い。"
+  },
+  {
+    "id": "system-strategy-013",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "BPR",
+    "aliases": ["Business Process Reengineering"],
+    "question": "既存の組織や業務の枠組みを抜本的に見直し、プロセスを再設計して業務全体を最適化する手法を何というか。",
+    "hint": "部分的な改善ではなく、ゼロベースで業務プロセスを再構築する点が特徴である。",
+    "explanation": "BPR(Business Process Reengineering)は、既存の組織構造や業務プロセスを抜本的に見直し、プロセスの可視化・再設計を通じて業務全体を最適化する手法である。業務の外部委託であるBPO(Business Process Outsourcing)とは異なる。"
+  },
+  {
+    "id": "system-strategy-014",
+    "categoryId": "system-strategy",
+    "difficulty": "medium",
+    "term": "RPA",
+    "aliases": ["Robotic Process Automation"],
+    "question": "定型的なパソコン操作やデータ入力などの事務作業を、ソフトウェアロボットに代行させて自動化する技術を何というか。",
+    "hint": "人手による定型作業をソフトウェアが代替する、業務自動化の技術である。",
+    "explanation": "RPA(Robotic Process Automation)は、これまで人手で行っていた定型的な事務作業をソフトウェアロボットにより自動化する技術である。業務プロセスの可視化・標準化・自動化の一環として位置付けられる。"
+  },
+  {
+    "id": "system-strategy-015",
+    "categoryId": "system-strategy",
+    "difficulty": "easy",
+    "term": "BYOD",
+    "aliases": ["Bring Your Own Device"],
+    "question": "従業員が私物として所有するスマートフォンやパソコンなどを、業務にも利用できるようにする仕組みを何というか。",
+    "hint": "企業支給端末との対比で使われる言葉で、私物端末の業務利用を指す。",
+    "explanation": "BYOD(Bring Your Own Device)は、従業員個人が所有する情報端末を業務にも利用できるようにする仕組みである。コスト削減や利便性向上の一方、情報漏えいなどセキュリティ管理上の課題もある。"
+  },
+  {
+    "id": "system-strategy-016",
+    "categoryId": "system-strategy",
+    "difficulty": "hard",
+    "term": "TA",
+    "aliases": ["Technology Architecture", "テクノロジアーキテクチャ"],
+    "question": "エンタープライズアーキテクチャにおいて、業務を実現するためのハードウェア・ソフトウェア・ネットワークなどの技術を体系化したアーキテクチャを何というか。",
+    "hint": "4つのアーキテクチャ領域のうち、情報技術の基盤に着目した領域である。",
+    "explanation": "TA(Technology Architecture:テクノロジアーキテクチャ)は、業務を実現するための情報技術基盤(ハードウェア構成図、ソフトウェア構成図、ネットワーク構成図など)を体系化したアーキテクチャである。業務を扱うビジネスアーキテクチャ(BA)など他領域と対比して理解する。"
+  }
+]

@@ -1,0 +1,252 @@
+[
+  {
+    "id": "corporate-activity-001",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "CSR",
+    "aliases": ["Corporate Social Responsibility", "企業の社会的責任"],
+    "question": "企業が利益追求だけでなく、環境保全や社会貢献など様々なステークホルダーへの責任を果たす考え方を何というか。",
+    "hint": "環境・労働・地域貢献など幅広い活動が含まれる経営姿勢。",
+    "explanation": "CSR(Corporate Social Responsibility:企業の社会的責任)は、企業が経済活動を通じて利益を上げるだけでなく、環境や社会に配慮した責任ある行動をとるべきとする考え方で、CSR報告書などで開示される。"
+  },
+  {
+    "id": "corporate-activity-002",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "PDCA",
+    "aliases": ["Plan Do Check Act", "PDCAサイクル"],
+    "question": "計画・実行・評価・改善の4段階を繰り返すことで、業務を継続的に改善していく管理手法を何というか。",
+    "hint": "4つの英単語の頭文字を取った、業務改善の基本モデルである。",
+    "explanation": "PDCA(Plan-Do-Check-Act)は、計画立案、実行、評価、改善のサイクルを繰り返すことで業務プロセスを継続的に改善する経営管理の基本的な手法である。"
+  },
+  {
+    "id": "corporate-activity-003",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "IPO",
+    "aliases": ["Initial Public Offering", "株式公開", "新規株式公開"],
+    "question": "企業が証券取引所に株式を上場させ、初めて一般投資家に株式を売り出すことを何というか。",
+    "hint": "未上場企業が資金調達力や社会的信用を高めるために行う。",
+    "explanation": "IPO(Initial Public Offering:新規株式公開)は、非上場企業が証券取引所への上場に際して、初めて株式を一般投資家に公開・売却することであり、資金調達や知名度向上を目的に行われる。"
+  },
+  {
+    "id": "corporate-activity-004",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "BCP",
+    "aliases": ["Business Continuity Plan", "事業継続計画"],
+    "question": "災害やシステム障害などの緊急事態が発生しても、重要業務を継続または早期復旧できるようにあらかじめ策定する計画を何というか。",
+    "hint": "緊急時の被害を最小限に抑え事業を止めないための計画である。",
+    "explanation": "BCP(Business Continuity Plan:事業継続計画)は、災害やシステム障害などの緊急事態において、重要な事業を中断させない、または早期に復旧させるための方針・体制・手順を定めた計画である。"
+  },
+  {
+    "id": "corporate-activity-005",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "OJT",
+    "aliases": ["On the Job Training", "職場内訓練"],
+    "question": "実際の業務を通じて、上司や先輩が部下に必要な知識や技能を指導する教育訓練の方法を何というか。",
+    "hint": "職場を離れずに実務経験の中で学ぶ人材育成の手法である。",
+    "explanation": "OJT(On the Job Training:職場内訓練)は、実際の業務に従事させながら上司や先輩が実践的な指導を行う教育訓練手法で、座学中心のOff-JTと対比される。"
+  },
+  {
+    "id": "corporate-activity-006",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "CEO",
+    "aliases": ["Chief Executive Officer", "最高経営責任者"],
+    "question": "企業の経営方針や事業戦略に関する最終的な意思決定と執行の責任を負う役職を何というか。",
+    "hint": "企業のトップとして経営全般を統括する最高責任者である。",
+    "explanation": "CEO(Chief Executive Officer:最高経営責任者)は、企業の経営全般に関する意思決定と執行責任を負う最高位の役職で、情報を統括するCIOなど、他のC〇〇職と役割が区別される。"
+  },
+  {
+    "id": "corporate-activity-007",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "損益分岐点",
+    "aliases": ["Break-Even Point"],
+    "question": "売上高と費用の額がちょうど等しくなり、利益も損失も生じない売上高の水準を何というか。",
+    "hint": "固定費と変動費の関係から求められる採算ラインの数値。",
+    "explanation": "損益分岐点は、売上高と総費用(固定費+変動費)が一致し、利益がゼロとなる売上高または販売数量の水準を指し、経営における採算性の判断基準として用いられる。"
+  },
+  {
+    "id": "corporate-activity-008",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "貸借対照表",
+    "aliases": ["Balance Sheet", "B/S"],
+    "question": "ある時点における企業の資産、負債、純資産の状態を一覧にして示す財務諸表を何というか。",
+    "hint": "「資産=負債+純資産」の関係を表す表で、B/Sとも呼ばれる。",
+    "explanation": "貸借対照表(Balance Sheet)は、決算日など特定時点での企業の資産・負債・純資産の残高を対照表示する財務諸表で、企業の財政状態を把握するために用いられる。"
+  },
+  {
+    "id": "corporate-activity-009",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "損益計算書",
+    "aliases": ["Profit and Loss Statement", "P/L"],
+    "question": "一定期間における企業の収益と費用を対比し、利益または損失を明らかにする財務諸表を何というか。",
+    "hint": "一時点でなく一定期間の経営成績を示す表で、P/Lとも呼ばれる。",
+    "explanation": "損益計算書(Profit and Loss Statement)は、一会計期間の収益と費用を対比して、売上総利益や営業利益、経常利益などの各段階の利益を示す財務諸表である。"
+  },
+  {
+    "id": "corporate-activity-010",
+    "categoryId": "corporate-activity",
+    "difficulty": "easy",
+    "term": "ビッグデータ",
+    "aliases": ["Big Data"],
+    "question": "従来のデータベース管理ツールでは扱いきれないほど巨大で多様、かつ高速に生成されるデータ群を何というか。",
+    "hint": "量・多様性・発生速度の大きさを特徴とするデータの総称。",
+    "explanation": "ビッグデータは、量(Volume)・多様性(Variety)・速度(Velocity)などの特徴を持つ巨大なデータ群を指し、データマイニングなどの分析手法を用いて新たな知見や価値の発見に活用される。"
+  },
+  {
+    "id": "corporate-activity-011",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "コーポレートガバナンス",
+    "aliases": ["Corporate Governance", "企業統治"],
+    "question": "株主をはじめとする利害関係者の立場から、企業経営を監視・規律付けする仕組みを何というか。",
+    "hint": "経営の透明性確保や不正防止のための統治の仕組みである。",
+    "explanation": "コーポレートガバナンス(企業統治)は、株主や取締役会などが経営者の意思決定を監視・牽制し、健全で透明性の高い経営を実現するための仕組みで、その指針としてコーポレートガバナンス・コードが策定されている。"
+  },
+  {
+    "id": "corporate-activity-012",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "TQM",
+    "aliases": ["Total Quality Management", "総合的品質管理"],
+    "question": "全社員が品質管理活動に参画し、製品やサービス、業務プロセス全体の質を継続的に向上させる経営手法を何というか。",
+    "hint": "トップから現場まで組織全体で取り組む品質向上活動である。",
+    "explanation": "TQM(Total Quality Management:総合的品質管理)は、経営者から従業員まで全社的に品質管理活動へ参加し、製品・サービスだけでなく業務プロセス全般の質を継続的に改善していく経営管理手法である。"
+  },
+  {
+    "id": "corporate-activity-013",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "ジョブローテーション",
+    "aliases": ["Job Rotation"],
+    "question": "従業員に定期的に異なる部署や職務を経験させ、幅広い知識や能力を計画的に育成する人事施策を何というか。",
+    "hint": "一つの職務にとどまらせず配置転換を繰り返す育成手法。",
+    "explanation": "ジョブローテーションは、従業員を一定期間ごとに複数の部署・職務に異動させることで、多面的なスキルや視野を養い、将来の幹部候補などを育成する人的資源管理の手法である。"
+  },
+  {
+    "id": "corporate-activity-014",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "IR",
+    "aliases": ["Investor Relations", "投資家向け広報活動"],
+    "question": "企業が株主や投資家に対して、経営状況や財務内容などの情報を適時に提供する活動を何というか。",
+    "hint": "投資判断に必要な情報を発信する広報活動である。",
+    "explanation": "IR(Investor Relations)は、企業が株主・投資家に対して経営状況や財務情報などを適切に開示・説明する活動で、決算説明会や統合報告書、アニュアルレポートなどを通じて行われる。"
+  },
+  {
+    "id": "corporate-activity-015",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "OODAループ",
+    "aliases": ["OODA Loop"],
+    "question": "観察・情勢判断・意思決定・行動の4段階を繰り返すことで、変化の速い状況に迅速に対応する意思決定手法を何というか。",
+    "hint": "Observe、Orient、Decide、Actの頭文字を取った略語で、機動性を重視した手法とされる。",
+    "explanation": "OODA(Observe観察、Orient情勢判断、Decide意思決定、Act行動)ループは、変化の激しい状況において観察から行動までのサイクルを高速に繰り返すことで、迅速な意思決定を実現するフレームワーク。計画に基づき改善を繰り返すPDCAに対し、状況変化への即応性を重視する点が特徴である。"
+  },
+  {
+    "id": "corporate-activity-016",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "キャッシュフロー計算書",
+    "aliases": ["C/S", "Cash Flow Statement"],
+    "question": "一定期間における企業の現金及び現金同等物の増減を、営業・投資・財務の三つの活動区分で示す財務諸表を何というか。",
+    "hint": "貸借対照表・損益計算書と合わせて「財務三表」と呼ばれる書類の一つ。",
+    "explanation": "キャッシュフロー計算書(Cash Flow Statement)は、一会計期間における企業の現金及び現金同等物の増減を、営業活動・投資活動・財務活動の三区分で示す財務諸表。貸借対照表・損益計算書と並ぶ財務三表の一つで、企業の資金繰りの実態を把握するために用いられる。"
+  },
+  {
+    "id": "corporate-activity-017",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "ROE",
+    "aliases": ["Return On Equity", "自己資本利益率"],
+    "question": "株主が出資した自己資本を使って、企業がどれだけ効率的に利益を上げたかを示す財務指標を何というか。",
+    "hint": "総資産に対する収益性を示すROAとは分母が異なる指標。",
+    "explanation": "ROE(Return On Equity:自己資本利益率)は、当期純利益を自己資本で割って求める財務指標で、株主が投じた資本に対する収益性を示す。総資産に対する収益性を示すROAと混同しやすいので注意が必要である。"
+  },
+  {
+    "id": "corporate-activity-018",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "IFRS",
+    "aliases": ["International Financial Reporting Standards", "国際財務報告基準"],
+    "question": "国際的に統一された会計処理や財務諸表の作成方法を定めた会計基準を何というか。",
+    "hint": "国境を越えた財務諸表の比較可能性を高めるための国際基準。",
+    "explanation": "IFRS(International Financial Reporting Standards:国際財務報告基準)は、国際会計基準審議会が策定するグローバルな会計基準で、各国が異なる会計基準を採用する中、財務諸表の国際的な比較可能性を高める目的で導入が進んでいる。"
+  },
+  {
+    "id": "corporate-activity-019",
+    "categoryId": "corporate-activity",
+    "difficulty": "medium",
+    "term": "DX",
+    "aliases": ["Digital Transformation", "デジタルトランスフォーメーション"],
+    "question": "デジタル技術を活用して製品やサービス、ビジネスモデル、組織文化までを変革し、競争優位を確立する取り組みを何というか。",
+    "hint": "単なるIT化にとどまらず、企業や社会の変革を目指す概念。",
+    "explanation": "DX(Digital Transformation:デジタルトランスフォーメーション)は、データやデジタル技術を活用して業務プロセスや企業文化、ビジネスモデルそのものを変革し、市場での競争優位を確立しようとする取り組みである。"
+  },
+  {
+    "id": "corporate-activity-020",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "EOQ",
+    "aliases": ["Economic Ordering Quantity", "経済的発注量"],
+    "question": "発注費用と在庫保管費用の合計が最小になるように計算された、最も経済的な1回あたりの発注数量を何というか。",
+    "hint": "発注コストと保管コストのトレードオフから求める発注量。",
+    "explanation": "EOQ(Economic Ordering Quantity:経済的発注量)は、発注に伴う費用と在庫保管にかかる費用の合計が最小となる発注ロットサイズを表す指標で、在庫管理における定量発注方式の基礎となる。"
+  },
+  {
+    "id": "corporate-activity-021",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "デルファイ法",
+    "aliases": ["Delphi Method"],
+    "question": "複数の専門家に匿名でアンケートを繰り返し実施し、回答を集約・フィードバックしながら意見を収束させていく予測手法を何というか。",
+    "hint": "専門家同士が対面せず匿名で意見をすり合わせる合意形成の手法。",
+    "explanation": "デルファイ法は、多数の専門家に対して匿名のアンケート調査を複数回繰り返し、他者の回答結果を踏まえて再回答してもらうことで、将来予測などについての集団的な合意を形成していく調査手法である。"
+  },
+  {
+    "id": "corporate-activity-022",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "モンテカルロ法",
+    "aliases": ["Monte Carlo Method"],
+    "question": "乱数を用いて多数回のシミュレーションを繰り返すことで、解析的に解くことが難しい問題の近似解を求める手法を何というか。",
+    "hint": "カジノで有名な地名にちなんで名付けられた確率的計算手法。",
+    "explanation": "モンテカルロ法は、乱数を用いた試行を大量に繰り返すことで、確率的な現象や複雑な数理モデルの近似解を統計的に求めるシミュレーション手法で、需要予測やリスク分析などに活用される。"
+  },
+  {
+    "id": "corporate-activity-023",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "サーブリック",
+    "aliases": ["Therblig"],
+    "question": "人の作業動作を「つかむ」「運ぶ」など基本的な要素動作に分解し、動作の無駄を分析するIE分析手法を何というか。",
+    "hint": "考案者ギルブレスの名前を逆から読んだことに由来する分析法。",
+    "explanation": "サーブリックは、作業を「探す」「つかむ」「運ぶ」などの基本動作(要素動作)に分解して分析するIE(経営工学)の作業分析手法で、動作の無駄を発見し作業改善につなげるために用いられる。"
+  },
+  {
+    "id": "corporate-activity-024",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "BCM",
+    "aliases": ["Business Continuity Management", "事業継続マネジメント"],
+    "question": "BCPを組織全体で継続的に運用・訓練・見直しし、実効性を維持・向上させていくマネジメント活動全体を何というか。",
+    "hint": "計画を作って終わりでなく、運用・改善まで含む管理の仕組み。",
+    "explanation": "BCM(Business Continuity Management:事業継続マネジメント)は、事業継続計画(BCP)の策定にとどまらず、教育・訓練・評価・見直しといったマネジメントサイクルを継続的に運用し、組織の事業継続能力を維持・向上させる活動である。"
+  },
+  {
+    "id": "corporate-activity-025",
+    "categoryId": "corporate-activity",
+    "difficulty": "hard",
+    "term": "アソシエーション分析",
+    "aliases": ["Association Analysis", "バスケット分析"],
+    "question": "大量の購買データなどから、「Aを買った人はBも買う」といった項目間の関連規則を発見する分析手法を何というか。",
+    "hint": "商品の同時購入傾向を、リフト値などを用いて見つける分析。",
+    "explanation": "アソシエーション分析は、POSデータなどの取引履歴から商品同士の共起関係(組み合わせの規則性)を発見する分析手法で、支持度・確信度・リフト値といった指標を用いて関連性の強さを評価する。"
+  }
+]

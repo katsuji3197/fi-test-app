@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 基本情報技術者試験 単語暗記トレーニング
 
-## Getting Started
+IPA「基本情報技術者試験」のシラバス(中分類)に対応した用語を、自由記述形式で学習できるクイズアプリです。
 
-First, run the development server:
+## 主な機能
+
+- 自由記述形式での出題(わからない場合は4択・ヒント・ギブアップも利用可能)
+- 難易度選択(やさしい / ふつう / むずかしい)
+- シラバスの中分類(23分類)ごとに出題範囲を選択可能
+- 10問刻みで出題数を事前に設定可能
+- 正解時に必ず解説を表示(略語は正式名称・日本語訳も併記)
+- 正答数(自由記述 / 選択肢使用)・不正解数・ギブアップ数をリアルタイムに表示
+- 約500語を収録(`data/words/` 配下に中分類ごとのJSONとして格納)
+
+## セットアップ
+
+パッケージ管理には [pnpm](https://pnpm.io/) を使用しています。
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) を開くとアプリが表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ディレクトリ構成(抜粋)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/                 Next.js App Router のエントリポイント
+components/          クイズ画面などのUIコンポーネント
+lib/                 型定義・シラバス中分類定義・出題ロジック
+data/words/*.json    中分類ごとの単語データ(問題文・ヒント・解説など)
+scripts/validate-words.mjs  単語データの件数・重複・スキーマを検証するスクリプト
+```
 
-## Learn More
+## 単語データの検証
 
-To learn more about Next.js, take a look at the following resources:
+`data/words/` 配下のJSONを追加・修正した場合は、以下のスクリプトで件数や重複、スキーマ不整合を確認できます。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+node scripts/validate-words.mjs
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 技術スタック
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js](https://nextjs.org) (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4

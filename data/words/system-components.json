@@ -1,0 +1,182 @@
+[
+  {
+    "id": "system-components-001",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "クラスタ",
+    "aliases": [],
+    "question": "複数台のコンピュータを連携させ、全体として1台のコンピュータであるかのように機能させる構成を何というか。",
+    "hint": "高可用性の実現や負荷分散などを目的として、サーバの集合体として運用される。",
+    "explanation": "複数のコンピュータを結合して1つのシステムのように動作させる構成である。1台に障害が発生しても他の機器が処理を引き継ぐことで高い信頼性を実現でき、負荷分散にも利用される。"
+  },
+  {
+    "id": "system-components-002",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "デュアルシステム",
+    "aliases": [],
+    "question": "同一構成の2つの系統を用意して常に同じ処理を行わせ、結果を照合しながら運用することで高い信頼性を確保する構成を何というか。",
+    "hint": "2系統が同時に同じ処理を行い、結果を突き合わせて誤りを検出する構成。",
+    "explanation": "同一構成の2系統のシステムで並行して同じ処理を行い、結果を相互に照合することで高信頼性を実現する構成である。一方が現用系、他方が待機系として運用されるデュプレックスシステムとは異なる。"
+  },
+  {
+    "id": "system-components-003",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "ホットサイト",
+    "aliases": [],
+    "question": "災害時などに備え、稼働中の設備と同等の機器やデータを常に用意しておき、即座に切り替えて業務を継続できるようにした予備拠点を何というか。",
+    "hint": "準備の度合いに応じてウォームサイトやコールドサイトなどの分類がある。",
+    "explanation": "本番システムと同等の機器やソフトウェア、データを常に稼働可能な状態で備えておくバックアップサイトである。切替えにかかる時間が短い一方、維持コストは高い。準備度が低いウォームサイトやコールドサイトと対比される。"
+  },
+  {
+    "id": "system-components-004",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "ミラーリング",
+    "aliases": [],
+    "question": "同じデータを2台以上のディスク装置に同時に書き込み、多重化することで信頼性を高める技術を何というか。",
+    "hint": "RAID1で用いられる技術で、片方が故障してももう一方でデータは失われない。",
+    "explanation": "複数のディスク装置に同一内容を書き込んで多重化する技術で、1台が故障してもデータを失わない。RAID1で採用される方式であり、データを分散して書き込むストライピングとは目的が異なる。"
+  },
+  {
+    "id": "system-components-005",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "RAID5",
+    "aliases": [],
+    "question": "誤り訂正用のパリティ情報とデータを複数のディスクに分散して記録し、1台の故障からのデータ復旧を可能にするディスクの多重化方式を何というか。",
+    "hint": "パリティを特定の1台に集中させず、全ディスクに分散させる点が特徴の構成。",
+    "explanation": "データとパリティ情報を複数のディスクに分散して記録する多重化構成で、1台のディスクが故障してもパリティから元のデータを復元できる。パリティ専用ディスクを設ける構成方式と異なり、特定ディスクへの負荷集中を避けられる。"
+  },
+  {
+    "id": "system-components-006",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "サーバレス",
+    "aliases": [],
+    "question": "物理的な計算機基盤の管理や構築を意識せずに、必要な処理単位でプログラムを実行できるクラウドの利用形態を何というか。",
+    "hint": "実行環境の構築や台数の管理を意識せず、処理量に応じて課金される仕組み。",
+    "explanation": "利用者がサーバの管理を行うことなく、クラウド事業者が用意した実行環境でプログラムを動かせる形態である。FaaS(Function as a Service)などがその代表例で、必要なときだけ処理が実行され、その分だけ課金される。"
+  },
+  {
+    "id": "system-components-007",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "フォールトトレラントシステム",
+    "aliases": [],
+    "question": "一部に障害が発生しても、機能を低下させることなく処理を継続できるように設計されたコンピュータシステムを何というか。",
+    "hint": "構成要素を多重化するなどして、故障を許容しながら動作し続けることを目指す考え方。",
+    "explanation": "部品の多重化や自動切替えなどにより、一部に障害が発生しても正常な処理を継続できるよう設計された仕組みである。障害発生時に安全側に停止するフェールセーフとは異なり、処理の継続を重視する考え方である。"
+  },
+  {
+    "id": "system-components-008",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "フェールセーフ",
+    "aliases": [],
+    "question": "システムに障害が発生した際、被害を最小限に抑えるために、安全な状態に移行させる設計の考え方を何というか。",
+    "hint": "例えば信号機が故障した際に、すべて赤にして安全を優先するような設計思想。",
+    "explanation": "故障や誤操作が発生した場合に、被害が拡大しないよう安全な方向にシステムを制御する設計思想である。障害が起きても機能を維持し続けようとするフォールトトレラントとは目的の重点が異なる。"
+  },
+  {
+    "id": "system-components-009",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "スループット",
+    "aliases": [],
+    "question": "コンピュータシステムが単位時間当たりに処理できる仕事量を表す評価指標を何というか。",
+    "hint": "1件の処理にかかる時間ではなく、全体としてどれだけの量をこなせるかを示す量。",
+    "explanation": "単位時間当たりにシステムが処理できる仕事量(処理件数など)を表す性能指標である。1件の処理を依頼してから結果を受け取るまでの時間を示すターンアラウンドタイムとは異なる観点の指標である。"
+  },
+  {
+    "id": "system-components-010",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "ターンアラウンドタイム",
+    "aliases": [],
+    "question": "利用者が処理を依頼してから、その結果がすべて出力されるまでに要する時間を何というか。",
+    "hint": "対話型システムで最初の応答が返るまでの時間を示す指標とは区別される。",
+    "explanation": "処理を依頼してから結果の出力が完了するまでの時間を表す指標である。最初の反応が返るまでの時間を示すレスポンスタイム(応答時間)とは区別される。バッチ処理の評価などで用いられる。"
+  },
+  {
+    "id": "system-components-011",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "スケールアウト",
+    "aliases": [],
+    "question": "処理能力の不足に対して、サーバの台数を増やすことでシステム全体の性能を向上させる方法を何というか。",
+    "hint": "1台の性能を強化する方法とは異なり、台数を増やして負荷を分散させる考え方。",
+    "explanation": "サーバの台数を増やして負荷を分散させることでシステム全体の処理能力を高める方法である。既存のサーバ自体のCPUやメモリを増強するスケールアップとは異なるアプローチである。"
+  },
+  {
+    "id": "system-components-012",
+    "categoryId": "system-components",
+    "difficulty": "easy",
+    "term": "MTBF",
+    "aliases": ["Mean Time Between Failures", "平均故障間隔"],
+    "question": "システムが故障してから次に故障するまでの、正常に稼働している時間の平均を表す指標を何というか。",
+    "hint": "この値が大きいほど、システムが故障しにくく信頼性が高いことを示す。",
+    "explanation": "MTBF(Mean Time Between Failures:平均故障間隔)は、システムが正常に稼働している時間の平均を表す信頼性の指標である。修理に要する時間の平均を示すMTTRと組み合わせて稼働率が計算される。"
+  },
+  {
+    "id": "system-components-013",
+    "categoryId": "system-components",
+    "difficulty": "medium",
+    "term": "稼働率",
+    "aliases": [],
+    "question": "システム全体の時間のうち、利用可能な状態にある時間が占める割合を示す、信頼性の評価指標を何というか。",
+    "hint": "平均故障間隔と平均修復時間の値を用いて算出される割合。",
+    "explanation": "システムが利用可能な状態にある時間の割合を示す指標で、MTBF÷(MTBF+MTTR)で求められる。直列に接続されたシステムの値は各装置の値の積となり、並列システムでは異なる計算式となる。"
+  },
+  {
+    "id": "system-components-014",
+    "categoryId": "system-components",
+    "difficulty": "hard",
+    "term": "RPC",
+    "aliases": ["Remote Procedure Call", "遠隔手続呼出し"],
+    "question": "ネットワークで接続された別のコンピュータ上にある手続き(プログラム)を、あたかも手元にあるかのように呼び出す仕組みを何というか。",
+    "hint": "分散システムにおいて、呼出し側は通信の詳細を意識せず利用できる仕組み。",
+    "explanation": "RPC(Remote Procedure Call:遠隔手続呼出し)は、ネットワーク上の別のコンピュータにある手続きを、ローカルの手続き呼出しと同じような感覚で実行できる仕組みである。クライアントサーバシステムにおける処理の分散に利用される。"
+  },
+  {
+    "id": "system-components-015",
+    "categoryId": "system-components",
+    "difficulty": "hard",
+    "term": "RASIS",
+    "aliases": ["Reliability, Availability, Serviceability, Integrity, Security"],
+    "question": "信頼性、可用性、保守性、完全性、安全性という5つの観点からシステムを評価する際の、それらの頭文字をとった総称を何というか。",
+    "hint": "5つの英単語の頭文字を一つずつつなげてできた略語である。",
+    "explanation": "Reliability(信頼性)、Availability(可用性)、Serviceability(保守性)、Integrity(完全性)、Security(安全性)の5つの観点からシステムを総合的に評価する際の指標の総称である。"
+  },
+  {
+    "id": "system-components-016",
+    "categoryId": "system-components",
+    "difficulty": "hard",
+    "term": "HPC",
+    "aliases": ["High Performance Computing", "ハイパフォーマンスコンピューティング"],
+    "question": "科学技術計算など、非常に高精度で大規模な演算を必要とする分野で用いられる高速な計算処理の総称を何というか。",
+    "hint": "多数のプロセッサやコンピュータを並列に用いて計算能力を高める手法が使われる。",
+    "explanation": "HPC(High Performance Computing:ハイパフォーマンスコンピューティング)は、気象予測やシミュレーションなど大規模な演算を高速に処理するための技術・分野の総称である。多数のプロセッサによる大規模並列処理によって実現されることが多い。"
+  },
+  {
+    "id": "system-components-017",
+    "categoryId": "system-components",
+    "difficulty": "hard",
+    "term": "アクティブ-スタンバイ構成",
+    "aliases": [],
+    "question": "通常時に稼働する系統と、障害発生時に切り替えて稼働させる待機系統とを用意しておくシステムの構成を何というか。",
+    "hint": "両系統が常に同時稼働する構成とは異なり、片方は普段待機している構成。",
+    "explanation": "通常稼働する現用系(アクティブ)と、障害時に切り替わる待機系(スタンバイ)から成る構成である。両系統が同時に稼働してともに処理を行うアクティブ-アクティブ構成とは異なる。"
+  },
+  {
+    "id": "system-components-018",
+    "categoryId": "system-components",
+    "difficulty": "hard",
+    "term": "TCO",
+    "aliases": ["Total Cost of Ownership", "総所有費用"],
+    "question": "システムの導入から運用、保守、そして廃棄に至るまでの全期間にかかる費用の総額を何というか。",
+    "hint": "初期導入費用だけでなく、その後の運用・維持にかかる費用も含めた総額。",
+    "explanation": "TCO(Total Cost of Ownership:総所有費用)は、導入時の初期コスト(イニシャルコスト)に加え、運用や保守にかかるランニングコストなどを含めた費用の総額である。導入費用だけで比較すると見落としがちな長期的なコストを評価する際に用いられる。"
+  }
+]
