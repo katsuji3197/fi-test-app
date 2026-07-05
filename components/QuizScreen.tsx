@@ -39,10 +39,10 @@ export default function QuizScreen({
   }, [state.finished]);
 
   useEffect(() => {
-    if (state.question.status === "answering") {
+    if (state.question.status === "answering" && state.question.answerMode === "free") {
       inputRef.current?.focus();
     }
-  }, [state.currentIndex, state.question.status]);
+  }, [state.currentIndex, state.question.status, state.question.answerMode]);
 
   if (state.finished || words.length === 0) {
     return null;
@@ -59,9 +59,19 @@ export default function QuizScreen({
     dispatch({ type: "SUBMIT_FREE_TEXT" });
   }
 
-  function handleShowChoices() {
-    const choices = generateChoices(currentWord, sourcePool);
-    dispatch({ type: "SHOW_CHOICES", choices });
+  function handleSubmitChoice(e: React.FormEvent) {
+    e.preventDefault();
+    dispatch({ type: "SUBMIT_CHOICE" });
+  }
+
+  function handleSelectAnswerMode(mode: "free" | "choice") {
+    if (mode === "choice") {
+      const choices =
+        question.choices ?? generateChoices(currentWord, sourcePool);
+      dispatch({ type: "SET_ANSWER_MODE", mode: "choice", choices });
+      return;
+    }
+    dispatch({ type: "SET_ANSWER_MODE", mode: "free" });
   }
 
   function handleAbort() {
@@ -89,8 +99,25 @@ export default function QuizScreen({
     },
   } as const;
 
+  const isCorrect = !isAnswering && question.outcome === "correct";
+
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-8 sm:px-6">
+    <>
+      {isCorrect && (
+        <div
+          key={state.currentIndex}
+          className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center"
+          aria-hidden
+        >
+          <div className="correct-effect-circle flex h-44 w-44 items-center justify-center rounded-full bg-emerald-500 shadow-2xl shadow-emerald-500/40 sm:h-52 sm:w-52">
+            <span className="text-3xl font-bold text-white sm:text-4xl">
+              正解！
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto w-full max-w-2xl px-4 py-8 sm:px-6">
       <div className="mb-4 flex items-center justify-between">
         <p className="text-sm font-semibold text-slate-600">
           第 {state.currentIndex + 1} 問 / 全 {state.words.length} 問
@@ -115,7 +142,7 @@ export default function QuizScreen({
         <StatsBar stats={state.stats} />
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div>
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200">
             {category?.name ?? currentWord.categoryId}
@@ -133,51 +160,102 @@ export default function QuizScreen({
           {currentWord.question}
         </p>
 
-        {question.hintVisible && (
-          <div className="mt-4 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800 ring-1 ring-inset ring-amber-200">
-            <span className="font-semibold">ヒント：</span>
-            {currentWord.hint}
-          </div>
-        )}
-
         {isAnswering && (
           <div className="mt-6">
-            <form onSubmit={handleSubmitFreeText} className="flex gap-2">
-              <input
-                ref={inputRef}
-                type="text"
-                value={question.freeTextValue}
-                onChange={(e) =>
-                  dispatch({ type: "UPDATE_FREE_TEXT", text: e.target.value })
-                }
-                placeholder="用語を入力して回答"
-                className="min-w-0 flex-1 rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
-              />
-              <button
-                type="submit"
-                disabled={!question.freeTextValue.trim()}
-                className="shrink-0 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
-              >
-                回答する
-              </button>
-            </form>
+            <div
+              role="tablist"
+              aria-label="回答方法"
+              className="flex rounded-lg border border-slate-200 bg-slate-100 p-1"
+            >
+              {(
+                [
+                  { mode: "free" as const, label: "自由記述" },
+                  { mode: "choice" as const, label: "4択" },
+                ] as const
+              ).map(({ mode, label }) => {
+                const isActive = question.answerMode === mode;
+                return (
+                  <button
+                    key={mode}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => handleSelectAnswerMode(mode)}
+                    className={`flex-1 rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "bg-white text-indigo-700 shadow-sm ring-1 ring-slate-200"
+                        : "text-slate-500 hover:text-slate-700"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {question.answerMode === "free" ? (
+              <form onSubmit={handleSubmitFreeText} className="mt-4 flex gap-2">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={question.freeTextValue}
+                  onChange={(e) =>
+                    dispatch({ type: "UPDATE_FREE_TEXT", text: e.target.value })
+                  }
+                  placeholder="用語を入力して回答"
+                  className="min-w-0 flex-1 rounded-lg border bg-white border-slate-300 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                />
+                <button
+                  type="submit"
+                  disabled={!question.freeTextValue.trim()}
+                  className="shrink-0 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  回答する
+                </button>
+              </form>
+            ) : (
+              question.choices && (
+                <form onSubmit={handleSubmitChoice} className="mt-4 space-y-4">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {question.choices.map((choice) => {
+                      const isSelected = question.selectedChoice === choice;
+                      return (
+                        <button
+                          key={choice}
+                          type="button"
+                          aria-pressed={isSelected}
+                          onClick={() =>
+                            dispatch({ type: "SELECT_CHOICE", choice })
+                          }
+                          className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition-colors ${
+                            isSelected
+                              ? "border-indigo-500 bg-indigo-50 text-indigo-800 ring-2 ring-indigo-200"
+                              : "border-slate-300 bg-white text-slate-700 hover:border-indigo-400 hover:bg-indigo-50"
+                          }`}
+                        >
+                          {choice}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={!question.selectedChoice}
+                    className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                    回答する
+                  </button>
+                </form>
+              )
+            )}
 
             <div className="mt-3 flex flex-wrap gap-2">
               <button
                 type="button"
-                onClick={() => dispatch({ type: "SHOW_HINT" })}
-                disabled={question.hintVisible}
-                className="rounded-lg border border-amber-300 bg-amber-50 px-3.5 py-2 text-xs font-semibold text-amber-700 transition-colors hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-50"
+                onClick={() => dispatch({ type: "TOGGLE_HINT" })}
+                className="rounded-lg border border-amber-300 bg-amber-50 px-3.5 py-2 text-xs font-semibold text-amber-700 transition-colors hover:bg-amber-100"
               >
-                ヒントを見る
-              </button>
-              <button
-                type="button"
-                onClick={handleShowChoices}
-                disabled={!!question.choices}
-                className="rounded-lg border border-sky-300 bg-sky-50 px-3.5 py-2 text-xs font-semibold text-sky-700 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                4択を表示する
+                {question.hintVisible ? "ヒントを閉じる" : "ヒントを見る"}
               </button>
               <button
                 type="button"
@@ -188,18 +266,10 @@ export default function QuizScreen({
               </button>
             </div>
 
-            {question.choices && (
-              <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {question.choices.map((choice) => (
-                  <button
-                    key={choice}
-                    type="button"
-                    onClick={() => dispatch({ type: "SELECT_CHOICE", choice })}
-                    className="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-left text-sm font-medium text-slate-700 transition-colors hover:border-indigo-400 hover:bg-indigo-50"
-                  >
-                    {choice}
-                  </button>
-                ))}
+            {question.hintVisible && (
+              <div className="mt-3 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800 ring-1 ring-inset ring-amber-200">
+                <span className="font-semibold">ヒント：</span>
+                {currentWord.hint}
               </div>
             )}
           </div>
@@ -225,7 +295,7 @@ export default function QuizScreen({
               </span>
             </div>
 
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3.5">
+            <div className="rounded-lg border border-slate-200 bg-white px-4 py-3.5">
               <p className="text-sm text-slate-500">正解</p>
               <p className="mt-0.5 text-lg font-bold text-slate-900">
                 {currentWord.term}
@@ -255,5 +325,6 @@ export default function QuizScreen({
         )}
       </div>
     </div>
+    </>
   );
 }

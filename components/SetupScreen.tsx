@@ -90,6 +90,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
   }
 
   const canStart = filteredCount > 0 && questionCount > 0;
+  const sliderIndex = Math.max(0, questionCountOptions.indexOf(questionCount));
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -224,25 +225,44 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           <h2 className="text-base font-semibold text-slate-900">出題数</h2>
           <p className="mt-1 text-xs text-slate-500">
             現在の条件で出題できる単語は{" "}
-            <span className="font-semibold text-indigo-600">{filteredCount}語</span>{" "}
-            です。10問刻みで出題数を選べます。
+            <span className="font-semibold text-indigo-600">{filteredCount}語</span>
+            です。スライダーで出題数を調整できます(10問刻み)。
           </p>
           {questionCountOptions.length > 0 ? (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {questionCountOptions.map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  onClick={() => setSelectedCount(n)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium tabular-nums transition-colors ${
-                    questionCount === n
-                      ? "border-indigo-600 bg-indigo-600 text-white shadow-sm"
-                      : "border-slate-300 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600"
-                  }`}
-                >
-                  {n}問
-                </button>
-              ))}
+            <div className="mt-5">
+              <p className="text-center">
+                <span className="text-3xl font-bold tabular-nums text-indigo-600">
+                  {questionCount}
+                </span>
+                <span className="ml-1 text-lg font-semibold text-indigo-600">問</span>
+              </p>
+              {questionCountOptions.length > 1 ? (
+                <input
+                  type="range"
+                  min={0}
+                  max={questionCountOptions.length - 1}
+                  step={1}
+                  value={sliderIndex}
+                  onChange={(e) =>
+                    setSelectedCount(questionCountOptions[Number(e.target.value)])
+                  }
+                  className="question-count-slider mt-4 w-full"
+                  aria-valuemin={questionCountOptions[0]}
+                  aria-valuemax={
+                    questionCountOptions[questionCountOptions.length - 1]
+                  }
+                  aria-valuenow={questionCount}
+                  aria-label="出題数"
+                />
+              ) : (
+                <div className="mt-4 h-2 rounded-full bg-indigo-100" aria-hidden />
+              )}
+              <div className="mt-2 flex justify-between text-xs tabular-nums text-slate-400">
+                <span>{questionCountOptions[0]}問</span>
+                <span>
+                  {questionCountOptions[questionCountOptions.length - 1]}問
+                </span>
+              </div>
             </div>
           ) : (
             <p className="mt-4 text-sm font-medium text-rose-500">
