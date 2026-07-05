@@ -23,10 +23,12 @@ export interface CurrentQuestionState {
 export interface QuizSessionState {
   words: WordEntry[];
   currentIndex: number;
+  visitedMaxIndex: number;
   stats: QuizStats;
   history: AnsweredRecord[];
-  question: CurrentQuestionState;
+  questionStates: CurrentQuestionState[];
   finished: boolean;
+  pendingCorrectEffectIndex: number | null;
 }
 
 function freshQuestionState(): CurrentQuestionState {
@@ -47,10 +49,12 @@ export function createInitialSessionState(words: WordEntry[]): QuizSessionState 
   return {
     words,
     currentIndex: 0,
+    visitedMaxIndex: 0,
     stats: createEmptyStats(),
     history: [],
-    question: freshQuestionState(),
+    questionStates: words.map(() => freshQuestionState()),
     finished: words.length === 0,
+    pendingCorrectEffectIndex: null,
   };
 }
 
@@ -62,7 +66,20 @@ export type QuizAction =
   | { type: "SELECT_CHOICE"; choice: string }
   | { type: "SUBMIT_CHOICE" }
   | { type: "GIVE_UP" }
-  | { type: "NEXT_QUESTION" };
+  | { type: "NEXT_QUESTION" }
+  | { type: "PREV_QUESTION" }
+  | { type: "NAV_NEXT" };
+
+function updateCurrentQuestion(
+  state: QuizSessionState,
+  updater: (question: CurrentQuestionState) => CurrentQuestionState
+): QuizSessionState {
+  const questionStates = [...state.questionStates];
+  questionStates[state.currentIndex] = updater(
+    state.questionStates[state.currentIndex]
+  );
+  return { ...state, questionStates };
+}
 
 function resolve(
   state: QuizSessionState,
@@ -72,6 +89,7 @@ function resolve(
   extra: Partial<CurrentQuestionState> = {}
 ): QuizSessionState {
   const currentWord = state.words[state.currentIndex];
+  const currentQuestion = state.questionStates[state.currentIndex];
   const nextStats: QuizStats = { ...state.stats };
   if (outcome === "correct" && method === "free") nextStats.correctFree += 1;
   if (outcome === "correct" && method === "choice") nextStats.correctChoice += 1;
@@ -85,18 +103,36 @@ function resolve(
     userAnswer: userAnswerText,
   };
 
+  const questionStates = [...state.questionStates];
+  questionStates[state.currentIndex] = {
+    ...currentQuestion,
+    ...extra,
+    status: "resolved",
+    outcome,
+    method,
+    userAnswerText,
+  };
+
   return {
     ...state,
     stats: nextStats,
     history: [...state.history, record],
-    question: {
-      ...state.question,
-      ...extra,
-      status: "resolved",
-      outcome,
-      method,
-      userAnswerText,
-    },
+    questionStates,
+    pendingCorrectEffectIndex:
+      outcome === "correct" ? state.currentIndex : null,
+  };
+}
+
+function advanceFromResolved(state: QuizSessionState): QuizSessionState {
+  const nextIndex = state.currentIndex + 1;
+  if (nextIndex >= state.words.length) {
+    return { ...state, finished: true, pendingCorrectEffectIndex: null };
+  }
+  return {
+    ...state,
+    currentIndex: nextIndex,
+    visitedMaxIndex: nextIndex,
+    pendingCorrectEffectIndex: null,
   };
 }
 
@@ -106,57 +142,55 @@ export function quizReducer(
 ): QuizSessionState {
   if (state.finished) return state;
   const currentWord = state.words[state.currentIndex];
+  const question = state.questionStates[state.currentIndex];
 
   switch (action.type) {
     case "UPDATE_FREE_TEXT": {
-      if (state.question.status !== "answering") return state;
-      return { ...state, question: { ...state.question, freeTextValue: action.text } };
+      if (question.status !== "answering") return state;
+      return updateCurrentQuestion(state, (q) => ({
+        ...q,
+        freeTextValue: action.text,
+      }));
     }
     case "SUBMIT_FREE_TEXT": {
-      if (state.question.status !== "answering") return state;
-      const text = state.question.freeTextValue.trim();
+      if (question.status !== "answering") return state;
+      const text = question.freeTextValue.trim();
       if (!text) return state;
       const correct = isAnswerCorrect(text, currentWord);
       return resolve(state, correct ? "correct" : "incorrect", "free", text);
     }
     case "TOGGLE_HINT": {
-      if (state.question.status !== "answering") return state;
-      return {
-        ...state,
-        question: {
-          ...state.question,
-          hintVisible: !state.question.hintVisible,
-        },
-      };
+      if (question.status !== "answering") return state;
+      return updateCurrentQuestion(state, (q) => ({
+        ...q,
+        hintVisible: !q.hintVisible,
+      }));
     }
     case "SET_ANSWER_MODE": {
-      if (state.question.status !== "answering") return state;
+      if (question.status !== "answering") return state;
       const choices =
         action.mode === "choice"
-          ? (action.choices ?? state.question.choices)
-          : state.question.choices;
+          ? (action.choices ?? question.choices)
+          : question.choices;
       if (action.mode === "choice" && !choices) return state;
-      return {
-        ...state,
-        question: {
-          ...state.question,
-          answerMode: action.mode,
-          choices,
-          selectedChoice: null,
-        },
-      };
+      return updateCurrentQuestion(state, (q) => ({
+        ...q,
+        answerMode: action.mode,
+        choices,
+        selectedChoice: null,
+      }));
     }
     case "SELECT_CHOICE": {
-      if (state.question.status !== "answering") return state;
-      if (state.question.answerMode !== "choice") return state;
-      return {
-        ...state,
-        question: { ...state.question, selectedChoice: action.choice },
-      };
+      if (question.status !== "answering") return state;
+      if (question.answerMode !== "choice") return state;
+      return updateCurrentQuestion(state, (q) => ({
+        ...q,
+        selectedChoice: action.choice,
+      }));
     }
     case "SUBMIT_CHOICE": {
-      if (state.question.status !== "answering") return state;
-      const choice = state.question.selectedChoice;
+      if (question.status !== "answering") return state;
+      const choice = question.selectedChoice;
       if (!choice) return state;
       const correct =
         normalizeAnswer(choice) === normalizeAnswer(currentWord.term);
@@ -165,16 +199,31 @@ export function quizReducer(
       });
     }
     case "GIVE_UP": {
-      if (state.question.status !== "answering") return state;
+      if (question.status !== "answering") return state;
       return resolve(state, "giveup", null, null);
     }
     case "NEXT_QUESTION": {
-      if (state.question.status !== "resolved") return state;
-      const nextIndex = state.currentIndex + 1;
-      if (nextIndex >= state.words.length) {
-        return { ...state, finished: true };
+      if (question.status !== "resolved") return state;
+      return advanceFromResolved(state);
+    }
+    case "PREV_QUESTION": {
+      if (state.currentIndex === 0) return state;
+      return {
+        ...state,
+        currentIndex: state.currentIndex - 1,
+        pendingCorrectEffectIndex: null,
+      };
+    }
+    case "NAV_NEXT": {
+      if (state.currentIndex < state.visitedMaxIndex) {
+        return {
+          ...state,
+          currentIndex: state.currentIndex + 1,
+          pendingCorrectEffectIndex: null,
+        };
       }
-      return { ...state, currentIndex: nextIndex, question: freshQuestionState() };
+      if (question.status !== "resolved") return state;
+      return advanceFromResolved(state);
     }
     default:
       return state;

@@ -39,10 +39,11 @@ export default function QuizScreen({
   }, [state.finished]);
 
   useEffect(() => {
-    if (state.question.status === "answering" && state.question.answerMode === "free") {
+    const q = state.questionStates[state.currentIndex];
+    if (q?.status === "answering" && q.answerMode === "free") {
       inputRef.current?.focus();
     }
-  }, [state.currentIndex, state.question.status, state.question.answerMode]);
+  }, [state.currentIndex, state.questionStates]);
 
   if (state.finished || words.length === 0) {
     return null;
@@ -51,8 +52,12 @@ export default function QuizScreen({
   const currentWord = state.words[state.currentIndex];
   const category = getCategoryById(currentWord.categoryId);
   const isLastQuestion = state.currentIndex + 1 >= state.words.length;
-  const { question } = state;
+  const question = state.questionStates[state.currentIndex];
   const isAnswering = question.status === "answering";
+  const canGoPrev = state.currentIndex > 0;
+  const canGoNext =
+    state.currentIndex < state.visitedMaxIndex ||
+    (state.currentIndex === state.visitedMaxIndex && !isAnswering);
 
   function handleSubmitFreeText(e: React.FormEvent) {
     e.preventDefault();
@@ -80,8 +85,12 @@ export default function QuizScreen({
     }
   }
 
+  const frontierQuestion = state.questionStates[state.visitedMaxIndex];
   const progressPercent = Math.round(
-    ((state.currentIndex + (isAnswering ? 0 : 1)) / state.words.length) * 100
+    ((state.visitedMaxIndex +
+      (frontierQuestion?.status === "resolved" ? 1 : 0)) /
+      state.words.length) *
+      100
   );
 
   const outcomeMeta = {
@@ -99,11 +108,13 @@ export default function QuizScreen({
     },
   } as const;
 
-  const isCorrect = !isAnswering && question.outcome === "correct";
+  const showCorrectEffect =
+    state.pendingCorrectEffectIndex === state.currentIndex &&
+    question.outcome === "correct";
 
   return (
     <>
-      {isCorrect && (
+      {showCorrectEffect && (
         <div
           key={state.currentIndex}
           className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center"
@@ -119,9 +130,51 @@ export default function QuizScreen({
 
       <div className="mx-auto w-full max-w-2xl px-4 py-8 sm:px-6">
       <div className="mb-4 flex items-center justify-between">
-        <p className="text-sm font-semibold text-slate-600">
-          第 {state.currentIndex + 1} 問 / 全 {state.words.length} 問
-        </p>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => dispatch({ type: "PREV_QUESTION" })}
+            disabled={!canGoPrev}
+            aria-label="前の問題へ"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
+          >
+            <svg
+              aria-hidden
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+          <p className="min-w-[8.5rem] text-center text-sm font-semibold text-slate-600">
+            第 {state.currentIndex + 1} 問 / 全 {state.words.length} 問
+          </p>
+          <button
+            type="button"
+            onClick={() => dispatch({ type: "NAV_NEXT" })}
+            disabled={!canGoNext}
+            aria-label="次の問題へ"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
+          >
+            <svg
+              aria-hidden
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
         <button
           type="button"
           onClick={handleAbort}
