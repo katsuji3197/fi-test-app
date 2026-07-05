@@ -1,0 +1,222 @@
+[
+  {
+    "id": "project-management-001",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "PMBOK",
+    "aliases": ["Project Management Body of Knowledge", "プロジェクトマネジメント知識体系"],
+    "question": "プロジェクトマネジメントに関する知識・手法を体系的にまとめた、世界的に広く参照されているガイドを何というか。",
+    "hint": "アルファベット5文字の略語で、米国のプロジェクトマネジメント協会が発行する。",
+    "explanation": "PMBOK（Project Management Body of Knowledge：プロジェクトマネジメント知識体系）は、プロジェクトマネジメントの知識・プロセス・技法を体系的にまとめたガイドであり、世界的に参照される標準の一つ。国際規格であるJIS Q 21500（ISO 21500）と並んでプロジェクトマネジメントの拠り所とされる。"
+  },
+  {
+    "id": "project-management-002",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "WBS",
+    "aliases": ["Work Breakdown Structure", "作業分解構成図"],
+    "question": "プロジェクトで実施すべき作業を、成果物や作業内容に基づいて階層的に分解し、構造化して表した図を何というか。",
+    "hint": "アルファベット3文字の略語で、スコープの対象群のプロセスで作成される。",
+    "explanation": "WBS（Work Breakdown Structure：作業分解構成図）は、プロジェクトの作業を、成果物や作業内容に基づいて階層的に分解して構造化した図。最下層の作業単位はワークパッケージと呼ばれ、コストやスケジュールの見積り、責任分担の明確化の基礎となる。"
+  },
+  {
+    "id": "project-management-003",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "ガントチャート",
+    "aliases": ["Gantt Chart"],
+    "question": "縦軸に作業項目、横軸に時間を取り、各作業の開始日から終了日までを横棒で示すことで、進捗状況を視覚的に把握できるようにした図表を何というか。",
+    "hint": "考案者の名前が付けられた図表で、作業の並行状況を捉えやすい。",
+    "explanation": "ガントチャートは、縦軸に作業項目、横軸に時間軸を取り、各作業の開始から終了までの期間を横棒で表す図表。作業の並行状況や進捗が視覚的に把握しやすく、スケジュール管理で広く用いられる。作業間の依存関係の分析にはアローダイアグラムなどが別途用いられる。"
+  },
+  {
+    "id": "project-management-004",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "マイルストーン",
+    "aliases": ["Milestone"],
+    "question": "プロジェクトのスケジュールにおいて、フェーズの完了や重要な意思決定など、特に重要な達成点や区切りとなる時点を何というか。",
+    "hint": "本来は「道しるべ」を意味する英単語で、進捗管理の節目に使われる。",
+    "explanation": "マイルストーンは、プロジェクトのスケジュール上で、フェーズの完了や重要な成果物の完成など特に重要な意味を持つ節目となる時点。作業の所要期間を持たない「点」として扱われ、進捗管理における重要な確認ポイントとなる。"
+  },
+  {
+    "id": "project-management-005",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "プロジェクトスポンサー",
+    "aliases": ["Project Sponsor"],
+    "question": "プロジェクトに資金やその他の資源を提供し、プロジェクトの成功に対する説明責任を負う経営層側の関係者を何というか。",
+    "hint": "現場を率いる責任者に権限を与える、経営側の後ろ盾となる存在。",
+    "explanation": "プロジェクトスポンサーは、プロジェクトに資源（資金など）を提供し、プロジェクトの成功に対して経営的な説明責任を負う人物または集団。プロジェクトマネージャに権限を与え、重要な意思決定を支援する後ろ盾としての役割を担う。"
+  },
+  {
+    "id": "project-management-006",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "プロジェクトマネージャ",
+    "aliases": ["Project Manager", "PM"],
+    "question": "プロジェクトの目標達成に向けて、計画の立案から実行、監視、終結までの全体を指揮し、責任を負う人物を何というか。",
+    "hint": "プロジェクトチームを率い、日々の意思決定を行う現場の責任者。",
+    "explanation": "プロジェクトマネージャは、プロジェクトの計画立案から実行、監視・コントロール、終結までの全プロセスを指揮し、目標達成に責任を負う人物。プロジェクトスポンサーから権限を委譲され、プロジェクトチームを統率する役割を担う。"
+  },
+  {
+    "id": "project-management-007",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "ステークホルダ",
+    "aliases": ["Stakeholder", "利害関係者"],
+    "question": "プロジェクトの意思決定や活動、成果によって、利益や影響を受ける可能性のある個人や組織を何というか。",
+    "hint": "顧客や利用者だけでなく、社内の関連部門や供給者なども含まれる。",
+    "explanation": "ステークホルダ（利害関係者）は、プロジェクトの活動や成果によって影響を受ける、あるいは影響を与える可能性のある個人・組織を指す。顧客、利用者、プロジェクトチーム、供給者、経営層など多岐にわたり、特定・分析・マネジメントの対象となる。"
+  },
+  {
+    "id": "project-management-008",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "スコープ",
+    "aliases": ["Scope"],
+    "question": "プロジェクトで実施すべき作業や、作成すべき成果物について、それらが及ぶ範囲のことを何というか。",
+    "hint": "この範囲が計画外に無秩序に拡大する現象は、別の用語で呼ばれる。",
+    "explanation": "スコープは、プロジェクトで実施する作業（プロジェクトスコープ）や、作成する成果物（プロダクトスコープ）の範囲を指す概念。スコープを明確化し、WBSに分解して管理することがプロジェクトマネジメントの基本となる。"
+  },
+  {
+    "id": "project-management-009",
+    "categoryId": "project-management",
+    "difficulty": "easy",
+    "term": "プロジェクト憲章",
+    "aliases": ["Project Charter"],
+    "question": "プロジェクトの存在を正式に認可し、目的や成果、プロジェクトマネージャへの権限付与などを記載した文書を何というか。",
+    "hint": "統合の対象群における最初のプロセスで作成される根拠文書。",
+    "explanation": "プロジェクト憲章は、プロジェクトを正式に認可し、目的、概要、成果、プロジェクトマネージャの任命と権限などを記載した文書。統合の対象群における最初のプロセスで作成され、プロジェクトの存在根拠となる。"
+  },
+  {
+    "id": "project-management-010",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "PMO",
+    "aliases": ["Project Management Office", "プロジェクトマネジメントオフィス"],
+    "question": "組織内の複数のプロジェクトについて、標準化されたマネジメント手法の提供や進捗の統括支援などを行う専門部署を何というか。",
+    "hint": "アルファベット3文字の略語で、組織横断的にプロジェクトを支援する。",
+    "explanation": "PMO（Project Management Office：プロジェクトマネジメントオフィス）は、組織内の複数のプロジェクトに対して、マネジメント手法の標準化、進捗の統括、資源配分の調整などを行う専門部署。個々のプロジェクトを率いるプロジェクトマネージャとは役割が異なる。"
+  },
+  {
+    "id": "project-management-011",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "アローダイアグラム",
+    "aliases": ["Arrow Diagram Method", "矢線図"],
+    "question": "作業を矢印で表し、作業の前後関係や依存関係をネットワーク図として表現する、スケジュール管理に用いられる図法を何というか。",
+    "hint": "作業の結合点を丸印（イベント）とし、矢印で作業の順序関係を示す。",
+    "explanation": "アローダイアグラムは、作業を矢印で表し、作業の依存関係やネットワーク構造を図示する手法。PERTやCPM（クリティカルパス法）を用いた日程分析の基礎となる図として使われ、最長経路であるクリティカルパスの特定に利用される。"
+  },
+  {
+    "id": "project-management-012",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "CPM",
+    "aliases": ["Critical Path Method", "クリティカルパス法"],
+    "question": "プロジェクトの各作業の依存関係から、全体の所要期間を決定する最も時間のかかる作業経路を特定する技法を何というか。",
+    "hint": "アルファベット3文字の略語で、この経路上の遅延は全体の遅延に直結する。",
+    "explanation": "CPM（Critical Path Method：クリティカルパス法）は、プロジェクトのネットワーク図（アローダイアグラムなど）から、開始から終了までの経路のうち最も所要期間が長い経路（クリティカルパス）を特定する技法。クリティカルパス上の作業に遅延が生じると、プロジェクト全体の完了が遅れる。"
+  },
+  {
+    "id": "project-management-013",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "クラッシング",
+    "aliases": ["Crashing"],
+    "question": "追加の要員や資源を投入することで、プロジェクトのスケジュールを短縮する技法を何というか。",
+    "hint": "資源の追加投入によりコスト増を伴うことが多い、期間短縮の技法。",
+    "explanation": "クラッシングは、要員や機材などの資源を追加投入することでスケジュールを短縮する技法。コストの増加を伴うことが多い。作業を並行して実施することで期間を短縮するファストトラッキングとは、コストの増減や適用条件の点で異なる。"
+  },
+  {
+    "id": "project-management-014",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "ファストトラッキング",
+    "aliases": ["Fast Tracking"],
+    "question": "本来は順番に行う作業を、一部重複させて並行して実施することで、プロジェクトのスケジュールを短縮する技法を何というか。",
+    "hint": "資源の追加投入は行わず、作業の順序を工夫して期間を縮める。",
+    "explanation": "ファストトラッキングは、通常は順次実施する作業を一部並行して進めることでスケジュールを短縮する技法。資源の追加投入を伴うクラッシングとは異なり、作業のやり直しなどのリスクが増す可能性がある点に留意が必要である。"
+  },
+  {
+    "id": "project-management-015",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "EVM",
+    "aliases": ["Earned Value Management", "アーンドバリューマネジメント"],
+    "question": "プロジェクトの進捗を、完了した作業の価値という共通の尺度で表し、コストとスケジュールの両面から定量的に管理する手法を何というか。",
+    "hint": "アルファベット3文字の略語で、「出来高」を意味する言葉が含まれる。",
+    "explanation": "EVM（Earned Value Management：アーンドバリューマネジメント）は、計画上の価値、出来高（実際に完了した作業の価値）、実コストという3つの指標を用いて、プロジェクトのコストとスケジュールの状況を定量的に管理する手法。コストの対象群・時間の対象群双方のツールと技法として位置づけられる。"
+  },
+  {
+    "id": "project-management-016",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "CCB",
+    "aliases": ["Change Control Board", "変更管理委員会"],
+    "question": "プロジェクトに対する変更要求の内容を審査し、承認・却下・保留などを決定する役割を担う組織体を何というか。",
+    "hint": "アルファベット3文字の略語で、統合の対象群のツールと技法の一つ。",
+    "explanation": "CCB（Change Control Board：変更管理委員会）は、プロジェクトに提出された変更要求を審査し、承認や却下などの意思決定を行う組織体。プロジェクト全体計画やベースラインへの変更を統制する役割を担う。"
+  },
+  {
+    "id": "project-management-017",
+    "categoryId": "project-management",
+    "difficulty": "medium",
+    "term": "RAM",
+    "aliases": ["Responsibility Assignment Matrix", "責任分担マトリックス"],
+    "question": "プロジェクトのWBSで定義した作業と、それを担当する要員や役割との対応関係を、表形式で示したものを何というか。",
+    "hint": "アルファベット3文字の略語で、資源の対象群のツールと技法の一つ。",
+    "explanation": "RAM（Responsibility Assignment Matrix：責任分担マトリックス）は、WBSで定義した作業と担当する要員・役割の対応関係を表形式で示したもの。作業ごとの責任の所在を明確化する目的で用いられ、代表的な様式にRACIチャートがある。"
+  },
+  {
+    "id": "project-management-018",
+    "categoryId": "project-management",
+    "difficulty": "hard",
+    "term": "PERT",
+    "aliases": ["Program Evaluation and Review Technique"],
+    "question": "作業ごとに楽観値・最頻値・悲観値の三つの見積り値を用いて、統計的に所要期間を見積もる、スケジュールネットワーク分析の技法を何というか。",
+    "hint": "三点見積りを使う点が特徴で、確率的な期間の見積りが可能になる。",
+    "explanation": "PERT（Program Evaluation and Review Technique）は、各作業の所要期間を楽観値・最頻値・悲観値の三点見積りに基づき統計的に算出する技法。ネットワーク図（アローダイアグラム）を用いて表現され、クリティカルパスの特定にも利用される。単一の見積り値で経路を分析するCPMとは、期間見積りの考え方が異なる。"
+  },
+  {
+    "id": "project-management-019",
+    "categoryId": "project-management",
+    "difficulty": "hard",
+    "term": "COCOMO",
+    "aliases": ["Constructive Cost Model"],
+    "question": "開発するプログラムの規模（ソースコードの行数など）を基に、開発工数や期間を見積もる代表的な手法を何というか。",
+    "hint": "英語の頭文字を取った略称で、拡張版として2という数字が付くものもある。",
+    "explanation": "COCOMO（Constructive Cost Model）は、開発するソフトウェアの規模（LOC：Lines of Codeなど）を基に、必要な開発工数や期間を見積もる手法。ファンクションポイント法と同様にコストの対象群における見積り技法の一つで、規模から工数を算出する点が特徴である。"
+  },
+  {
+    "id": "project-management-020",
+    "categoryId": "project-management",
+    "difficulty": "hard",
+    "term": "ファンクションポイント法",
+    "aliases": ["Function Point Method", "FP法"],
+    "question": "画面や帳票、外部インタフェースなどの機能の数と複雑さを基に、開発規模や工数を見積もる手法を何というか。",
+    "hint": "プログラムの行数ではなく、利用者から見た機能の数に着目する。",
+    "explanation": "ファンクションポイント法は、画面・帳票・ファイル・外部インタフェースなどの機能数とその複雑さを点数化し、それを積み上げて開発規模や工数を見積もる手法。プログラムの行数（LOC）を基に見積もるCOCOMOなどとは異なり、利用者から見た機能に着目する点が特徴である。"
+  },
+  {
+    "id": "project-management-021",
+    "categoryId": "project-management",
+    "difficulty": "hard",
+    "term": "スコープクリープ",
+    "aliases": ["プロジェクトスコープのクリープ", "Scope Creep"],
+    "question": "正式な変更管理の手続きを経ないまま、プロジェクトの作業範囲がなし崩し的に拡大していく現象を何というか。",
+    "hint": "「忍び寄る」という意味の英単語が使われる、範囲の無秩序な広がり。",
+    "explanation": "スコープクリープ（プロジェクトスコープのクリープ）は、正式な変更管理プロセスを経ずに、プロジェクトの作業範囲や成果物の要求がなし崩し的に拡大していく現象。コストやスケジュールの超過につながるため、スコープの対象群における管理上の重要なリスクとされる。"
+  },
+  {
+    "id": "project-management-022",
+    "categoryId": "project-management",
+    "difficulty": "hard",
+    "term": "OBS",
+    "aliases": ["Organizational Breakdown Structure", "組織ブレークダウンストラクチャ"],
+    "question": "プロジェクトに関わる要員を、部門や役割などの組織構造の観点から階層的に表した図を何というか。",
+    "hint": "作業を分解する図に対し、こちらは組織・体制の分解を表す図である。",
+    "explanation": "OBS（Organizational Breakdown Structure：組織ブレークダウンストラクチャ）は、プロジェクトに関わる要員を組織構造（部門・役割など）の観点から階層的に表した図。作業を分解するWBSと組み合わせて用いられ、責任分担の明確化に役立つ。"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "service-management-001",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "ITIL",
+    "aliases": ["Information Technology Infrastructure Library"],
+    "question": "サービスマネジメントに関する成功事例（ベストプラクティス）を体系化した、世界的に広く用いられているフレームワークを何というか。",
+    "hint": "アルファベット4文字の略語で、事実上の標準とされているフレームワーク。",
+    "explanation": "ITIL（Information Technology Infrastructure Library）は、ITサービスマネジメントにおけるベストプラクティスを体系化したフレームワークであり、世界的にデファクトスタンダードとして活用されている。国際規格であるJIS Q 20000（ISO/IEC 20000）とあわせて理解しておくとよい。"
+  },
+  {
+    "id": "service-management-002",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "SLA",
+    "aliases": ["Service Level Agreement", "サービスレベル合意書"],
+    "question": "提供するサービスの内容や、応答時間・可用性といった達成すべき水準について、サービス提供者と顧客の間で取り交わす合意文書を何というか。",
+    "hint": "アルファベット3文字の略語で、個々の達成目標値は別の略語で呼ばれる。",
+    "explanation": "SLA（Service Level Agreement：サービスレベル合意書）は、サービスの内容やパフォーマンス目標について、サービス提供者と顧客の間で合意した文書。個々の目標値はSLO（Service Level Objective）と呼ばれ、それを継続的に取り決め・監視する活動はSLM（サービスレベル管理）と呼ばれ、SLAそのものとは区別される。"
+  },
+  {
+    "id": "service-management-003",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "インシデント管理",
+    "aliases": ["Incident Management"],
+    "question": "サービスの計画外の中断や品質低下といった事象が発生した際に、定められた手順に従ってできるだけ早くサービスを復旧させる活動を何というか。",
+    "hint": "根本原因の追究よりも、まずはサービスを元通りにすることを優先する。",
+    "explanation": "インシデント管理は、サービスの計画外の中断や品質低下（インシデント）が発生した際、定められた手順に従って迅速にサービスを復旧させる活動。インシデントの根本原因を分析し再発防止を図る問題管理とは目的が異なる点に注意する。"
+  },
+  {
+    "id": "service-management-004",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "サービスデスク",
+    "aliases": ["Service Desk"],
+    "question": "サービスの利用者からの問合せに対して単一の窓口を提供し、記録や適切な部署への引継ぎなどを行う機能を何というか。",
+    "hint": "問合せ窓口を一本化する考え方を表す略語とセットで語られる。",
+    "explanation": "サービスデスクは、サービス利用者からの問合せに対する単一窓口（SPOC：Single Point Of Contact）機能を提供し、対応結果の記録や適切な部署への引継ぎを行う活動。コールセンターやFAQ、チャットボットなどを活用して一次対応を行うことが多い。"
+  },
+  {
+    "id": "service-management-005",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "問題管理",
+    "aliases": ["Problem Management"],
+    "question": "発生したインシデントのデータや傾向を分析して根本原因を特定し、インシデントの発生や再発を防止するための処置を決定する活動を何というか。",
+    "hint": "個々の事象への対処ではなく、その背後にある共通の原因を追究する。",
+    "explanation": "問題管理は、インシデントのデータや傾向を分析して根本原因を特定し、再発防止のための恒久的な対策を決定する活動。応急的にサービスを復旧させることを優先するインシデント管理とは目的が異なり、両者は混同しやすいので注意が必要である。"
+  },
+  {
+    "id": "service-management-006",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "ファシリティマネジメント",
+    "aliases": ["Facility Management"],
+    "question": "データセンターなどの施設や、コンピュータ・ネットワークなどの設備について、費用削減や快適性・安全性の確保を目的として管理・運営する活動を何というか。",
+    "hint": "建物や電気設備、空調設備など、物理的な基盤を対象とする管理活動。",
+    "explanation": "ファシリティマネジメントは、データセンターなどの施設や、電気設備・空調設備・通信設備といった設備を対象に、費用削減、快適性、安全性の確保などを目的として管理・運営する活動。環境に配慮したグリーンITの取り組みも関連領域として含まれる。"
+  },
+  {
+    "id": "service-management-007",
+    "categoryId": "service-management",
+    "difficulty": "easy",
+    "term": "変更管理",
+    "aliases": ["Change Management"],
+    "question": "サービスの追加・変更・廃止の要求を記録・分類し、リスクや実現可能性を考慮して承認や実施の可否を決定・管理する活動を何というか。",
+    "hint": "変更要求は英語の略語で呼ばれ、緊急変更など複数の種類に分類される。",
+    "explanation": "サービスマネジメントにおける変更管理は、変更要求（RFC：Request for Change）を記録・分類し、リスクや事業利益、実現可能性を考慮して承認の可否を判断し、計画・実施・レビューまでを管理する活動。承認機関として変更諮問委員会（CAB）が置かれることが多い。"
+  },
+  {
+    "id": "service-management-008",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "SLM",
+    "aliases": ["Service Level Management", "サービスレベル管理"],
+    "question": "サービスレベルの目標を顧客と合意し、その達成状況を定期的に監視・レビュー・報告する一連の活動を何というか。",
+    "hint": "合意文書そのものではなく、それを運用・維持する継続的な活動を指す。",
+    "explanation": "SLM（Service Level Management：サービスレベル管理）は、SLA（サービスレベル合意書）で定めた目標について、顧客と合意し、パフォーマンスを定期的に監視・レビュー・報告する継続的な活動。合意文書自体を指すSLAと、その運用活動を指すSLMは混同しやすいため区別して理解する必要がある。"
+  },
+  {
+    "id": "service-management-009",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "容量・能力管理",
+    "aliases": ["キャパシティ管理", "Capacity Management"],
+    "question": "CPU使用率やメモリ使用率などの管理指標を監視し、サービスに対する需要に基づいて現在及び将来の資源の容量・能力を計画・提供する活動を何というか。",
+    "hint": "しきい値を設定し、資源の利用状況を継続的に監視する活動。",
+    "explanation": "容量・能力管理（キャパシティ管理）は、CPU使用率やディスク使用率などの指標を監視し、現在及び将来のサービス需要に見合った資源の容量・能力を計画・提供する活動。将来の需要そのものを予測する需要管理と連携して行われる。"
+  },
+  {
+    "id": "service-management-010",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "サービス可用性管理",
+    "aliases": ["Availability Management"],
+    "question": "サービスが合意された時間内に利用可能である度合いを監視し、目標と比較しながら、可用性の低下時には必要な処置をとる活動を何というか。",
+    "hint": "故障間隔や修復時間を表す指標を用いて評価される活動。",
+    "explanation": "サービス可用性管理は、サービスの可用性（利用可能である度合い）の要求事項を満たすよう監視・記録し、目標との比較や計画外の可用性喪失の調査・対処を行う活動。MTBF（平均故障間隔）やMTTR（平均修復時間）などの指標が用いられる。"
+  },
+  {
+    "id": "service-management-011",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "CAB",
+    "aliases": ["Change Advisory Board", "変更諮問委員会"],
+    "question": "サービスに対する変更要求の影響やリスクを評価し、変更の承認について助言を行う諮問組織を何というか。",
+    "hint": "アルファベット3文字の略語で、変更管理のプロセスを支援する組織体。",
+    "explanation": "CAB（Change Advisory Board：変更諮問委員会）は、変更要求（RFC）の影響やリスクを評価し、変更管理プロセスにおける承認判断を支援する諮問組織。プロジェクトマネジメントにおける類似の組織体であるCCB（変更管理委員会）と役割が近いが、CABはサービスマネジメントの文脈で用いられる。"
+  },
+  {
+    "id": "service-management-012",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "構成品目",
+    "aliases": ["CI", "Configuration Item"],
+    "question": "サービスを提供するために必要な、ハードウェアやソフトウェア、文書などの管理対象となる個々の要素を何というか。",
+    "hint": "アルファベット2文字の略語でも表され、構成管理で版などが記録される対象。",
+    "explanation": "構成品目（CI：Configuration Item）は、サービスの提供に必要な、管理対象となるハードウェア・ソフトウェア・文書などの個々の要素。構成管理では、これらを識別・記録・追跡し、構成情報として正確性を維持する。"
+  },
+  {
+    "id": "service-management-013",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "RTO",
+    "aliases": ["Recovery Time Objective", "目標復旧時間"],
+    "question": "災害などによってサービスが停止した場合に、業務を復旧させるまでに許容される時間の目標値を何というか。",
+    "hint": "アルファベット3文字の略語で、データの復旧地点に着目した別の指標とは区別される。",
+    "explanation": "RTO（Recovery Time Objective：目標復旧時間）は、サービス停止後、業務を復旧させるまでに許容される時間の目標値。どの時点のデータまで復旧させるかを示すRPO（目標復旧時点）と混同しやすいが、RTOは「時間」、RPOは「データの時点」に着目する点が異なる。"
+  },
+  {
+    "id": "service-management-014",
+    "categoryId": "service-management",
+    "difficulty": "hard",
+    "term": "ITAM",
+    "aliases": ["IT Asset Management", "ITアセットマネジメント"],
+    "question": "サービスの提供に使用されるハードウェアやソフトウェアなどの資産を、調達から廃棄まで一元的に管理する活動を何というか。",
+    "hint": "アルファベット4文字の略語で、対象をソフトウェアに絞った下位概念もある。",
+    "explanation": "ITAM（IT Asset Management：ITアセットマネジメント）は、サービス提供に使用するハードウェアやソフトウェアなどの資産を、調達から運用、廃棄まで一元的に管理する活動。ソフトウェア資産に特化した管理はSAM（Software Asset Management）と呼ばれる。"
+  },
+  {
+    "id": "service-management-015",
+    "categoryId": "service-management",
+    "difficulty": "hard",
+    "term": "需要管理",
+    "aliases": ["Demand Management"],
+    "question": "サービスに対する現在の需要を把握するとともに、将来の需要を予測し、資源計画に反映させる活動を何というか。",
+    "hint": "資源そのものではなく、資源に対する「求め」の量を扱う管理活動。",
+    "explanation": "需要管理は、サービスに対する現在の需要を把握し、将来の需要を予測する活動。この予測結果は容量・能力管理における資源計画の基礎情報として活用され、両者は密接に連携して行われる。"
+  },
+  {
+    "id": "service-management-016",
+    "categoryId": "service-management",
+    "difficulty": "hard",
+    "term": "KPI",
+    "aliases": ["Key Performance Indicator", "重要業績評価指標"],
+    "question": "組織やサービスの最終的な目標の達成度を測る指標に対して、その達成に向けた活動の実施状況を測定する中間的な指標を何というか。",
+    "hint": "アルファベット3文字の略語で、最終目標を測る指標とは区別される。",
+    "explanation": "KPI（Key Performance Indicator：重要業績評価指標）は、最終目標の達成度を示すKGI（Key Goal Indicator：重要目標達成指標）に対して、その達成に向けたプロセスの実施状況を測る中間的な指標。継続的改善の評価においてCSF（重要成功要因）とあわせて用いられる。"
+  },
+  {
+    "id": "service-management-017",
+    "categoryId": "service-management",
+    "difficulty": "hard",
+    "term": "ホットスタンバイ",
+    "aliases": ["Hot Standby"],
+    "question": "予備システムを本番システムと同様に常時稼働させておき、障害発生時に即座に切り替えられるようにする冗長化の方式を何というか。",
+    "hint": "普段は電源を落としておく方式や、中間的な待機方式と対比される。",
+    "explanation": "ホットスタンバイは、予備システムを本番システムと同じ状態で常時稼働させ、障害時に即座に切り替えられるようにする冗長化方式。切替えに時間がかかるが省コストなコールドスタンバイ、その中間に位置するウォームスタンバイと対比され、サービス継続管理の技法として理解される。"
+  },
+  {
+    "id": "service-management-018",
+    "categoryId": "service-management",
+    "difficulty": "medium",
+    "term": "RPO",
+    "aliases": ["Recovery Point Objective", "目標復旧時点"],
+    "question": "災害やシステム障害の発生時に、どの時点の状態までデータを復旧させるかを示す目標値を何というか。",
+    "hint": "「目標復旧時点」を意味する略語で、バックアップの取得間隔の検討に用いられる。",
+    "explanation": "RPO（Recovery Point Objective：目標復旧時点）は、災害や障害が発生した際に、どの時点のデータ状態まで復旧させるかを示す指標。バックアップの取得間隔などを検討する基準となり、目標復旧時間を示すRTOとあわせて事業継続計画(BCP)やサービス可用性管理で用いられる。"
+  }
+]

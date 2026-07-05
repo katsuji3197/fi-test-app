@@ -1,0 +1,222 @@
+[
+  {
+    "id": "business-strategy-001",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "SWOT分析",
+    "aliases": ["SWOT Analysis"],
+    "question": "企業の内部環境である強み・弱みと、外部環境である機会・脅威の4つの要素を分析し、経営戦略の策定に活用する手法を何というか。",
+    "hint": "4つの英単語の頭文字を組み合わせた名称である。",
+    "explanation": "SWOT(Strength, Weakness, Opportunity, Threat:強み、弱み、機会、脅威)分析は、企業の内部環境(強み・弱み)と外部環境(機会・脅威)を整理し、事業戦略の策定に活用する代表的な分析手法である。"
+  },
+  {
+    "id": "business-strategy-002",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "PPM",
+    "aliases": ["Product Portfolio Management", "プロダクトポートフォリオマネジメント"],
+    "question": "市場成長率と市場占有率の2軸を用いて事業や製品を「花形」「金のなる木」「問題児」「負け犬」に分類し、経営資源の配分を検討する手法を何というか。",
+    "hint": "縦軸に市場の成長性、横軸に自社のシェアをとるマトリクス分析である。",
+    "explanation": "PPM(Product Portfolio Management:プロダクトポートフォリオマネジメント)は、市場成長率と市場占有率の2軸で事業や製品を4象限に分類し、資源配分の優先順位を検討する経営戦略の手法である。"
+  },
+  {
+    "id": "business-strategy-003",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "コアコンピタンス",
+    "aliases": ["Core Competence"],
+    "question": "他社にはまねのできない、企業の中核となる強みや独自の技術・能力を何というか。",
+    "hint": "企業の競争優位の源泉となる、模倣困難な経営資源を指す。",
+    "explanation": "コアコンピタンスは、他社が容易に模倣できない、企業の中核的な強み・独自の技術やノウハウを指す。全社戦略において、自社のコアコンピタンスを見極めて経営資源を集中することが重要とされる。"
+  },
+  {
+    "id": "business-strategy-004",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "M&A",
+    "aliases": ["Mergers and Acquisitions", "企業の合併・買収"],
+    "question": "他企業の合併や買収によって、事業の拡大や新規事業への参入を図る経営手法を何というか。",
+    "hint": "自社で一から事業を立ち上げるのではなく、既存企業を取り込んで成長を図る手法である。",
+    "explanation": "M&A(Mergers and Acquisitions)は、企業の合併や買収を通じて、迅速な事業拡大や新規事業への参入、シナジー効果の獲得を図る経営手法である。"
+  },
+  {
+    "id": "business-strategy-005",
+    "categoryId": "business-strategy",
+    "difficulty": "hard",
+    "term": "VRIO分析",
+    "aliases": ["VRIO Analysis"],
+    "question": "経営資源を経済的価値・希少性・模倣困難性・組織の4つの観点から評価し、競争優位の源泉を分析する手法を何というか。",
+    "hint": "4つの評価軸の頭文字を組み合わせた名称の分析手法である。",
+    "explanation": "VRIO分析は、Value(経済的価値)、Rarity(希少性)、Imitability(模倣困難性)、Organization(組織)の4つの観点から自社の経営資源を評価し、競争優位の源泉を明らかにする事業戦略策定の手法である。"
+  },
+  {
+    "id": "business-strategy-006",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "バリューチェーン分析",
+    "aliases": ["Value Chain Analysis"],
+    "question": "原材料の調達から製造、販売、サービスに至る一連の事業活動を機能ごとに分解し、どの工程で付加価値が生み出されているかを分析する手法を何というか。",
+    "hint": "事業活動を「価値の連鎖」として捉え、主活動と支援活動に分けて分析する。",
+    "explanation": "バリューチェーン分析は、事業活動を購買物流、製造、出荷物流、販売・マーケティング、サービスなどの主活動と、それを支える支援活動に分解し、各工程での付加価値やコストの発生源を分析する手法である。"
+  },
+  {
+    "id": "business-strategy-007",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "コストリーダーシップ戦略",
+    "aliases": [],
+    "question": "業界内で最も低いコスト構造を実現し、価格競争力によって競争優位を確立しようとする基本戦略を何というか。",
+    "hint": "差別化戦略、集中戦略と並ぶ、3つの基本戦略の一つである。",
+    "explanation": "コストリーダーシップ戦略は、業界内で最も低コストな事業運営を実現し、価格面での競争優位を確立する基本戦略である。差別化によって優位性を築く差別化戦略、特定市場に絞り込む集中戦略と合わせて、ポーターの3つの基本戦略として整理される。"
+  },
+  {
+    "id": "business-strategy-008",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "ブルーオーシャン戦略",
+    "aliases": ["Blue Ocean Strategy"],
+    "question": "競合のいない未開拓市場を新たに切り開き、価値創造と低コストを同時に追求する経営戦略を何というか。",
+    "hint": "激しい競争が繰り広げられる既存市場を指す言葉と対になる名称である。",
+    "explanation": "ブルーオーシャン戦略は、競争の激しい既存市場(レッドオーシャン)を避け、競合のいない新たな市場空間を切り開くことで、差別化と低コストを同時に実現しようとする経営戦略である。"
+  },
+  {
+    "id": "business-strategy-009",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "3C分析",
+    "aliases": ["3C Analysis"],
+    "question": "顧客、競合、自社の3つの視点から市場環境を分析し、事業戦略の立案に活用する手法を何というか。",
+    "hint": "分析対象となる3つの英単語の頭文字にちなんだ名称である。",
+    "explanation": "3C(Customer, Competitor, Company)分析は、顧客・競合・自社の3つの観点から市場環境を分析し、事業戦略の立案に役立てるマーケティング分析手法である。"
+  },
+  {
+    "id": "business-strategy-010",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "STP分析",
+    "aliases": ["STP Analysis"],
+    "question": "市場を細分化し、狙うべき市場を絞り込んだうえで、自社の立ち位置を明確にするマーケティング分析の手順を何というか。",
+    "hint": "セグメンテーション、ターゲティング、ポジショニングの3段階から成る。",
+    "explanation": "STP分析は、市場をセグメンテーション(細分化)し、その中からターゲティング(標的市場の選定)を行い、自社製品の立ち位置をポジショニングとして明確化する、一連のマーケティング分析手法である。"
+  },
+  {
+    "id": "business-strategy-011",
+    "categoryId": "business-strategy",
+    "difficulty": "hard",
+    "term": "CX",
+    "aliases": ["Customer Experience", "顧客体験"],
+    "question": "顧客が企業や製品・サービスとのあらゆる接点を通じて得る、精神的・主観的な満足感を含めた体験全体を何というか。",
+    "hint": "使いやすさに着目した体験を表す言葉よりも広い、顧客との関係全体を指す概念である。",
+    "explanation": "CX(Customer Experience:顧客体験)は、顧客が企業・製品・サービスとの全ての接点で得る体験全体を指す概念である。製品の使いやすさに主眼を置くUX(User Experience)よりも広い範囲を対象とする点に注意する。"
+  },
+  {
+    "id": "business-strategy-012",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "カスタマージャーニーマップ",
+    "aliases": ["Customer Journey Map"],
+    "question": "顧客が商品やサービスを認知してから購入、利用に至るまでの行動や思考、感情の変化を時系列で可視化した図を何というか。",
+    "hint": "サービスデザインにおいて、顧客体験の全体像を把握するために作成される図である。",
+    "explanation": "カスタマージャーニーマップは、顧客が商品・サービスを認知し、比較検討、購入、利用に至るまでの一連の行動・思考・感情の変化を時系列で可視化した図である。顧客体験(CX)の課題発見や改善に活用される。"
+  },
+  {
+    "id": "business-strategy-013",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "PLC",
+    "aliases": ["Product Life Cycle", "製品ライフサイクル"],
+    "question": "製品が市場に投入されてから姿を消すまでを、導入期、成長期、成熟期、衰退期の4段階で捉える考え方を何というか。",
+    "hint": "生物の一生になぞらえて、製品の売上や利益の推移を段階的に表す概念である。",
+    "explanation": "PLC(Product Life Cycle:製品ライフサイクル)は、製品が市場に投入されてから撤退するまでの過程を、導入期・成長期・成熟期・衰退期の4段階に分けて捉える考え方であり、各段階に応じたマーケティング戦略の立案に用いられる。"
+  },
+  {
+    "id": "business-strategy-014",
+    "categoryId": "business-strategy",
+    "difficulty": "hard",
+    "term": "カニバリゼーション",
+    "aliases": ["Cannibalization", "共食い現象"],
+    "question": "自社の新製品や新サービスが、自社の既存製品の売上を奪ってしまう現象を何というか。",
+    "hint": "競合他社ではなく、自社内の製品同士が顧客を奪い合う状態を指す。",
+    "explanation": "カニバリゼーション(共食い現象)は、企業が投入した新製品・新サービスが、意図せず自社の既存製品の売上を侵食してしまう現象である。製品ラインの設計や価格設定の際に注意すべき点として扱われる。"
+  },
+  {
+    "id": "business-strategy-015",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "ダイナミックプライシング",
+    "aliases": ["Dynamic Pricing", "変動価格制"],
+    "question": "需要と供給の状況に応じて、商品やサービスの価格をリアルタイムに変動させる価格設定方式を何というか。",
+    "hint": "航空券やホテル料金などで、需要の増減に応じて価格が変わる仕組みである。",
+    "explanation": "ダイナミックプライシングは、需要と供給の状況、時期、在庫状況などに応じて価格をリアルタイムに変動させる価格設定手法である。データ分析やAIを活用して最適価格を算出することが多い。"
+  },
+  {
+    "id": "business-strategy-016",
+    "categoryId": "business-strategy",
+    "difficulty": "hard",
+    "term": "ペネトレーションプライシング",
+    "aliases": ["Penetration Pricing", "市場浸透価格戦略"],
+    "question": "新製品の発売当初にあえて低い価格を設定し、シェアの早期獲得を狙う価格戦略を何というか。",
+    "hint": "発売当初に高価格を設定し、早期に利益を回収する戦略とは逆の考え方である。",
+    "explanation": "ペネトレーションプライシング(市場浸透価格戦略)は、新製品投入時にあえて低価格を設定し、短期間で市場シェアを獲得することを狙う価格戦略である。発売当初は高価格を設定して利益を早期回収するスキミングプライシングと対をなす概念として問われる。"
+  },
+  {
+    "id": "business-strategy-017",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "オムニチャネル",
+    "aliases": ["Omni-Channel"],
+    "question": "実店舗やECサイト、SNSなど複数の販売・顧客接点を統合し、顧客がどの経路からでも一貫した購買体験を得られるようにする戦略を何というか。",
+    "hint": "複数チャネルを併用するだけでなく、境界を無くして顧客体験を統合する点が特徴である。",
+    "explanation": "オムニチャネルは、実店舗、ECサイト、SNSなど複数の販売チャネルを統合し、顧客がどのチャネルを利用しても一貫した購買体験を得られるようにする流通戦略である。複数チャネルを並行運用するだけのマルチチャネルとは区別される。"
+  },
+  {
+    "id": "business-strategy-018",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "SEO",
+    "aliases": ["Search Engine Optimization", "検索エンジン最適化"],
+    "question": "検索エンジンの検索結果でWebサイトが上位に表示されるように、サイトの構成やコンテンツを最適化する手法を何というか。",
+    "hint": "広告費を払って上位表示させる手法とは異なり、自然検索結果での表示順位向上を狙う。",
+    "explanation": "SEO(Search Engine Optimization:検索エンジン最適化)は、検索エンジンの自然検索結果でWebサイトが上位に表示されるよう、サイト構造やコンテンツを最適化する手法である。費用を払って表示させるリスティング広告とは異なる。"
+  },
+  {
+    "id": "business-strategy-019",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "CVR",
+    "aliases": ["Conversion Rate", "顧客転換率"],
+    "question": "Webサイトへの訪問者数に対して、商品購入や会員登録などの成果に至った割合を示す指標を何というか。",
+    "hint": "Webマーケティングの効果測定で用いられる、成果達成の割合を表す指標である。",
+    "explanation": "CVR(Conversion Rate:顧客転換率)は、Webサイトの訪問者のうち、購入や資料請求、会員登録などの目標(コンバージョン)に至った割合を示す指標であり、Webマーケティング施策の効果測定に用いられる。"
+  },
+  {
+    "id": "business-strategy-020",
+    "categoryId": "business-strategy",
+    "difficulty": "easy",
+    "term": "MVV",
+    "aliases": ["Mission Vision Value", "ミッション・ビジョン・バリュー"],
+    "question": "企業の存在意義、目指す将来像、それらを実現する上で大切にする価値観の3要素を何というか。",
+    "hint": "3つの英単語の頭文字を組み合わせた略称で表される。",
+    "explanation": "MVV(Mission Vision Value:ミッション・ビジョン・バリュー)は、企業の存在意義(ミッション)、目指す将来像(ビジョン)、行動の拠り所となる価値観(バリュー)の3要素を指し、経営戦略や戦略目標を定める際の基盤となる。"
+  },
+  {
+    "id": "business-strategy-021",
+    "categoryId": "business-strategy",
+    "difficulty": "medium",
+    "term": "CSF",
+    "aliases": ["Critical Success Factors", "重要成功要因"],
+    "question": "企業が目標を達成するために、重点的に取り組むべき最も重要な要因を何というか。",
+    "hint": "目標達成の度合いを測る指標を設定する前段階で明確化される要因である。",
+    "explanation": "CSF(Critical Success Factors:重要成功要因)は、企業がビジネス戦略上の目標を達成するために、特に重点的に取り組むべき要因を指す。CSFを明確化した上で、その達成度を測るKGI・KPIが設定される。"
+  },
+  {
+    "id": "business-strategy-022",
+    "categoryId": "business-strategy",
+    "difficulty": "hard",
+    "term": "BSC",
+    "aliases": ["Balanced Scorecard", "バランススコアカード"],
+    "question": "財務の視点だけでなく、顧客、業務プロセス、学習と成長という4つの視点から経営を評価し、戦略を実行に落とし込む手法を何というか。",
+    "hint": "財務指標だけに偏らず、複数の視点を組み合わせて評価する点が名称の由来である。",
+    "explanation": "BSC(Balanced Scorecard:バランススコアカード)は、財務の視点、顧客の視点、業務プロセスの視点、学習と成長の視点という4つの視点から経営状態を評価し、戦略目標を具体的な行動に落とし込むための経営管理手法である。"
+  }
+]

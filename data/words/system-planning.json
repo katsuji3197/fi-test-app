@@ -1,0 +1,142 @@
+[
+  {
+    "id": "system-planning-001",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "ITポートフォリオ",
+    "aliases": ["IT Portfolio"],
+    "question": "情報システムへの投資案件を、リスクとリターンの観点から複数の切り口で分類・評価し、最適な投資配分を検討する手法を何というか。",
+    "hint": "金融商品の分散投資の考え方を、IT投資の管理に応用したものである。",
+    "explanation": "ITポートフォリオは、情報システムへの投資案件をリスクとリターンなどの観点で分類・評価し、全体最適な投資配分を検討する手法である。システム化計画の立案時に、複数の投資対象を比較検討する際に用いられる。"
+  },
+  {
+    "id": "system-planning-002",
+    "categoryId": "system-planning",
+    "difficulty": "hard",
+    "term": "SoR",
+    "aliases": ["Systems of Record"],
+    "question": "受発注や会計処理など、正確な記録・処理を重視する従来型の基幹系情報システムの分類を何というか。",
+    "hint": "顧客との関係構築を重視する区分や、データ分析を重視する区分と対比される。",
+    "explanation": "SoR(Systems of Record)は、正確なデータの記録・処理を重視する基幹系システムを指す分類である。顧客接点でのつながりを重視するSoE(Systems of Engagement)、データの分析・洞察を重視するSoI(Systems of Insight)と対比して整理される。"
+  },
+  {
+    "id": "system-planning-003",
+    "categoryId": "system-planning",
+    "difficulty": "hard",
+    "term": "BABOK",
+    "aliases": ["Business Analysis Body of Knowledge", "ビジネスアナリシス知識体系ガイド"],
+    "question": "ビジネスアナリシスに関する知識、技法、ベストプラクティスを体系的にまとめた国際的なガイドを何というか。",
+    "hint": "システム化構想の立案などで、要求を分析・整理する際の知識体系として参照される。",
+    "explanation": "BABOK(Business Analysis Body of Knowledge:ビジネスアナリシス知識体系ガイド)は、ビジネスアナリシスに関する知識・技法・成果物を体系化した国際的なガイドラインであり、IIBA(国際ビジネスアナリシス協会)が策定している。"
+  },
+  {
+    "id": "system-planning-004",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "Fit to Standard",
+    "aliases": [],
+    "question": "業務プロセスを個別にカスタマイズするのではなく、パッケージソフトウェアの標準機能に合わせて業務のやり方を変える導入アプローチを何というか。",
+    "hint": "システムに業務を合わせる考え方で、アドオン開発を極力抑える方針である。",
+    "explanation": "Fit to Standardは、パッケージソフトウェア(ERPなど)の標準機能に業務プロセスを合わせて導入するアプローチであり、独自のカスタマイズ(アドオン)を最小限に抑えることで、導入コストや保守負荷の低減を図る。"
+  },
+  {
+    "id": "system-planning-005",
+    "categoryId": "system-planning",
+    "difficulty": "easy",
+    "term": "要求分析",
+    "aliases": [],
+    "question": "システム化に対する利用者のニーズを洗い出し、整理・分析して、実現可能性を検討する一連の作業を何というか。",
+    "hint": "この後に行われる要件定義の前段階に位置付けられる作業である。",
+    "explanation": "要求分析は、要求項目の洗い出しやシステム化ニーズの整理、前提条件・制約条件の整理、実現可能性の分析などを行い、新しい業務モデルや業務フローを提案する一連の作業である。後続の要件定義の土台となる。"
+  },
+  {
+    "id": "system-planning-006",
+    "categoryId": "system-planning",
+    "difficulty": "easy",
+    "term": "非機能要件",
+    "aliases": ["非機能要件定義"],
+    "question": "システムの機能そのものではなく、性能や信頼性、セキュリティ、移行方法など、機能以外の側面に関する要件を何というか。",
+    "hint": "業務要件を実現するための機能に関する要件とは区別される。",
+    "explanation": "非機能要件は、パフォーマンス、信頼性、セキュリティ、移行要件など、業務上必要な機能以外の側面についての要件である。要件定義では、業務要件・機能要件と合わせて非機能要件定義が行われる。"
+  },
+  {
+    "id": "system-planning-007",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "SoE",
+    "aliases": ["Systems of Engagement"],
+    "question": "顧客や従業員とのつながり・関係性を重視し、UX向上を目的として迅速に変化させていく情報システムの分類を何というか。",
+    "hint": "正確な記録・処理を重視する基幹系システムの区分と対比される概念。",
+    "explanation": "SoE(Systems of Engagement)は、顧客や従業員との「つながり」を重視し、利用者の体験価値(UX)向上のために迅速な変更や改善が求められる情報システムの分類である。正確性・安定性が重視される基幹系のSoR(Systems of Record)と対比して用いられる。"
+  },
+  {
+    "id": "system-planning-008",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "決定表",
+    "aliases": ["デシジョンテーブル", "Decision Table"],
+    "question": "複数の条件の組み合わせと、それに対応する処理内容(動作)を表形式で整理して示す図表を何というか。",
+    "hint": "条件部と動作部を持ち、条件の組み合わせパターンごとに実行内容を一覧化する。",
+    "explanation": "決定表(デシジョンテーブル)は、複数の条件とその組み合わせに対して、実行すべき処理を表形式で整理したものである。複雑な条件分岐を漏れなく整理できるため、要件定義や仕様書の作成で用いられる。"
+  },
+  {
+    "id": "system-planning-009",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "DOA",
+    "aliases": ["Data Oriented Approach", "データ中心アプローチ"],
+    "question": "システム設計において、業務やプログラムの手順よりも先に、データの構造や関連を分析して設計を進める考え方を何というか。",
+    "hint": "業務の手順を起点とする考え方と対比される、データベース設計を起点とする考え方である。",
+    "explanation": "DOA(Data Oriented Approach:データ中心アプローチ)は、業務プロセスの手順よりも先にデータの構造やデータ間の関連を分析し、データベース設計を起点としてシステムを設計する考え方である。E-R図などを用いてデータ構造を可視化する。"
+  },
+  {
+    "id": "system-planning-010",
+    "categoryId": "system-planning",
+    "difficulty": "easy",
+    "term": "RFI",
+    "aliases": ["Request For Information", "情報提供依頼書"],
+    "question": "システム化の目的や業務内容を示し、ベンダー企業に技術動向や製品に関する情報の提供を依頼する文書を何というか。",
+    "hint": "提案や見積りの依頼ではなく、情報の収集段階で用いられる文書である。",
+    "explanation": "RFI(Request For Information:情報提供依頼書)は、調達に先立ちベンダー企業へシステム化の目的や業務内容を示し、技術情報や製品情報の提供を依頼する文書である。提案を依頼するRFPより前の段階で用いられる。"
+  },
+  {
+    "id": "system-planning-011",
+    "categoryId": "system-planning",
+    "difficulty": "easy",
+    "term": "RFP",
+    "aliases": ["Request For Proposal", "提案依頼書"],
+    "question": "調達対象のシステムや調達条件を示し、ベンダー企業に具体的な提案書の提出を依頼する文書を何というか。",
+    "hint": "見積書の提出を依頼する文書とセットで提示されることが多い。",
+    "explanation": "RFP(Request For Proposal:提案依頼書)は、調達対象システムの要件や調達条件を示し、ベンダー企業に提案書の提出を依頼する文書である。見積書の提出を依頼するRFQと合わせて提示されることが多い。"
+  },
+  {
+    "id": "system-planning-012",
+    "categoryId": "system-planning",
+    "difficulty": "easy",
+    "term": "RFQ",
+    "aliases": ["Request For Quotation", "見積依頼書"],
+    "question": "提案依頼書とあわせてベンダー企業に提示し、具体的な費用の見積書の提出を依頼する文書を何というか。",
+    "hint": "提案内容そのものではなく、価格に関する提出を求める文書である。",
+    "explanation": "RFQ(Request For Quotation:見積依頼書)は、RFP(提案依頼書)とともにベンダー企業に提示され、調達対象に対する具体的な見積金額の提出を依頼する文書である。"
+  },
+  {
+    "id": "system-planning-013",
+    "categoryId": "system-planning",
+    "difficulty": "medium",
+    "term": "請負契約",
+    "aliases": [],
+    "question": "受注者が仕事の完成を約束し、発注者がその成果物に対して報酬を支払う形態の契約を何というか。",
+    "hint": "成果物の完成に責任を負う点が、業務の遂行自体を委託する契約と異なる。",
+    "explanation": "請負契約は、受注者が仕事の完成を約束し、発注者は完成した成果物に対して報酬を支払う契約形態である。成果物の完成責任を負わない準委任契約と対比され、システム開発の契約形態としてよく問われる。"
+  },
+  {
+    "id": "system-planning-014",
+    "categoryId": "system-planning",
+    "difficulty": "hard",
+    "term": "準委任契約",
+    "aliases": ["(準)委任契約"],
+    "question": "成果物の完成を約束するのではなく、業務の遂行そのものを委託し、受託者が善良な管理者の注意義務をもって業務を行う契約を何というか。",
+    "hint": "成果物の完成責任を負う契約形態とは異なり、役務の提供自体が目的となる。",
+    "explanation": "準委任契約は、成果物の完成を約束せず、業務の遂行(役務の提供)自体を委託する契約形態である。受託者は善管注意義務を負うが、成果物の完成責任は負わない点で請負契約と異なり、要件定義やコンサルティング業務などで用いられることが多い。"
+  }
+]

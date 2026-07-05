@@ -1,0 +1,252 @@
+[
+  {
+    "id": "computer-components-001",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "CPU",
+    "aliases": ["Central Processing Unit", "中央処理装置"],
+    "question": "コンピュータにおいて、プログラムの命令を解読し、演算や制御を行う中心的な装置を何というか。",
+    "hint": "制御装置と演算装置から構成される、コンピュータの頭脳にあたる部分。",
+    "explanation": "CPU(Central Processing Unit:中央処理装置)は、主記憶装置から命令を取り出して解読し、演算や周辺装置の制御を行う装置である。GPUが画像処理に特化するのに対し、CPUは汎用的な処理を担う点で区別される。"
+  },
+  {
+    "id": "computer-components-002",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "GPU",
+    "aliases": ["Graphics Processing Unit", "画像処理装置"],
+    "question": "画像処理や大量の並列演算に特化し、3D描画やAIの学習処理などで広く利用される処理装置を何というか。",
+    "hint": "多数の演算コアを持ち、同種の計算を同時並行で行うのが得意な装置。",
+    "explanation": "GPU(Graphics Processing Unit:画像処理装置)は、多数の演算コアによる並列処理を得意とし、グラフィックス処理だけでなく機械学習の計算にも利用される。汎用処理を担うCPUとは役割が異なる。"
+  },
+  {
+    "id": "computer-components-003",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "RAM",
+    "aliases": ["Random Access Memory", "随時書き込み読み出しメモリ"],
+    "question": "電源を切ると記憶していた内容が失われてしまう、自由に読み書きができる半導体メモリを何というか。",
+    "hint": "主記憶装置に用いられる揮発性のメモリで、DRAMとSRAMに大別される。",
+    "explanation": "RAM(Random Access Memory:随時書き込み読み出しメモリ)は自由に読み書きできる半導体メモリで、電源を切るとデータが消える揮発性を持つ。読み出し専用のROMと対比される。"
+  },
+  {
+    "id": "computer-components-004",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "ROM",
+    "aliases": ["Read Only Memory", "読み出し専用メモリ"],
+    "question": "製造時などにあらかじめ書き込まれたデータを保持し、電源を切っても内容が消えない読み出し専用の半導体メモリを何というか。",
+    "hint": "不揮発性のメモリで、BIOSの格納などに使われる。",
+    "explanation": "ROM(Read Only Memory:読み出し専用メモリ)は不揮発性の半導体メモリで、基本的に書き換えができない、または特殊な手順でのみ書き換え可能である。揮発性のRAMと対比される。"
+  },
+  {
+    "id": "computer-components-005",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "キャッシュメモリ",
+    "aliases": [],
+    "question": "処理速度の異なるCPUと主記憶装置の間に置かれ、両者の速度差を埋める役割を持つ高速・小容量の記憶装置を何というか。",
+    "hint": "アクセス頻度の高いデータを一時的に保持し、実効アクセス時間を短縮する。",
+    "explanation": "処理速度の差を埋めるために設けられる高速な記憶装置で、SRAMなどが用いられる。データが存在する割合を示すヒット率が性能評価の指標となり、主記憶と補助記憶の間の階層構造の一部として位置づけられる。"
+  },
+  {
+    "id": "computer-components-006",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "システムバス",
+    "aliases": [],
+    "question": "CPU、主記憶装置、入出力装置などコンピュータ内部の各装置間で、データや制御信号をやり取りする共通の伝送路を何というか。",
+    "hint": "アドレス用・データ用・制御用という3種類の信号線から構成される。",
+    "explanation": "コンピュータ内部の各装置を接続してデータや制御信号を伝送する共通経路であり、アドレスバス、データバス、コントロールバス(制御バス)の総称として用いられることが多い。"
+  },
+  {
+    "id": "computer-components-007",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "USB",
+    "aliases": ["Universal Serial Bus", "ユニバーサルシリアルバス"],
+    "question": "パソコンと周辺機器を接続するための、広く普及したシリアルインタフェース規格を何というか。",
+    "hint": "マウスやキーボード、外付けドライブなど様々な機器の接続に使われる規格。",
+    "explanation": "USB(Universal Serial Bus:ユニバーサルシリアルバス)は、周辺機器を接続するための標準的なシリアルインタフェースであり、抜き差しが容易でプラグアンドプレイに対応する。"
+  },
+  {
+    "id": "computer-components-008",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "Bluetooth",
+    "aliases": [],
+    "question": "数メートル程度の近距離において、機器間を無線でつなぐための通信規格を何というか。",
+    "hint": "省電力版として、BLEと呼ばれる規格も普及している。",
+    "explanation": "近距離無線通信の規格で、ケーブルを使わずにパソコンやスマートフォンと周辺機器を接続できる。省電力に特化したBLEという派生規格もあり、同じ近距離無線であるNFCよりも通信距離や転送速度に優れる。"
+  },
+  {
+    "id": "computer-components-009",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "SSD",
+    "aliases": ["Solid State Drive", "ソリッドステートドライブ"],
+    "question": "フラッシュメモリを用い、可動部を持たずに高速な読み書きを実現する補助記憶装置を何というか。",
+    "hint": "回転する磁気ディスクを持つ従来の装置に比べ、耐衝撃性や静音性に優れる。",
+    "explanation": "SSD(Solid State Drive:ソリッドステートドライブ)はフラッシュメモリを記憶媒体とする補助記憶装置で、機械的な駆動部がないため高速でハードディスク装置(HDD)より耐衝撃性に優れる。"
+  },
+  {
+    "id": "computer-components-010",
+    "categoryId": "computer-components",
+    "difficulty": "easy",
+    "term": "OCR",
+    "aliases": ["Optical Character Reader", "光学文字読取装置"],
+    "question": "紙面に印刷または手書きされた文字を光学的に読み取り、テキストデータに変換する装置を何というか。",
+    "hint": "画像入力装置の一種で、スキャナーとセットで使われることが多い。",
+    "explanation": "OCR(Optical Character Reader:光学文字読取装置)は、印刷・手書き文字を光学的に読み取ってコンピュータが扱える文字コードに変換する装置である。マークシートを読み取るOMRと区別される。"
+  },
+  {
+    "id": "computer-components-011",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "RISC",
+    "aliases": ["Reduced Instruction Set Computer", "縮小命令セットコンピュータ"],
+    "question": "命令の種類を少なく単純化し、1命令を高速に実行することで性能向上を図るプロセッサのアーキテクチャを何というか。",
+    "hint": "命令セットが複雑なもう一方の方式と対比される、パイプライン処理と相性がよい方式。",
+    "explanation": "RISC(Reduced Instruction Set Computer:縮小命令セットコンピュータ)は、単純で種類の少ない命令を高速に実行する設計思想である。命令が複雑で多機能なCISCと対比される。"
+  },
+  {
+    "id": "computer-components-012",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "全加算器",
+    "aliases": [],
+    "question": "下位桁からの繰上り(キャリー)も含めて、2進数1桁同士の加算を行える論理回路を何というか。",
+    "hint": "繰上りを考慮しない回路を複数組み合わせることでも構成できる。",
+    "explanation": "2つの入力ビットに加えて下位からの桁上げ(キャリー)も入力し、和と桁上げを出力する論理回路である。桁上げ入力を持たない半加算器を組み合わせて構成されることが多い。"
+  },
+  {
+    "id": "computer-components-013",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "パイプライン処理",
+    "aliases": ["パイプライン", "Pipeline"],
+    "question": "命令の取出し・解読・実行などの各段階を分割し、複数の命令を段階ごとにずらしながら並行して進める高速化技術を何というか。",
+    "hint": "工場の流れ作業のように処理を重ね合わせることでスループットを高める方式。",
+    "explanation": "命令実行を複数の段階に分けて、各段階を異なる命令で同時に進行させることで処理速度を向上させる技術である。分岐命令などにより処理の流れが乱れることをハザードという。"
+  },
+  {
+    "id": "computer-components-014",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "CPI",
+    "aliases": ["Cycles Per Instruction", "1命令当たりの平均クロック数"],
+    "question": "1つの命令の実行に平均して何クロックを要するかを示す、プロセッサの性能指標を何というか。",
+    "hint": "この値が小さいほど、少ないクロック数で命令を実行できることを示す。",
+    "explanation": "CPI(Cycles Per Instruction:1命令当たりの平均クロック数)は、命令の実行に要する平均クロックサイクル数を表す指標である。クロック周波数とCPIから、プロセッサの実効的な処理性能を見積もることができる。"
+  },
+  {
+    "id": "computer-components-015",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "DRAM",
+    "aliases": ["Dynamic Random Access Memory", "ダイナミックRAM"],
+    "question": "コンデンサに電荷を蓄えてデータを記憶し、一定時間ごとに再書込み動作が必要な半導体メモリを何というか。",
+    "hint": "構造が単純で大容量化・低コスト化しやすく、主記憶装置に多く使われる。",
+    "explanation": "DRAM(Dynamic Random Access Memory:ダイナミックRAM)はコンデンサへの電荷の有無でデータを保持するため、時間経過で電荷が失われる前にリフレッシュが必要である。フリップフロップで記憶するSRAMより低コスト・大容量だが低速である。"
+  },
+  {
+    "id": "computer-components-016",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "ライトバック方式",
+    "aliases": [],
+    "question": "キャッシュメモリ上のデータ更新時に、主記憶への書込みをすぐに行わず、後でまとめて反映させる方式を何というか。",
+    "hint": "更新の都度、主記憶にも同時に書き込む方式と対比される。",
+    "explanation": "キャッシュメモリのデータが更新された際、そのデータが追い出されるタイミングなどでまとめて主記憶に反映する方式である。更新の都度、主記憶にも書き込むライトスルー方式に比べ、バスの負荷を軽減できる。"
+  },
+  {
+    "id": "computer-components-017",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "PCI",
+    "aliases": ["Peripheral Component Interconnect", "周辺機器相互接続"],
+    "question": "パソコン内部で拡張ボードを接続するために使われてきた、標準的な拡張バスの規格を何というか。",
+    "hint": "その後継として、シリアル転送を採用した高速な規格も普及している。",
+    "explanation": "PCI(Peripheral Component Interconnect:周辺機器相互接続)は、コンピュータ内部でグラフィックボードなどの拡張カードを接続するための拡張バス規格である。後継規格はシリアル転送方式を採用し、より高速な通信を実現している。"
+  },
+  {
+    "id": "computer-components-018",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "DMA",
+    "aliases": ["Direct Memory Access", "直接記憶アクセス"],
+    "question": "CPUを介さずに、周辺装置と主記憶装置との間で直接データ転送を行う方式を何というか。",
+    "hint": "この方式を使うことで、データ転送中のCPUの負荷を軽減できる。",
+    "explanation": "DMA(Direct Memory Access:直接記憶アクセス)は、CPUを経由せずに周辺装置と主記憶の間でデータを転送する方式で、CPUは転送中に他の処理を行える。従来のプログラム制御方式に比べCPUの負荷が小さい。"
+  },
+  {
+    "id": "computer-components-019",
+    "categoryId": "computer-components",
+    "difficulty": "medium",
+    "term": "シリアルATA",
+    "aliases": ["SATA", "Serial ATA"],
+    "question": "ハードディスクやSSDなどの記憶装置を、直列に信号を送る伝送方式でパソコンに接続するインタフェース規格を何というか。",
+    "hint": "複数ビットを1本の信号線で順に送る方式で、旧来のパラレル方式の後継にあたる。",
+    "explanation": "シリアルATA(SATA:Serial Advanced Technology Attachment)は、記憶装置とマザーボードを接続するインタフェース規格で、データを1本の信号線で順次送る伝送方式を採用する。複数の信号線で同時に送るパラレルATAより高速で配線も簡素である。"
+  },
+  {
+    "id": "computer-components-020",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "マイクロプログラム制御方式",
+    "aliases": [],
+    "question": "機械語命令をあらかじめ用意した細かい制御用の命令列に置き換えて実行することで、制御回路を実現する方式を何というか。",
+    "hint": "回路を直接組む方式に比べ、命令の追加や変更を柔軟に行いやすい制御方式。",
+    "explanation": "機械語命令ごとにあらかじめ用意された小さな命令の集合を実行することで制御を行う方式である。制御回路を直接配線で構成するワイヤドロジック制御方式に比べ、設計変更が容易である。"
+  },
+  {
+    "id": "computer-components-021",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "スーパースカラ",
+    "aliases": [],
+    "question": "複数の実行ユニットを備え、独立した複数の命令を同時に実行することで高速化を図るプロセッサの技術を何というか。",
+    "hint": "1つの処理の流れを多段化する技術とは異なり、処理の流れ自体を複数持つ方式。",
+    "explanation": "複数の命令を同時に複数の実行ユニットに割り当てて並列実行する高速化技術である。パイプラインの段数を増やすスーパーパイプラインとは異なるアプローチで性能向上を図る。"
+  },
+  {
+    "id": "computer-components-022",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "アムダールの法則",
+    "aliases": [],
+    "question": "並列化できる処理の割合から、プロセッサ数を増やした場合の性能向上の限界を求める法則を何というか。",
+    "hint": "並列化できない逐次処理の部分が、全体の高速化効果の上限を決めるという考え方。",
+    "explanation": "プログラム全体のうち並列化できない部分の割合が、マルチプロセッサ化による性能向上の限界を決定するという法則である。プロセッサ数をいくら増やしても、逐次処理部分がボトルネックとなり性能向上には限界がある。"
+  },
+  {
+    "id": "computer-components-023",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "メモリインターリーブ",
+    "aliases": [],
+    "question": "主記憶装置を複数の区画(バンク)に分割し、それらへ並行してアクセスすることで実効的な速度を高める方式を何というか。",
+    "hint": "連続したアドレスを異なる区画に割り当て、アクセスを重ね合わせる高速化手法。",
+    "explanation": "主記憶を複数のバンクに分割し、各バンクへのアクセスを並行して行うことで見かけ上のアクセス速度を向上させる方式である。バンクの数が多いほど並行度が高まり高速化が期待できる。"
+  },
+  {
+    "id": "computer-components-024",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "デフラグメンテーション",
+    "aliases": [],
+    "question": "ハードディスクなどの中で断片化して散らばったファイルを、連続した領域に再配置して読み書きの速度を改善する処理を何というか。",
+    "hint": "ファイルの追加・削除を繰り返すことで生じる、記憶領域の断片化を解消する処理。",
+    "explanation": "記憶装置上に断片化して格納されたファイルを連続した領域にまとめ直し、アクセス効率を改善する処理である。フラッシュメモリを使うSSDでは機械的な移動時間がないため、効果や必要性はハードディスクほど大きくない。"
+  },
+  {
+    "id": "computer-components-025",
+    "categoryId": "computer-components",
+    "difficulty": "hard",
+    "term": "疎結合マルチプロセッサシステム",
+    "aliases": [],
+    "question": "複数のプロセッサがそれぞれ独立した主記憶装置を持ち、ネットワークなどを介して連携して処理を行う構成を何というか。",
+    "hint": "主記憶を共有する方式と対比される、大規模な集合構成などで用いられる形態。",
+    "explanation": "各プロセッサが個別の主記憶装置を持ち、ネットワークなどの通信によって連携する構成である。主記憶を複数のプロセッサで共有する密結合マルチプロセッサシステムと対比され、大規模なクラスタ構成などに利用される。"
+  }
+]

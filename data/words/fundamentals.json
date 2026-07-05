@@ -1,0 +1,282 @@
+[
+  {
+    "id": "fundamentals-001",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "BCD",
+    "aliases": ["Binary Coded Decimal", "2進化10進数"],
+    "question": "10進数の各桁を4ビットの2進数で個別に表現する、10進数と2進数を対応付ける符号化方式を何というか。",
+    "hint": "1桁ずつ2進4ビットに変換するため演算がやや複雑になる",
+    "explanation": "BCD(Binary Coded Decimal:2進化10進数)は、10進数の1桁を4ビットの2進数で表す符号化方式。10進数として扱いやすい一方、2進数に比べてビット効率が悪く演算も複雑になる。"
+  },
+  {
+    "id": "fundamentals-002",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "2の補数",
+    "aliases": [],
+    "question": "コンピュータで負の数を表現する際に用いられる、ある数の各桁を反転してから1を加えて得られる表現方式を何というか。",
+    "hint": "加減算の回路を共通化できる利点がある表現方式",
+    "explanation": "2の補数は、2進数の各ビットを反転(1の補数)し、さらに1を加えることで得られる負数の表現方式。減算を加算回路だけで実現できるため、多くのコンピュータで採用されている。"
+  },
+  {
+    "id": "fundamentals-003",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "オーバーフロー",
+    "aliases": ["あふれ"],
+    "question": "演算結果がコンピュータで表現できる数値の範囲を超えてしまい、正しい値を扱えなくなる現象を何というか。",
+    "hint": "逆に表現範囲より小さくなる現象は別の名前で呼ばれる",
+    "explanation": "オーバーフロー(あふれ)は、加算や乗算などの結果が、その型で表現できる最大値を超えてしまう現象。符号付き整数や浮動小数点数の演算で発生し、対義語はアンダーフローである。"
+  },
+  {
+    "id": "fundamentals-004",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "排他的論理和",
+    "aliases": ["XOR", "EOR"],
+    "question": "2つの入力の値を比較し、それらが異なるときにだけ真(1)になる論理演算を何というか。",
+    "hint": "同じ値なら偽になり、暗号や誤り検出にも利用される",
+    "explanation": "排他的論理和(XOR)は、2つの入力が異なる場合に1、同じ場合に0を出力する論理演算。加算のけた上げなし演算や暗号化、誤り検出のためのパリティ計算などに応用される。"
+  },
+  {
+    "id": "fundamentals-005",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "ベン図",
+    "aliases": [],
+    "question": "円などの図形の重なりを使って、集合同士の関係(和集合や積集合など)を視覚的に表す図を何というか。",
+    "hint": "考案者の名前に由来する図の名称である",
+    "explanation": "ベン図は、集合の関係を円などの図形の重なりで視覚的に表現する図。和集合・積集合・補集合といった集合演算の関係を、計算せずに直感的に把握するために広く用いられている。"
+  },
+  {
+    "id": "fundamentals-006",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "順列",
+    "aliases": [],
+    "question": "異なるn個のものの中からr個を選び出し、その順序も区別して並べる場合の総数を何というか。",
+    "hint": "並べる順番を区別する点で、選び方だけを数える場合と異なる",
+    "explanation": "順列は、n個の異なるものからr個を取り出し、順序を考慮して並べる場合の数で、nPrと表す。順序を区別しない場合の数である組合せ(nCr)と、試験問題でしばしば対比される。"
+  },
+  {
+    "id": "fundamentals-007",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "組合せ",
+    "aliases": [],
+    "question": "異なるn個のものの中から、順序を区別せずにr個を選び出す場合の総数を何というか。",
+    "hint": "記号nCrで表され、並べ方の総数を重複数で割って求める",
+    "explanation": "組合せは、n個の異なるものから順序を考慮せずにr個を選ぶ場合の数で、nCrと表す。順序を考慮する順列(nPr)と混同しやすいので、計算の際には注意が必要である。"
+  },
+  {
+    "id": "fundamentals-008",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "標準偏差",
+    "aliases": [],
+    "question": "データのばらつきの大きさを表す指標で、分散の平方根として求められる値を何というか。",
+    "hint": "元のデータと同じ単位で散らばり具合を表せる指標",
+    "explanation": "標準偏差は、分散の平方根を取ることで求められる、データのばらつきを表す統計指標。分散は単位が2乗になるのに対し、標準偏差は元データと同じ単位で扱えるため解釈しやすい。"
+  },
+  {
+    "id": "fundamentals-009",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "フィボナッチ数列",
+    "aliases": [],
+    "question": "最初の2項を1,1とし、以降の各項が直前の2項の和になっている数列を何というか。",
+    "hint": "自然界の螺旋構造などにも現れることで知られる数列",
+    "explanation": "フィボナッチ数列は、1,1,2,3,5,8,…のように、直前の2項の和が次の項になる数列。再帰的な定義の代表例として、アルゴリズムの学習でもよく取り上げられる。"
+  },
+  {
+    "id": "fundamentals-010",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "ASCIIコード",
+    "aliases": ["American Standard Code for Information Interchange", "米国情報交換用標準コード"],
+    "question": "英数字や記号を7ビットの数値で表現する、アメリカで制定された代表的な文字コード体系を何というか。",
+    "hint": "日本語などは表現できず、拡張版として8ビットの体系もある",
+    "explanation": "ASCII(American Standard Code for Information Interchange:米国情報交換用標準コード)は、7ビットで英数字・記号・制御文字を表す文字コード体系。日本語は表現できないため、JISコードやシフトJISコードなどが別途定められている。"
+  },
+  {
+    "id": "fundamentals-011",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "大規模言語モデル",
+    "aliases": ["LLM", "Large Language Model"],
+    "question": "大量のテキストデータを学習し、文章の生成や理解などの自然言語処理を高い精度で行うAIモデルを何というか。",
+    "hint": "対話型AIサービスの基盤として使われる、頭文字3文字の略称を持つ",
+    "explanation": "大規模言語モデル(LLM:Large Language Model)は、膨大なテキストで学習した大規模なニューラルネットワークで、文章生成や要約、対話などを行う。基盤モデルの代表例の一つである。"
+  },
+  {
+    "id": "fundamentals-012",
+    "categoryId": "fundamentals",
+    "difficulty": "easy",
+    "term": "A/D変換",
+    "aliases": ["Analog to Digital Converter", "アナログデジタル変換"],
+    "question": "連続的に変化するアナログ信号を、コンピュータで処理できる離散的なデジタル信号に変える処理を何というか。",
+    "hint": "標本化・量子化・符号化の3段階を経て行われる処理",
+    "explanation": "A/D変換(Analog to Digital変換)は、アナログ信号を標本化・量子化・符号化してデジタル信号に変える処理。逆にデジタル信号をアナログ信号に戻す処理はD/A変換と呼ばれる。"
+  },
+  {
+    "id": "fundamentals-013",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "論理シフト",
+    "aliases": [],
+    "question": "符号を考慮せず、ビット列を単純に左右にずらし、あふれた部分を捨てて空いた桁に0を補う演算を何というか。",
+    "hint": "符号ビットも区別せず扱う点が、もう一方の方式と異なる",
+    "explanation": "論理シフトは、ビット列を符号の有無に関係なく左右にずらす演算で、空いた桁には0を補う。符号ビットを保持したままずらす算術シフトと対比され、乗除算の高速化などに利用される。"
+  },
+  {
+    "id": "fundamentals-014",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "桁落ち",
+    "aliases": [],
+    "question": "絶対値がほぼ等しい2つの浮動小数点数を減算した際に、有効桁数が大きく減少してしまう誤差を何というか。",
+    "hint": "近い値同士の引き算で生じ、結果の精度が大きく落ちる誤差",
+    "explanation": "桁落ちは、値の近い浮動小数点数同士を減算する際に有効桁数が失われ、計算精度が大きく低下する誤差。小さい数を大きい数に加算した際に生じる情報落ちと混同しないよう注意する。"
+  },
+  {
+    "id": "fundamentals-015",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "ド・モルガンの法則",
+    "aliases": [],
+    "question": "論理和の否定は各項の否定の論理積に等しく、論理積の否定は各項の否定の論理和に等しいという法則を何というか。",
+    "hint": "論理式を変形する際に、否定を分配するのに使う基本法則",
+    "explanation": "ド・モルガンの法則は、NOT(A OR B)=NOT A AND NOT B、NOT(A AND B)=NOT A OR NOT Bが成り立つという論理演算の基本法則。論理式の簡略化や回路設計で頻繁に利用される。"
+  },
+  {
+    "id": "fundamentals-016",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "浮動小数点数",
+    "aliases": [],
+    "question": "符号・指数部・仮数部を用いて数値を表現し、非常に大きい数や小さい数を扱える数値表現方式を何というか。",
+    "hint": "有効桁数を保ったまま広い範囲の値を表せるが誤差が生じやすい",
+    "explanation": "浮動小数点数は、符号・指数部・仮数部の組合せで数値を表現する方式で、広い範囲の値を扱える。小数点の位置が固定された固定小数点数と対比され、桁落ちや情報落ちなどの誤差が生じやすい。"
+  },
+  {
+    "id": "fundamentals-017",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "相関係数",
+    "aliases": [],
+    "question": "2つの変量の間にある直線的な関係の強さと向きを、-1から1までの値で表す指標を何というか。",
+    "hint": "値が1や-1に近いほど直線関係が強いことを示す指標",
+    "explanation": "相関係数は、2つの変量間の直線的な関係の強さを-1から1の範囲で表す統計指標。値が正なら正の相関、負なら負の相関を示すが、因果関係を必ずしも意味しない点に注意が必要である。"
+  },
+  {
+    "id": "fundamentals-018",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "回帰分析",
+    "aliases": [],
+    "question": "説明変数と目的変数の関係を数式(直線など)でモデル化し、値を予測する統計的な分析手法を何というか。",
+    "hint": "直線で予測する単純な手法と、複数の変数を使う手法がある",
+    "explanation": "回帰分析は、目的変数を説明変数から予測する数式モデルを作る統計手法。説明変数が1つの単回帰分析、複数の重回帰分析、確率を予測するロジスティック回帰分析などがある。"
+  },
+  {
+    "id": "fundamentals-019",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "動的計画法",
+    "aliases": ["DP", "Dynamic Programming"],
+    "question": "問題をより小さな部分問題に分割し、その計算結果を記録・再利用しながら効率的に解く設計技法を何というか。",
+    "hint": "同じ部分問題を何度も計算しないよう結果を保存するのが特徴",
+    "explanation": "動的計画法(DP:Dynamic Programming)は、部分問題の計算結果を記録し再利用することで、重複した計算を避けて効率的に解を求める設計技法。最短経路問題や最適化問題に広く応用される。"
+  },
+  {
+    "id": "fundamentals-020",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "過学習",
+    "aliases": ["オーバーフィッティング"],
+    "question": "機械学習において、訓練データには高い精度を示す一方、未知のデータに対する予測精度が低下してしまう現象を何というか。",
+    "hint": "モデルが訓練データの細部やノイズまで学習しすぎることで起こる",
+    "explanation": "過学習(オーバーフィッティング)は、訓練データに適合しすぎた結果、汎化性能が低下し未知データへの予測精度が落ちる現象。交差検証やホールドアウト検証で検出し、対策する。"
+  },
+  {
+    "id": "fundamentals-021",
+    "categoryId": "fundamentals",
+    "difficulty": "medium",
+    "term": "ニューラルネットワーク",
+    "aliases": [],
+    "question": "人間の脳の神経細胞のつながりを模した構造を持ち、機械学習・深層学習の基盤となるモデルを何というか。",
+    "hint": "入力層・隠れ層・出力層から構成され、層を重ねると深層学習になる",
+    "explanation": "ニューラルネットワークは、脳の神経細胞の仕組みを模した数理モデルで、入力層・隠れ層・出力層から成る。隠れ層を多層にしたものがディープラーニング(深層学習)である。"
+  },
+  {
+    "id": "fundamentals-022",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "ベイズの定理",
+    "aliases": [],
+    "question": "ある事象が起きた前提のもとで、別の事象が起きる条件付き確率を、事前の確率から計算するための定理を何というか。",
+    "hint": "迷惑メール判定などのスパムフィルタにも応用される確率の定理",
+    "explanation": "ベイズの定理は、事前確率と条件付き確率の関係から、観測結果を踏まえた事後確率を求める定理。スパムフィルタや診断など、新たな情報で確率を更新する場面に広く応用される。"
+  },
+  {
+    "id": "fundamentals-023",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "ニュートン法",
+    "aliases": [],
+    "question": "関数の接線を利用して、方程式の近似解を繰り返し計算によって求める数値解析の手法を何というか。",
+    "hint": "初期値から接線と横軸の交点を次の近似値として更新していく",
+    "explanation": "ニュートン法は、関数上のある点における接線と横軸の交点を次の近似値とし、繰り返し計算することで方程式の解に近づける数値解析手法。二分法と並ぶ近似解の代表的な求め方である。"
+  },
+  {
+    "id": "fundamentals-024",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "待ち行列理論",
+    "aliases": ["M/M/1"],
+    "question": "窓口への客の到着間隔と処理時間の特性をもとに、混雑の度合いや順番が来るまでの時間を分析する理論を何というか。",
+    "hint": "到着間隔とサービス時間がともに指数分布に従うモデルが代表例",
+    "explanation": "待ち行列理論は、客の到着間隔やサービス時間の分布から、平均待ち時間や行列の長さを分析する理論。到着とサービスがともにランダム(指数分布)な単一窓口のモデルはM/M/1と呼ばれる。"
+  },
+  {
+    "id": "fundamentals-025",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "ハフマン符号",
+    "aliases": ["Huffman符号"],
+    "question": "出現頻度の高い記号ほど短い符号を割り当てることで、データ全体の符号長を短縮する符号化方式を何というか。",
+    "hint": "出現頻度から2分木を構成して各記号の符号を決める圧縮技術",
+    "explanation": "ハフマン符号は、記号の出現頻度に応じて2分木を構成し、頻度の高い記号に短いビット列を割り当てる符号化方式。可逆のデータ圧縮(情報源符号化)の代表的な手法として広く利用される。"
+  },
+  {
+    "id": "fundamentals-026",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "逆ポーランド表記法",
+    "aliases": ["後置記法", "RPN"],
+    "question": "演算子を2つのオペランドの後ろに置いて式を表す、スタックを使った計算に適した数式の表記法を何というか。",
+    "hint": "括弧や演算子の優先順位を考慮せずに式を評価できる記法",
+    "explanation": "逆ポーランド表記法(後置記法)は、演算子をオペランドの後に書く数式表記法で、スタックを使って括弧なしに式を機械的に評価できる。通常の中置記法から変換してコンパイラなどで利用される。"
+  },
+  {
+    "id": "fundamentals-027",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "有限オートマトン",
+    "aliases": ["FA", "Finite Automaton"],
+    "question": "有限個の状態と、入力に応じた状態遷移の規則から、記号列を受理するかどうかを判定する計算モデルを何というか。",
+    "hint": "状態遷移図や状態遷移表で表され、形式言語の受理判定に用いられる",
+    "explanation": "有限オートマトン(FA:Finite Automaton)は、有限個の状態と遷移規則を持ち、入力記号列を受理するかどうかを判定する計算モデル。状態遷移図や状態遷移表で表現され、形式言語理論と関係が深い。"
+  },
+  {
+    "id": "fundamentals-028",
+    "categoryId": "fundamentals",
+    "difficulty": "hard",
+    "term": "オーダー記法",
+    "aliases": ["O記法", "計算量オーダー"],
+    "question": "入力のデータ量が増えたときに、処理時間や使用メモリがどの程度の割合で増加するかを大まかに表す方法を何というか。",
+    "hint": "O(n)やO(log n)のように、増加の傾向を大まかに表す表現である",
+    "explanation": "オーダー記法(O記法)は、入力サイズの増加に対する処理時間や記憶量の増加傾向を大まかに表す記法。アルゴリズムの計算量を比較・評価する際の代表的な指標として用いられる。"
+  }
+]

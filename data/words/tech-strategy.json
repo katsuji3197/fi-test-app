@@ -1,0 +1,142 @@
+[
+  {
+    "id": "tech-strategy-001",
+    "categoryId": "tech-strategy",
+    "difficulty": "medium",
+    "term": "MOT",
+    "aliases": ["Management of Technology", "技術経営"],
+    "question": "技術に立脚する事業を行う企業が、技術開発への投資と事業戦略を結びつけ、継続的な発展を実現するための経営の考え方を何というか。",
+    "hint": "技術力を単なる研究開発にとどめず、事業成果に結びつける経営手法である。",
+    "explanation": "MOT(Management of Technology:技術経営)は、技術開発を経営や事業戦略と結びつけ、技術を持続的な企業価値の創出につなげるための経営の考え方・手法である。"
+  },
+  {
+    "id": "tech-strategy-002",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "オープンイノベーション",
+    "aliases": ["Open Innovation"],
+    "question": "自社内部の資源だけでなく、他社や大学、研究機関など外部の技術・知識を積極的に取り入れて新たな価値を創出する手法を何というか。",
+    "hint": "自前主義とは対照的に、社外のアイデアや技術を活用する考え方である。",
+    "explanation": "オープンイノベーションは、自社内部の研究開発資源だけに頼らず、社外の企業、大学、研究機関などが持つ技術やアイデアを積極的に取り込むことで、革新的な価値創出を目指す手法である。"
+  },
+  {
+    "id": "tech-strategy-003",
+    "categoryId": "tech-strategy",
+    "difficulty": "hard",
+    "term": "イノベーションのジレンマ",
+    "aliases": ["Innovator's Dilemma"],
+    "question": "業界の優良企業が、既存顧客の要求に応え続けることに注力するあまり、破壊的な新技術への対応が遅れて競争力を失ってしまう現象を何というか。",
+    "hint": "「優良企業ほど陥りやすい」というパラドックスを表す言葉である。",
+    "explanation": "イノベーションのジレンマは、業界をリードする優良企業が、既存の主力事業や顧客のニーズに最適化するあまり、破壊的な技術革新への対応が遅れ、新興企業に市場を奪われてしまう現象を指す。"
+  },
+  {
+    "id": "tech-strategy-004",
+    "categoryId": "tech-strategy",
+    "difficulty": "medium",
+    "term": "リーンスタートアップ",
+    "aliases": ["Lean Startup"],
+    "question": "最小限の機能を持つ試作品を短期間で構築し、顧客の反応を見ながら学習と改善を繰り返して事業を検証していく新規事業開発の手法を何というか。",
+    "hint": "「構築-計測-学習」のサイクルを高速に繰り返す点が特徴である。",
+    "explanation": "リーンスタートアップは、必要最小限の機能を備えた試作品(MVP)を短期間で構築し、顧客の反応から学習を得て改善を繰り返すことで、無駄を省きながら新規事業を検証・成長させる手法である。"
+  },
+  {
+    "id": "tech-strategy-005",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "APIエコノミー",
+    "aliases": ["API Economy"],
+    "question": "企業が自社の機能やデータをAPIとして公開し、他社のサービスと連携させることで新たな価値やビジネスを生み出す経済圏を何というか。",
+    "hint": "自社サービスを外部から呼び出し可能にする仕組みを軸にした経済圏である。",
+    "explanation": "APIエコノミーは、企業が自社の機能やデータをAPI(Application Programming Interface)として外部に公開し、他社サービスとの連携を通じて新たなビジネス価値を創出する経済の仕組みを指す。"
+  },
+  {
+    "id": "tech-strategy-006",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "R&D",
+    "aliases": ["Research and Development", "研究開発"],
+    "question": "新しい製品や技術を生み出すために行われる、基礎研究から応用・開発までの一連の活動を何というか。",
+    "hint": "企業の技術開発投資の中核となる、研究と開発を合わせた活動である。",
+    "explanation": "R&D(Research and Development:研究開発)は、新製品・新技術の創出を目的とした、基礎研究、応用研究、開発の一連の活動を指す。技術開発戦略における投資の中心的な対象となる。"
+  },
+  {
+    "id": "tech-strategy-007",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "VC",
+    "aliases": ["Venture Capital", "ベンチャーキャピタル"],
+    "question": "将来性のある未上場のベンチャー企業に対して出資を行い、株式の売却などで利益を得ることを目的とする投資会社・投資ファンドを何というか。",
+    "hint": "事業会社自身が自社の戦略目的で出資する形態とは異なる、投資を専門に行う会社である。",
+    "explanation": "VC(Venture Capital:ベンチャーキャピタル)は、将来の成長が見込まれる未上場企業(ベンチャー企業)に出資し、株式公開(IPO)や売却によるキャピタルゲインの獲得を目的とする投資会社・ファンドである。事業会社が戦略的に出資するCVCと区別される。"
+  },
+  {
+    "id": "tech-strategy-008",
+    "categoryId": "tech-strategy",
+    "difficulty": "medium",
+    "term": "CVC",
+    "aliases": ["Corporate Venture Capital", "コーポレートベンチャーキャピタル"],
+    "question": "事業会社が自社の戦略的な目的のために、ベンチャー企業へ出資を行う仕組みを何というか。",
+    "hint": "投資収益のみを目的とする独立系の投資会社とは異なり、事業シナジーを重視する。",
+    "explanation": "CVC(Corporate Venture Capital:コーポレートベンチャーキャピタル)は、事業会社が自社の新規事業創出や技術獲得などの戦略的な目的をもって、ベンチャー企業に出資する仕組みである。投資収益を主目的とするVC(ベンチャーキャピタル)と対比される。"
+  },
+  {
+    "id": "tech-strategy-009",
+    "categoryId": "tech-strategy",
+    "difficulty": "hard",
+    "term": "キャズム",
+    "aliases": ["Chasm"],
+    "question": "新しい技術や製品が、初期に採用する層と、その後の多数派の顧客層との間で普及が急激に停滞してしまう溝を何というか。",
+    "hint": "新技術の普及過程において、初期採用者と多数派の間に存在する深い溝を表す。",
+    "explanation": "キャズムは、新技術・新製品の普及過程において、目新しさを好む初期採用者(アーリーアダプター)と、実利を重視する多数派(アーリーマジョリティ)との間に生じる、普及が停滞しやすい深い溝を指す概念である。"
+  },
+  {
+    "id": "tech-strategy-010",
+    "categoryId": "tech-strategy",
+    "difficulty": "medium",
+    "term": "死の谷",
+    "aliases": ["Valley of Death"],
+    "question": "研究開発の成果を製品化する段階において、資金や人材などの経営資源が不足し、事業化が進まなくなる障壁を何というか。",
+    "hint": "研究から事業化に至る過程で乗り越えるべき、複数ある障壁の一つである。",
+    "explanation": "死の谷(Valley of Death)は、研究開発の成果を製品化・事業化する段階で、資金や人材などの経営資源不足により事業化が停滞してしまう障壁を指す。研究段階の障壁である魔の川、事業化後の障壁であるダーウィンの海とあわせて、価値創出の3つの関門として整理される。"
+  },
+  {
+    "id": "tech-strategy-011",
+    "categoryId": "tech-strategy",
+    "difficulty": "hard",
+    "term": "ダーウィンの海",
+    "aliases": ["Darwinian Sea"],
+    "question": "製品化された技術が市場に投入された後、競合他社の製品やサービスとの激しい競争を勝ち抜かなければならない段階を何というか。",
+    "hint": "「適者生存」を連想させる名称で、事業化後に待ち受ける市場競争の関門を表す。",
+    "explanation": "ダーウィンの海(Darwinian Sea)は、製品化・事業化された技術が市場に投入された後、他社製品との競争や顧客獲得競争に晒される段階を指す。研究開発段階の障壁である魔の川、事業化段階の障壁である死の谷に続く、価値実現の最終関門として位置付けられる。"
+  },
+  {
+    "id": "tech-strategy-012",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "PoC",
+    "aliases": ["Proof of Concept", "概念実証"],
+    "question": "新しい技術やアイデアが実現可能であるかを、本格的な開発の前に検証する取り組みを何というか。",
+    "hint": "本格導入前の小規模な試行によって、実現可能性を確かめる段階である。",
+    "explanation": "PoC(Proof of Concept:概念実証)は、新しい技術・アイデア・ビジネスモデルが実現可能かどうかを、本格的な開発・導入に先立って小規模に検証する取り組みである。技術的な実現性の検証に重点を置く点で、価値の実証に重点を置くPoV(Proof of Value)と区別される。"
+  },
+  {
+    "id": "tech-strategy-013",
+    "categoryId": "tech-strategy",
+    "difficulty": "easy",
+    "term": "産学官連携",
+    "aliases": [],
+    "question": "民間企業、大学などの研究機関、国や地方自治体が連携して、新たな技術開発やイノベーションの創出に取り組む枠組みを何というか。",
+    "hint": "三者の頭文字にちなむ名称で、研究成果の実用化促進を目的とする。",
+    "explanation": "産学官連携は、民間企業(産)、大学など研究機関(学)、国や自治体(官)が協力して技術開発や研究成果の実用化、イノベーション創出に取り組む枠組みである。技術開発戦略における外部資源活用の一形態として位置付けられる。"
+  },
+  {
+    "id": "tech-strategy-014",
+    "categoryId": "tech-strategy",
+    "difficulty": "medium",
+    "term": "技術ロードマップ",
+    "aliases": ["Technology Roadmap"],
+    "question": "将来の技術動向や製品展開を、科学的な裏付けと関係者の合意に基づいて時系列で描いた計画図を何というか。",
+    "hint": "技術の進化や製品展開のシナリオを、時間軸に沿って示す図である。",
+    "explanation": "技術ロードマップは、将来の技術動向や製品展開のシナリオを、科学的な裏付けと関係者間のコンセンサスに基づいて時系列で描いた計画図である。技術開発計画の立案において、中長期的な技術戦略の方向性を関係者間で共有するために用いられる。"
+  }
+]
