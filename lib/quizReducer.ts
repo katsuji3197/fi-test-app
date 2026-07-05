@@ -10,6 +10,7 @@ import { isAnswerCorrect, normalizeAnswer } from "./quiz";
 
 export interface CurrentQuestionState {
   status: "answering" | "resolved";
+  answerMode: "free" | "choice";
   hintVisible: boolean;
   choices: string[] | null;
   freeTextValue: string;
@@ -31,6 +32,7 @@ export interface QuizSessionState {
 function freshQuestionState(): CurrentQuestionState {
   return {
     status: "answering",
+    answerMode: "free",
     hintVisible: false,
     choices: null,
     freeTextValue: "",
@@ -55,9 +57,10 @@ export function createInitialSessionState(words: WordEntry[]): QuizSessionState 
 export type QuizAction =
   | { type: "UPDATE_FREE_TEXT"; text: string }
   | { type: "SUBMIT_FREE_TEXT" }
-  | { type: "SHOW_HINT" }
-  | { type: "SHOW_CHOICES"; choices: string[] }
+  | { type: "TOGGLE_HINT" }
+  | { type: "SET_ANSWER_MODE"; mode: "free" | "choice"; choices?: string[] }
   | { type: "SELECT_CHOICE"; choice: string }
+  | { type: "SUBMIT_CHOICE" }
   | { type: "GIVE_UP" }
   | { type: "NEXT_QUESTION" };
 
@@ -116,20 +119,49 @@ export function quizReducer(
       const correct = isAnswerCorrect(text, currentWord);
       return resolve(state, correct ? "correct" : "incorrect", "free", text);
     }
-    case "SHOW_HINT": {
+    case "TOGGLE_HINT": {
       if (state.question.status !== "answering") return state;
-      return { ...state, question: { ...state.question, hintVisible: true } };
+      return {
+        ...state,
+        question: {
+          ...state.question,
+          hintVisible: !state.question.hintVisible,
+        },
+      };
     }
-    case "SHOW_CHOICES": {
-      if (state.question.status !== "answering" || state.question.choices) return state;
-      return { ...state, question: { ...state.question, choices: action.choices } };
+    case "SET_ANSWER_MODE": {
+      if (state.question.status !== "answering") return state;
+      const choices =
+        action.mode === "choice"
+          ? (action.choices ?? state.question.choices)
+          : state.question.choices;
+      if (action.mode === "choice" && !choices) return state;
+      return {
+        ...state,
+        question: {
+          ...state.question,
+          answerMode: action.mode,
+          choices,
+          selectedChoice: null,
+        },
+      };
     }
     case "SELECT_CHOICE": {
       if (state.question.status !== "answering") return state;
+      if (state.question.answerMode !== "choice") return state;
+      return {
+        ...state,
+        question: { ...state.question, selectedChoice: action.choice },
+      };
+    }
+    case "SUBMIT_CHOICE": {
+      if (state.question.status !== "answering") return state;
+      const choice = state.question.selectedChoice;
+      if (!choice) return state;
       const correct =
-        normalizeAnswer(action.choice) === normalizeAnswer(currentWord.term);
-      return resolve(state, correct ? "correct" : "incorrect", "choice", action.choice, {
-        selectedChoice: action.choice,
+        normalizeAnswer(choice) === normalizeAnswer(currentWord.term);
+      return resolve(state, correct ? "correct" : "incorrect", "choice", choice, {
+        selectedChoice: choice,
       });
     }
     case "GIVE_UP": {
