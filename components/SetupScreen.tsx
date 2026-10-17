@@ -91,6 +91,15 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
 
   const canStart = filteredCount > 0 && questionCount > 0;
   const sliderIndex = Math.max(0, questionCountOptions.indexOf(questionCount));
+  const canDecrease = sliderIndex > 0;
+  const canIncrease =
+    questionCountOptions.length > 0 &&
+    sliderIndex < questionCountOptions.length - 1;
+
+  function stepQuestionCount(direction: -1 | 1) {
+    const next = questionCountOptions[sliderIndex + direction];
+    if (next !== undefined) setSelectedCount(next);
+  }
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -226,16 +235,36 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           <p className="mt-1 text-xs text-slate-500">
             現在の条件で出題できる単語は{" "}
             <span className="font-semibold text-indigo-600">{filteredCount}語</span>
-            です。スライダーで出題数を調整できます(10問刻み)。
+            です。スライダー、または左右のボタンで出題数を調整できます(10問刻み)。
           </p>
           {questionCountOptions.length > 0 ? (
             <div className="mt-5">
-              <p className="text-center">
-                <span className="text-3xl font-bold tabular-nums text-indigo-600">
-                  {questionCount}
-                </span>
-                <span className="ml-1 text-lg font-semibold text-indigo-600">問</span>
-              </p>
+              <div className="flex items-center justify-center gap-3 sm:gap-5">
+                <button
+                  type="button"
+                  onClick={() => stepQuestionCount(-1)}
+                  disabled={!canDecrease}
+                  aria-label="出題数を10問減らす"
+                  className="flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none font-medium text-slate-700 shadow-sm transition-colors hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-300 disabled:shadow-none sm:size-12"
+                >
+                  −
+                </button>
+                <p className="min-w-24 text-center">
+                  <span className="text-3xl font-bold tabular-nums text-indigo-600">
+                    {questionCount}
+                  </span>
+                  <span className="ml-1 text-lg font-semibold text-indigo-600">問</span>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => stepQuestionCount(1)}
+                  disabled={!canIncrease}
+                  aria-label="出題数を10問増やす"
+                  className="flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none font-medium text-slate-700 shadow-sm transition-colors hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-300 disabled:shadow-none sm:size-12"
+                >
+                  +
+                </button>
+              </div>
               {questionCountOptions.length > 1 ? (
                 <input
                   type="range"
