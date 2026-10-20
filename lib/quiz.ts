@@ -109,8 +109,9 @@ export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   hard: "むずかしい",
 };
 
+// 正誤（緑・黄・赤）と色の意味が衝突しないよう、難易度は indigo の濃淡で表す
 export const DIFFICULTY_BADGE_CLASSES: Record<Difficulty, string> = {
-  easy: "bg-emerald-100 text-emerald-700 ring-emerald-600/20",
-  medium: "bg-amber-100 text-amber-700 ring-amber-600/20",
-  hard: "bg-rose-100 text-rose-700 ring-rose-600/20",
+  easy: "bg-white text-indigo-700 ring-indigo-200",
+  medium: "bg-indigo-50 text-indigo-700 ring-indigo-300",
+  hard: "bg-indigo-600 text-white ring-indigo-600",
 };

@@ -3,6 +3,14 @@
 import type { AnsweredRecord, QuizStats, WordEntry } from "@/lib/types";
 import { getCategoryById } from "@/lib/categories";
 import StatsBar from "./StatsBar";
+import Button from "./ui/Button";
+
+function resultMessage(accuracy: number, mistakeCount: number): string {
+  if (mistakeCount === 0) return "全問正解です。";
+  if (accuracy >= 80) return "よくできました。間違えた問題だけ、もう一度。";
+  if (accuracy >= 50) return "半分は押さえられています。復習リストを見返しましょう。";
+  return "復習リストから、間違えた用語を固めましょう。";
+}
 
 interface ResultScreenProps {
   stats: QuizStats;
@@ -48,11 +56,12 @@ export default function ResultScreen({
       </header>
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-        <p className="text-sm text-slate-500">正答率(自由記述・選択肢の合計)</p>
+        <p className="text-sm text-slate-600">正答率（自由記述・選択肢の合計）</p>
         <p className="mt-1 text-5xl font-bold text-indigo-600">{accuracy}%</p>
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-sm text-slate-600">
           全{total}問中 {totalCorrect}問正解
         </p>
+        <p className="mt-3 text-sm text-slate-700">{resultMessage(accuracy, reviewItems.length)}</p>
 
         <div className="mt-6">
           <StatsBar stats={stats} />
@@ -62,7 +71,7 @@ export default function ResultScreen({
       {reviewItems.length > 0 && (
         <div className="mt-6">
           <h2 className="mb-3 text-base font-semibold text-slate-900">
-            復習リスト(不正解・ギブアップした問題)
+            復習リスト（不正解・ギブアップした問題）
           </h2>
           <ul className="space-y-3">
             {reviewItems.map((item, index) => {
@@ -72,7 +81,7 @@ export default function ResultScreen({
                   key={`${item.word.id}-${index}`}
                   className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
                 >
-                  <div className="flex items-center gap-2 text-xs text-slate-500">
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
                     <span
                       className={`inline-block size-1.5 rounded-full ${OUTCOME_DOT[item.outcome]}`}
                     />
@@ -83,11 +92,11 @@ export default function ResultScreen({
                   </div>
                   <p className="mt-1.5 text-sm text-slate-600">{item.word.question}</p>
                   <p className="mt-1.5 text-base font-bold text-slate-900">
-                    正解: {item.word.term}
+                    正解：{item.word.term}
                   </p>
                   {item.userAnswer && (
                     <p className="mt-0.5 text-sm text-rose-700">
-                      あなたの回答: {item.userAnswer}
+                      あなたの回答：{item.userAnswer}
                     </p>
                   )}
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
@@ -100,34 +109,30 @@ export default function ResultScreen({
         </div>
       )}
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        {reviewItems.length > 0 && (
-          <button
-            type="button"
+      <div className="mt-8 flex flex-col gap-3">
+        {reviewItems.length > 0 ? (
+          <Button
+            size="lg"
+            className="w-full"
             onClick={() => onRetryMistakes(reviewItems.map((item) => item.word))}
-            className="flex-1 rounded-xl bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
           >
             間違えた{reviewItems.length}問だけ解き直す
-          </button>
+          </Button>
+        ) : (
+          <Button size="lg" className="w-full" onClick={onRestartSame}>
+            同じ条件でもう一度
+          </Button>
         )}
-        <button
-          type="button"
-          onClick={onRestartSame}
-          className={`flex-1 rounded-xl px-6 py-3 text-center text-sm font-semibold transition-colors ${
-            reviewItems.length > 0
-              ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-              : "bg-indigo-600 text-white shadow-sm hover:bg-indigo-700"
-          }`}
-        >
-          同じ条件でもう一度
-        </button>
-        <button
-          type="button"
-          onClick={onBackToSetup}
-          className="flex-1 rounded-xl border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
-        >
-          設定を変更する
-        </button>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          {reviewItems.length > 0 && (
+            <Button variant="secondary" size="lg" className="w-full flex-1" onClick={onRestartSame}>
+              同じ条件でもう一度
+            </Button>
+          )}
+          <Button variant="secondary" size="lg" className="w-full flex-1" onClick={onBackToSetup}>
+            設定を変更する
+          </Button>
+        </div>
       </div>
     </div>
   );
