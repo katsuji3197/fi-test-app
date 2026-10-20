@@ -216,7 +216,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                             />
                             {category.name}
                           </span>
-                          <span className="shrink-0 text-xs tabular-nums text-slate-400">
+                          <span className="shrink-0 text-xs tabular-nums text-slate-500">
                             {count}語
                           </span>
                         </label>
@@ -286,7 +286,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
               ) : (
                 <div className="mt-4 h-2 rounded-full bg-indigo-100" aria-hidden />
               )}
-              <div className="mt-2 flex justify-between text-xs tabular-nums text-slate-400">
+              <div className="mt-2 flex justify-between text-xs tabular-nums text-slate-500">
                 <span>{questionCountOptions[0]}問</span>
                 <span>
                   {questionCountOptions[questionCountOptions.length - 1]}問
@@ -301,7 +301,8 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
         </section>
       </div>
 
-      <div className="mt-8">
+      {/* モバイルでは開始ボタンを画面下に固定し、スクロールせずに開始できるようにする */}
+      <div className="sticky bottom-0 z-10 -mx-4 mt-8 border-t border-slate-200 bg-slate-50/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:p-0">
         <button
           type="button"
           disabled={!canStart}
@@ -314,7 +315,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
         </button>
       </div>
 
-      <p className="mt-6 text-center text-xs text-slate-400">
+      <p className="mt-6 text-center text-xs text-slate-500">
         全{ALL_WORDS.length}語収録 ・ IPA基本情報技術者試験シラバス準拠
       </p>
     </div>

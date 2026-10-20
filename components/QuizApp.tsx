@@ -43,6 +43,13 @@ export default function QuizApp() {
     setScreen("setup");
   }, []);
 
+  const handleRetryMistakes = useCallback((words: WordEntry[]) => {
+    if (!run || words.length === 0) return;
+    setRun({ ...run, quizWords: pickQuizWords(words, words.length) });
+    setRunKey((k) => k + 1);
+    setScreen("quiz");
+  }, [run]);
+
   const handleRestartSame = useCallback(() => {
     if (!run) return;
     startWithSettings(run.settings);
@@ -65,6 +72,7 @@ export default function QuizApp() {
           stats={resultData.stats}
           history={resultData.history}
           onRestartSame={handleRestartSame}
+          onRetryMistakes={handleRetryMistakes}
           onBackToSetup={handleBackToSetup}
         />
       )}

@@ -30,6 +30,7 @@ export default function QuizScreen({
     createInitialSessionState
   );
   const inputRef = useRef<HTMLInputElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (state.finished) {
@@ -42,6 +43,10 @@ export default function QuizScreen({
     const q = state.questionStates[state.currentIndex];
     if (q?.status === "answering" && q.answerMode === "free") {
       inputRef.current?.focus();
+    }
+    // 回答確定で入力欄が消えるとフォーカスが body に落ち、Enter で次へ進めなくなる
+    if (q?.status === "resolved") {
+      nextButtonRef.current?.focus();
     }
   }, [state.currentIndex, state.questionStates]);
 
@@ -178,7 +183,7 @@ export default function QuizScreen({
         <button
           type="button"
           onClick={handleAbort}
-          className="text-xs font-medium text-slate-400 hover:text-slate-600"
+          className="text-xs font-medium text-slate-500 hover:text-slate-700"
         >
           学習を中断する
         </button>
@@ -331,7 +336,8 @@ export default function QuizScreen({
         {!isAnswering && question.outcome && (
           <div className="mt-6 space-y-4">
             <div
-              className={`flex items-center justify-between rounded-lg px-4 py-3 ring-1 ring-inset ${
+              role="status"
+              className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
                 outcomeMeta[question.outcome].className
               }`}
             >
@@ -354,7 +360,7 @@ export default function QuizScreen({
                 {currentWord.term}
               </p>
               {currentWord.aliases.length > 0 && (
-                <p className="mt-1 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-slate-500">
                   別解: {currentWord.aliases.join(" / ")}
                 </p>
               )}
@@ -368,6 +374,7 @@ export default function QuizScreen({
             </div>
 
             <button
+              ref={nextButtonRef}
               type="button"
               onClick={() => dispatch({ type: "NEXT_QUESTION" })}
               className="w-full rounded-xl bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"

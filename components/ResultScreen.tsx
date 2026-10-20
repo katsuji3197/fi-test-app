@@ -1,6 +1,6 @@
 "use client";
 
-import type { AnsweredRecord, QuizStats } from "@/lib/types";
+import type { AnsweredRecord, QuizStats, WordEntry } from "@/lib/types";
 import { getCategoryById } from "@/lib/categories";
 import StatsBar from "./StatsBar";
 
@@ -8,6 +8,7 @@ interface ResultScreenProps {
   stats: QuizStats;
   history: AnsweredRecord[];
   onRestartSame: () => void;
+  onRetryMistakes: (words: WordEntry[]) => void;
   onBackToSetup: () => void;
 }
 
@@ -27,6 +28,7 @@ export default function ResultScreen({
   stats,
   history,
   onRestartSame,
+  onRetryMistakes,
   onBackToSetup,
 }: ResultScreenProps) {
   const total = history.length;
@@ -48,7 +50,7 @@ export default function ResultScreen({
       <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
         <p className="text-sm text-slate-500">正答率(自由記述・選択肢の合計)</p>
         <p className="mt-1 text-5xl font-bold text-indigo-600">{accuracy}%</p>
-        <p className="mt-1 text-sm text-slate-400">
+        <p className="mt-1 text-sm text-slate-500">
           全{total}問中 {totalCorrect}問正解
         </p>
 
@@ -70,7 +72,7 @@ export default function ResultScreen({
                   key={`${item.word.id}-${index}`}
                   className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
                 >
-                  <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <div className="flex items-center gap-2 text-xs text-slate-500">
                     <span
                       className={`inline-block size-1.5 rounded-full ${OUTCOME_DOT[item.outcome]}`}
                     />
@@ -83,7 +85,12 @@ export default function ResultScreen({
                   <p className="mt-1.5 text-base font-bold text-slate-900">
                     正解: {item.word.term}
                   </p>
-                  <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+                  {item.userAnswer && (
+                    <p className="mt-0.5 text-sm text-rose-700">
+                      あなたの回答: {item.userAnswer}
+                    </p>
+                  )}
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                     {item.word.explanation}
                   </p>
                 </li>
@@ -94,10 +101,23 @@ export default function ResultScreen({
       )}
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        {reviewItems.length > 0 && (
+          <button
+            type="button"
+            onClick={() => onRetryMistakes(reviewItems.map((item) => item.word))}
+            className="flex-1 rounded-xl bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
+          >
+            間違えた{reviewItems.length}問だけ解き直す
+          </button>
+        )}
         <button
           type="button"
           onClick={onRestartSame}
-          className="flex-1 rounded-xl bg-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
+          className={`flex-1 rounded-xl px-6 py-3 text-center text-sm font-semibold transition-colors ${
+            reviewItems.length > 0
+              ? "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+              : "bg-indigo-600 text-white shadow-sm hover:bg-indigo-700"
+          }`}
         >
           同じ条件でもう一度
         </button>
