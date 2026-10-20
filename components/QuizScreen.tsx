@@ -46,6 +46,8 @@ export default function QuizScreen({
   const inputRef = useRef<HTMLInputElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
   const continueRef = useRef<HTMLButtonElement>(null);
+  const abortButtonRef = useRef<HTMLButtonElement>(null);
+  const wasAbortOpenRef = useRef(false);
   const modeRefs = useRef<Partial<Record<"free" | "choice", HTMLButtonElement | null>>>({});
   // 1〜4 の直後の Enter が、effect の再購読より先に届いても選択を見失わないようにする
   const selectedChoiceRef = useRef<string | null>(null);
@@ -69,7 +71,14 @@ export default function QuizScreen({
   }, [state.currentIndex, state.questionStates]);
 
   useEffect(() => {
-    if (confirmAbort) continueRef.current?.focus();
+    if (confirmAbort) {
+      continueRef.current?.focus();
+    } else if (wasAbortOpenRef.current) {
+      // 続ける / Esc / 背景クリックのあと、開いたボタンへ戻す。
+      // focusVisible はキーボード操作のリングを残すため（DOM 型には未収録）
+      abortButtonRef.current?.focus({ focusVisible: true } as FocusOptions);
+    }
+    wasAbortOpenRef.current = confirmAbort;
   }, [confirmAbort]);
 
   useEffect(() => {
@@ -98,9 +107,12 @@ export default function QuizScreen({
       }
 
       if (event.key !== "Enter" || !selectedChoiceRef.current) return;
-      // ヒント・移動・中断など、回答以外のボタンの Enter は奪わない
-      if (target?.closest("[data-keep-enter]")) return;
-      if (target instanceof HTMLButtonElement && target.type === "submit") return;
+      if (target instanceof HTMLButtonElement) {
+        // 選択肢以外（radio・ナビ・ヒント等）はボタン本来の Enter に任せる
+        if (!target.hasAttribute("data-choice")) return;
+        // まだ選ばれていない選択肢の Enter は「選択」だけにする
+        if (target.getAttribute("aria-pressed") !== "true") return;
+      }
       event.preventDefault();
       dispatch({ type: "SUBMIT_CHOICE" });
     }
@@ -215,14 +227,14 @@ export default function QuizScreen({
       {confirmAbort && (
         <div
           className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 p-4 sm:items-center"
-          onMouseDown={() => setConfirmAbort(false)}
+          onClick={() => setConfirmAbort(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="abort-title"
             className="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-5 shadow-lg"
-            onMouseDown={(event) => event.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
             onKeyDown={handleDialogKeyDown}
           >
             <h2 id="abort-title" className="text-base font-semibold text-slate-900">
@@ -261,7 +273,6 @@ export default function QuizScreen({
               onClick={() => dispatch({ type: "PREV_QUESTION" })}
               disabled={!canGoPrev}
               aria-label="前の問題を表示"
-              data-keep-enter=""
               className={navButtonClass}
             >
               <svg aria-hidden viewBox="0 0 20 20" fill="currentColor" className="size-5">
@@ -280,7 +291,6 @@ export default function QuizScreen({
               onClick={() => dispatch({ type: "NAV_NEXT" })}
               disabled={!canGoNext}
               aria-label="次の問題を表示"
-              data-keep-enter=""
               className={navButtonClass}
             >
               <svg aria-hidden viewBox="0 0 20 20" fill="currentColor" className="size-5">
@@ -293,10 +303,10 @@ export default function QuizScreen({
             </button>
           </div>
           <Button
+            ref={abortButtonRef}
             variant="ghost"
             size="md"
             className="shrink-0 px-2 text-xs"
-            data-keep-enter=""
             onClick={() => setConfirmAbort(true)}
           >
             学習を中断する
@@ -422,13 +432,12 @@ export default function QuizScreen({
               <div className="mt-3 flex flex-wrap gap-2">
                 <button
                   type="button"
-                  data-keep-enter=""
                   onClick={() => dispatch({ type: "TOGGLE_HINT" })}
                   className={`min-h-11 rounded-lg border border-amber-300 bg-amber-50 px-4 text-sm font-semibold text-amber-800 transition-colors hover:bg-amber-100 ${focusRing}`}
                 >
                   {question.hintVisible ? "ヒントを閉じる" : "ヒントを見る"}
                 </button>
-                <Button variant="secondary" data-keep-enter="" onClick={() => dispatch({ type: "GIVE_UP" })}>
+                <Button variant="secondary" onClick={() => dispatch({ type: "GIVE_UP" })}>
                   ギブアップ
                 </Button>
               </div>
@@ -524,7 +533,6 @@ export default function QuizScreen({
               <Button
                 ref={nextButtonRef}
                 size="lg"
-                data-keep-enter=""
                 onClick={() => dispatch({ type: "NEXT_QUESTION" })}
                 className="w-full"
               >
