@@ -2,6 +2,8 @@
 
 :root {
   --background: #ffffff;
+  --foreground: #0f172a; /* slate-900。未定義だと本文色がブラウザ既定に依存する */
+  color-scheme: light; /* ダークモードは未対応のため、ネイティブ UI もライトに固定する */
 }
 
 @theme inline {
@@ -11,16 +13,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* 欧文は Geist。和文は各 OS のゴシックへ明示的にフォールバックする */
+  font-family:
+    var(--font-geist-sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "BIZ UDPGothic", "Yu Gothic UI", Meiryo, "Noto Sans JP", sans-serif;
+  line-break: strict;
+}
+
+/* 見出しは文節で折り返す（未対応ブラウザは無視する） */
+h1,
+h2,
+h3 {
+  word-break: auto-phrase;
 }
 
 @keyframes correct-pop {
@@ -45,10 +52,22 @@ body {
   }
 }
 
+@keyframes correct-fade-reduced {
+  to {
+    opacity: 0;
+  }
+}
+
 .correct-effect-circle {
   animation:
     correct-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
     correct-fade-out 0.35s ease-in 0.9s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .correct-effect-circle {
+    animation: correct-fade-reduced 0.2s ease-in 0.45s forwards;
+  }
 }
 
 .question-count-slider {
@@ -65,7 +84,10 @@ body {
 }
 
 .question-count-slider:focus-visible {
-  box-shadow: 0 0 0 3px rgb(199 210 254);
+  /* indigo-200 は白地で約 1.4:1 と弱いため、indigo-500 と offset にする */
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #6366f1;
 }
 
 .question-count-slider::-webkit-slider-thumb {
