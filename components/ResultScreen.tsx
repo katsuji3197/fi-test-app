@@ -19,6 +19,7 @@ interface ResultScreenProps {
   onRetryMistakes: (words: WordEntry[]) => void;
   onBackToSetup: () => void;
   savedLocally?: boolean;
+  isRetry?: boolean;
 }
 
 const OUTCOME_LABEL: Record<AnsweredRecord["outcome"], string> = {
@@ -40,11 +41,13 @@ export default function ResultScreen({
   onRetryMistakes,
   onBackToSetup,
   savedLocally = false,
+  isRetry = false,
 }: ResultScreenProps) {
   const total = history.length;
   const totalCorrect = stats.correctFree + stats.correctChoice;
   const accuracy = total > 0 ? Math.round((totalCorrect / total) * 100) : 0;
   const reviewItems = history.filter((h) => h.outcome !== "correct");
+  const againLabel = isRetry ? "最初の条件で新しく出題" : "同じ条件でもう一度";
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10 sm:px-6">
@@ -127,13 +130,13 @@ export default function ResultScreen({
           </Button>
         ) : (
           <Button size="lg" className="w-full" onClick={onRestartSame}>
-            同じ条件でもう一度
+            {againLabel}
           </Button>
         )}
         <div className="flex flex-col gap-3 sm:flex-row">
           {reviewItems.length > 0 && (
             <Button variant="secondary" size="lg" className="w-full flex-1" onClick={onRestartSame}>
-              同じ条件でもう一度
+              {againLabel}
             </Button>
           )}
           <Button variant="secondary" size="lg" className="w-full flex-1" onClick={onBackToSetup}>
