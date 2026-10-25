@@ -9,22 +9,22 @@ export default function StatsBar({ stats }: StatsBarProps) {
     {
       label: "正答(自由記述)",
       value: stats.correctFree,
-      className: "bg-emerald-50 text-emerald-700 ring-emerald-600/20",
+      className: "bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-950 dark:text-emerald-300 dark:ring-emerald-800",
     },
     {
       label: "正答(選択肢)",
       value: stats.correctChoice,
-      className: "bg-teal-50 text-teal-700 ring-teal-600/20",
+      className: "bg-teal-50 text-teal-700 ring-teal-600/20 dark:bg-teal-950 dark:text-teal-300 dark:ring-teal-800",
     },
     {
       label: "不正解",
       value: stats.incorrect,
-      className: "bg-rose-50 text-rose-700 ring-rose-600/20",
+      className: "bg-rose-50 text-rose-700 ring-rose-600/20 dark:bg-rose-950 dark:text-rose-300 dark:ring-rose-800",
     },
     {
       label: "ギブアップ",
       value: stats.giveUp,
-      className: "bg-amber-50 text-amber-700 ring-amber-600/20",
+      className: "bg-amber-50 text-amber-700 ring-amber-600/20 dark:bg-amber-950 dark:text-amber-300 dark:ring-amber-800",
     },
   ];
 

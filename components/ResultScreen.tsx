@@ -47,21 +47,21 @@ export default function ResultScreen({
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10 sm:px-6">
       <header className="mb-6 text-center">
-        <p className="text-sm font-semibold tracking-wide text-indigo-600">
+        <p className="text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-300">
           お疲れさまでした
         </p>
-        <h1 className="mt-1 text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h1 className="mt-1 text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl">
           結果発表
         </h1>
       </header>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-        <p className="text-sm text-slate-600">正答率（自由記述・選択肢の合計）</p>
-        <p className="mt-1 text-5xl font-bold text-indigo-600">{accuracy}%</p>
-        <p className="mt-1 text-sm text-slate-600">
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-6 text-center shadow-sm dark:shadow-none">
+        <p className="text-sm text-slate-600 dark:text-slate-300">正答率（自由記述・選択肢の合計）</p>
+        <p className="mt-1 text-5xl font-bold text-indigo-600 dark:text-indigo-300">{accuracy}%</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
           全{total}問中 {totalCorrect}問正解
         </p>
-        <p className="mt-3 text-sm text-slate-700">{resultMessage(accuracy, reviewItems.length)}</p>
+        <p className="mt-3 text-sm text-slate-700 dark:text-slate-200">{resultMessage(accuracy, reviewItems.length)}</p>
 
         <div className="mt-6">
           <StatsBar stats={stats} />
@@ -70,7 +70,7 @@ export default function ResultScreen({
 
       {reviewItems.length > 0 && (
         <div className="mt-6">
-          <h2 className="mb-3 text-base font-semibold text-slate-900">
+          <h2 className="mb-3 text-base font-semibold text-slate-900 dark:text-slate-100">
             復習リスト（不正解・ギブアップした問題）
           </h2>
           <ul className="space-y-3">
@@ -79,27 +79,27 @@ export default function ResultScreen({
               return (
                 <li
                   key={`${item.word.id}-${index}`}
-                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+                  className="rounded-xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-4 shadow-sm dark:shadow-none"
                 >
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <span
                       className={`inline-block size-1.5 rounded-full ${OUTCOME_DOT[item.outcome]}`}
                     />
-                    <span className="font-medium text-slate-500">
+                    <span className="font-medium text-slate-500 dark:text-slate-400">
                       {OUTCOME_LABEL[item.outcome]}
                     </span>
                     <span>・{category?.name ?? item.word.categoryId}</span>
                   </div>
-                  <p className="mt-1.5 text-sm text-slate-600">{item.word.question}</p>
-                  <p className="mt-1.5 text-base font-bold text-slate-900">
+                  <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300">{item.word.question}</p>
+                  <p className="mt-1.5 text-base font-bold text-slate-900 dark:text-slate-100">
                     正解：{item.word.term}
                   </p>
                   {item.userAnswer && (
-                    <p className="mt-0.5 text-sm text-rose-700">
+                    <p className="mt-0.5 text-sm text-rose-700 dark:text-rose-300">
                       あなたの回答：{item.userAnswer}
                     </p>
                   )}
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                     {item.word.explanation}
                   </p>
                 </li>
