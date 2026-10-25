@@ -18,6 +18,7 @@ interface ResultScreenProps {
   onRestartSame: () => void;
   onRetryMistakes: (words: WordEntry[]) => void;
   onBackToSetup: () => void;
+  savedLocally?: boolean;
   isRetry?: boolean;
 }
 
@@ -39,6 +40,7 @@ export default function ResultScreen({
   onRestartSame,
   onRetryMistakes,
   onBackToSetup,
+  savedLocally = false,
   isRetry = false,
 }: ResultScreenProps) {
   const total = history.length;
@@ -65,6 +67,11 @@ export default function ResultScreen({
           全{total}問中 {totalCorrect}問正解
         </p>
         <p className="mt-3 text-sm text-slate-700">{resultMessage(accuracy, reviewItems.length)}</p>
+        {savedLocally && (
+          <p className="mt-2 text-xs text-slate-500">
+            この結果は、この端末の中にだけ保存しました。
+          </p>
+        )}
 
         <div className="mt-6">
           <StatsBar stats={stats} />

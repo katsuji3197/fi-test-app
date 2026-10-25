@@ -243,7 +243,7 @@ export default function QuizScreen({
               学習を中断しますか？
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              設定画面に戻ります。記録は保存されません。
+              設定画面に戻ります。途中の結果は残りません。終わった学習の記録は、この端末の中にだけ保存されます。
             </p>
             <div className="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
               <Button
@@ -459,9 +459,9 @@ export default function QuizScreen({
             <div className="mt-6 space-y-4">
               <div
                 role="status"
-              className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
-                outcomeMeta[question.outcome].className
-              } ${question.outcome === "incorrect" ? "incorrect-shake" : ""}`}
+                className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
+                  outcomeMeta[question.outcome].className
+                } ${question.outcome === "incorrect" ? "incorrect-shake" : ""}`}
               >
                 <span className="text-sm font-bold">{outcomeMeta[question.outcome].label}</span>
                 {question.method === "free" && question.userAnswerText && (

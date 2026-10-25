@@ -6,6 +6,7 @@ import { ALL_WORDS } from "@/lib/words";
 import type { Difficulty, QuizSettings } from "@/lib/types";
 import { DIFFICULTY_LABELS, buildQuestionCountOptions, filterWords } from "@/lib/quiz";
 import Button, { focusRing } from "./ui/Button";
+import StudyHistory from "./StudyHistory";
 
 const ALL_DIFFICULTIES: Difficulty[] = ["easy", "medium", "hard"];
 
@@ -335,6 +336,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
       <p className="mt-6 text-center text-xs text-slate-600">
         全{ALL_WORDS.length}語収録 ・ IPA基本情報技術者試験シラバス準拠
       </p>
+      <StudyHistory />
     </div>
   );
 }

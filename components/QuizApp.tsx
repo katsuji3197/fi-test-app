@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import type { AnsweredRecord, QuizSettings, QuizStats, WordEntry } from "@/lib/types";
 import { ALL_WORDS } from "@/lib/words";
 import { filterWords, pickQuizWords } from "@/lib/quiz";
+import { saveHistoryEntry } from "@/lib/history";
 import SetupScreen from "./SetupScreen";
 import QuizScreen from "./QuizScreen";
 import ResultScreen from "./ResultScreen";
@@ -23,6 +24,7 @@ export default function QuizApp() {
   const [resultData, setResultData] = useState<{
     stats: QuizStats;
     history: AnsweredRecord[];
+    savedLocally: boolean;
   } | null>(null);
   // key を変えて QuizScreen を強制的に再マウントし、内部状態をリセットする
   const [runKey, setRunKey] = useState(0);
@@ -36,9 +38,21 @@ export default function QuizApp() {
   }, []);
 
   const handleFinish = useCallback((stats: QuizStats, history: AnsweredRecord[]) => {
-    setResultData({ stats, history });
+    const correctCount = stats.correctFree + stats.correctChoice;
+    const savedLocally = run
+      ? saveHistoryEntry({
+          finishedAt: new Date().toISOString(),
+          questionCount: history.length,
+          correctCount,
+          incorrectCount: stats.incorrect,
+          giveUpCount: stats.giveUp,
+          difficulties: [...run.settings.difficulties],
+          categoryCount: run.settings.categoryIds.size,
+        })
+      : false;
+    setResultData({ stats, history, savedLocally });
     setScreen("result");
-  }, []);
+  }, [run]);
 
   const handleBackToSetup = useCallback(() => {
     setScreen("setup");
@@ -75,6 +89,7 @@ export default function QuizApp() {
           onRestartSame={handleRestartSame}
           onRetryMistakes={handleRetryMistakes}
           onBackToSetup={handleBackToSetup}
+          savedLocally={resultData.savedLocally}
           isRetry={run?.isRetry ?? false}
         />
       )}
