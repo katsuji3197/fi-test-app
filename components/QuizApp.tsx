@@ -14,6 +14,7 @@ interface RunState {
   settings: QuizSettings;
   sourcePool: WordEntry[];
   quizWords: WordEntry[];
+  isRetry: boolean;
 }
 
 export default function QuizApp() {
@@ -29,7 +30,7 @@ export default function QuizApp() {
   const startWithSettings = useCallback((settings: QuizSettings) => {
     const sourcePool = filterWords(ALL_WORDS, settings.difficulties, settings.categoryIds);
     const quizWords = pickQuizWords(sourcePool, settings.questionCount);
-    setRun({ settings, sourcePool, quizWords });
+    setRun({ settings, sourcePool, quizWords, isRetry: false });
     setRunKey((k) => k + 1);
     setScreen("quiz");
   }, []);
@@ -45,7 +46,7 @@ export default function QuizApp() {
 
   const handleRetryMistakes = useCallback((words: WordEntry[]) => {
     if (!run || words.length === 0) return;
-    setRun({ ...run, quizWords: pickQuizWords(words, words.length) });
+    setRun({ ...run, quizWords: pickQuizWords(words, words.length), isRetry: true });
     setRunKey((k) => k + 1);
     setScreen("quiz");
   }, [run]);
@@ -74,6 +75,7 @@ export default function QuizApp() {
           onRestartSame={handleRestartSame}
           onRetryMistakes={handleRetryMistakes}
           onBackToSetup={handleBackToSetup}
+          isRetry={run?.isRetry ?? false}
         />
       )}
     </div>

@@ -121,9 +121,8 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <h2 className="text-base font-semibold text-slate-900">出題数</h2>
           <p className="mt-1 text-sm text-slate-600">
-            現在の条件で出題できる単語は{" "}
             <span className="font-semibold text-indigo-600">{filteredCount}語</span>
-            です。スライダー、または左右のボタンで調整できます（10問刻み。最後の1ステップだけ端数になることがあります）。
+            から出題できます。
           </p>
           {questionCountOptions.length > 0 ? (
             <div className="mt-5">
@@ -194,7 +193,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           <p className="mt-1 text-sm text-slate-600">
             出題する問題の難易度を選択してください（複数選択可）。
           </p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-1">
             {ALL_DIFFICULTIES.map((d) => {
               const selected = difficulties.has(d);
               return (
@@ -203,7 +202,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => toggleDifficulty(d)}
-                  className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition-colors ${focusRing} ${
+                  className={`inline-flex min-h-11 items-center gap-1 rounded-full border px-3 text-sm font-medium transition-colors ${focusRing} ${
                     selected
                       ? "border-indigo-300 bg-indigo-50 text-indigo-700"
                       : "border-slate-300 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600"
@@ -269,15 +268,6 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                     </span>
                   </summary>
                   <div className="px-3 pb-3">
-                    <div className="mb-2 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={() => toggleMajorGroup(groupIds, allSelected)}
-                        className={`min-h-11 px-2 text-xs font-medium text-indigo-700 hover:text-indigo-800 ${focusRing}`}
-                      >
-                        {allSelected ? "全解除" : "全選択"}
-                      </button>
-                    </div>
                     <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
                       {groupCategories.map((category) => {
                         const count = categoryCounts.get(category.id) ?? 0;
@@ -310,6 +300,13 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                           </label>
                         );
                       })}
+                      <button
+                        type="button"
+                        onClick={() => toggleMajorGroup(groupIds, allSelected)}
+                        className={`min-h-11 rounded-lg px-3 text-left text-sm font-medium text-indigo-700 hover:bg-indigo-50 ${focusRing}`}
+                      >
+                        {allSelected ? "この分類を全解除" : "この分類を全選択"}
+                      </button>
                     </div>
                   </div>
                 </details>
@@ -327,7 +324,11 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           onClick={() => onStart({ difficulties, categoryIds, questionCount })}
           className="w-full"
         >
-          {canStart ? `${questionCount}問で学習を始める` : "条件を選択してください"}
+          {canStart
+            ? `${questionCount}問で学習を始める`
+            : categoryIds.size === 0
+              ? "分野を1つ以上選んでください"
+              : "条件を選択してください"}
         </Button>
       </div>
 
