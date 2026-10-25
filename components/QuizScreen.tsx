@@ -459,9 +459,9 @@ export default function QuizScreen({
             <div className="mt-6 space-y-4">
               <div
                 role="status"
-                className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
-                  outcomeMeta[question.outcome].className
-                }`}
+              className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
+                outcomeMeta[question.outcome].className
+              } ${question.outcome === "incorrect" ? "incorrect-shake" : ""}`}
               >
                 <span className="text-sm font-bold">{outcomeMeta[question.outcome].label}</span>
                 {question.method === "free" && question.userAnswerText && (
