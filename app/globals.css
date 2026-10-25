@@ -114,7 +114,7 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .incorrect-shake {
     animation: none;
-    box-shadow: inset 0 0 0 1px #fda4af;
+    box-shadow: inset 0 0 0 1px var(--color-rose-300);
   }
 }
 

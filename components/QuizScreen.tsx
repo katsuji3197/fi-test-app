@@ -209,6 +209,9 @@ export default function QuizScreen({
   const showCorrectEffect =
     state.pendingCorrectEffectIndex === state.currentIndex &&
     question.outcome === "correct";
+  const showIncorrectShake =
+    state.pendingIncorrectShakeIndex === state.currentIndex &&
+    question.outcome === "incorrect";
 
   const navButtonClass = `flex size-11 items-center justify-center rounded-lg text-slate-600 dark:text-slate-300 transition-colors hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-slate-100 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent ${focusRing}`;
 
@@ -228,7 +231,7 @@ export default function QuizScreen({
 
       {confirmAbort && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 p-4 sm:items-center"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 p-4 sm:items-center dark:bg-slate-950/60"
           onClick={() => setConfirmAbort(false)}
         >
           <div
@@ -243,7 +246,7 @@ export default function QuizScreen({
               学習を中断しますか？
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              設定画面に戻ります。途中の結果は残りません。終わった学習の記録は、この端末の中にだけ保存されます。
+              設定画面に戻ります。この回の結果は残りません。
             </p>
             <div className="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
               <Button
@@ -325,7 +328,7 @@ export default function QuizScreen({
           className="mb-5 h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700"
         >
           <div
-            className="h-full rounded-full bg-indigo-500 motion-safe:transition-all"
+            className="h-full rounded-full bg-indigo-500 dark:bg-indigo-400 motion-safe:transition-all"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -423,9 +426,6 @@ export default function QuizScreen({
                         );
                       })}
                     </div>
-                    <p className="hidden text-xs text-slate-600 dark:text-slate-300 [@media(pointer:fine)]:block">
-                      1〜4のキーで選択、Enterで回答
-                    </p>
                     <Button type="submit" disabled={!question.selectedChoice} className="w-full">
                       回答する
                     </Button>
@@ -461,7 +461,7 @@ export default function QuizScreen({
                 role="status"
                 className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
                   outcomeMeta[question.outcome].className
-                } ${question.outcome === "incorrect" ? "incorrect-shake" : ""}`}
+                } ${showIncorrectShake ? "incorrect-shake" : ""}`}
               >
                 <span className="text-sm font-bold">{outcomeMeta[question.outcome].label}</span>
                 {question.method === "free" && question.userAnswerText && (
@@ -470,10 +470,6 @@ export default function QuizScreen({
                   </span>
                 )}
               </div>
-
-              {question.outcome === "incorrect" && (
-                <p className="text-sm text-slate-600 dark:text-slate-300">正解と解説を確認しましょう。</p>
-              )}
 
               {question.method === "choice" && question.choices && (
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2" aria-label="選択肢の結果">

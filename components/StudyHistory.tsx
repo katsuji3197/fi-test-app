@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { ALL_CATEGORY_IDS } from "@/lib/categories";
 import { DIFFICULTY_LABELS } from "@/lib/quiz";
 import {
   clearHistory,
@@ -27,7 +28,8 @@ function formatConditions(entry: QuizHistoryEntry): string {
     entry.difficulties.length === 3
       ? "全難易度"
       : entry.difficulties.map((d) => DIFFICULTY_LABELS[d]).join("・");
-  const scope = entry.categoryCount >= 23 ? "全分野" : `${entry.categoryCount}分野`;
+  const scope =
+    entry.categoryCount >= ALL_CATEGORY_IDS.length ? "全分野" : `${entry.categoryCount}分野`;
   return `${difficulty}・${scope}`;
 }
 
@@ -38,6 +40,8 @@ export default function StudyHistory() {
   function handleClear() {
     clearHistory();
   }
+
+  if (entries.length === 0) return null;
 
   return (
     <section className="mt-8" aria-labelledby="study-history-title">
@@ -55,11 +59,7 @@ export default function StudyHistory() {
           </button>
         )}
       </div>
-      <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-        終わった学習は、この端末の中にだけ保存されます。外部には送られません。
-      </p>
-      {entries.length > 0 && (
-        <ul className="mt-3 space-y-2">
+      <ul className="mt-3 space-y-2">
           {entries.map((entry, index) => {
             const accuracy =
               entry.questionCount > 0
@@ -81,8 +81,7 @@ export default function StudyHistory() {
               </li>
             );
           })}
-        </ul>
-      )}
+      </ul>
     </section>
   );
 }

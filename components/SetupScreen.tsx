@@ -113,18 +113,16 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
         <h1 className="mt-1 text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl">
           単語暗記トレーニング
         </h1>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-          出題数・難易度・分野を選んで、自由記述で用語を答えましょう。
-        </p>
       </header>
 
       <div className="space-y-6">
         <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
-          <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">出題数</h2>
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-            <span className="font-semibold text-indigo-600 dark:text-indigo-300">{filteredCount}語</span>
-            から出題できます。
-          </p>
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">出題数</h2>
+            <span className="text-sm text-slate-600 tabular-nums dark:text-slate-300">
+              {filteredCount}語中
+            </span>
+          </div>
           {questionCountOptions.length > 0 ? (
             <div className="mt-5">
               <div className="flex items-center justify-center gap-3 sm:gap-5">
@@ -182,19 +180,12 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                 </span>
               </div>
             </div>
-          ) : (
-            <p className="mt-4 text-sm font-medium text-rose-600 dark:text-rose-300">
-              出題可能な単語がありません。難易度・出題範囲の選択を見直してください。
-            </p>
-          )}
+          ) : null}
         </section>
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
           <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">難易度</h2>
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-            出題する問題の難易度を選択してください（複数選択可）。
-          </p>
-          <div className="mt-4 flex flex-wrap gap-1">
+          <div className="mt-4 flex flex-nowrap gap-1">
             {ALL_DIFFICULTIES.map((d) => {
               const selected = difficulties.has(d);
               return (
@@ -203,9 +194,9 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => toggleDifficulty(d)}
-                  className={`inline-flex min-h-11 items-center gap-1 rounded-full border px-3 text-sm font-medium transition-colors ${focusRing} ${
+                  className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1 rounded-full border px-2 text-sm font-medium transition-colors ${focusRing} ${
                     selected
-                      ? "border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300"
+                      ? "border-indigo-300 bg-indigo-50 text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950 dark:text-indigo-300"
                       : "border-slate-300 dark:border-slate-500 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-indigo-300 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300"
                   }`}
                 >
@@ -223,9 +214,6 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
               <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">
                 出題範囲（シラバス中分類）
               </h2>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                学習したい分野を選んでください。
-              </p>
             </div>
             <div className="flex shrink-0 gap-2">
               <Button variant="secondary" size="md" onClick={selectAllCategories}>
@@ -243,8 +231,8 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                 (c) => c.majorCategoryId === major.id
               );
               const groupIds = groupCategories.map((c) => c.id);
-              const selectedCount = groupIds.filter((id) => categoryIds.has(id)).length;
-              const allSelected = selectedCount === groupIds.length;
+              const selectedInGroup = groupIds.filter((id) => categoryIds.has(id)).length;
+              const allSelected = selectedInGroup === groupIds.length;
 
               return (
                 <details key={major.id} className="group rounded-xl border border-slate-200 dark:border-slate-500">
@@ -253,7 +241,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   >
                     <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">{major.name}</span>
                     <span className="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
-                      {selectedCount}/{groupIds.length} 選択中
+                      {selectedInGroup}/{groupIds.length} 選択中
                       <svg
                         aria-hidden
                         viewBox="0 0 20 20"
