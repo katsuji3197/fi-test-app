@@ -241,7 +241,7 @@ export default function QuizScreen({
               学習を中断しますか？
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              設定画面に戻ります。記録は保存されません。
+              設定画面に戻ります。途中の結果は残りません。終わった学習の記録は、この端末の中にだけ保存されます。
             </p>
             <div className="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
               <Button
