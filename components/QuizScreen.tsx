@@ -146,6 +146,8 @@ export default function QuizScreen({
   }
 
   function handleSelectAnswerMode(mode: "free" | "choice") {
+    // すでに有効な回答方法をもう一度押しても、選んだ選択肢を消さない
+    if (mode === question.answerMode) return;
     if (mode === "choice") {
       const choices = question.choices ?? generateChoices(currentWord, sourcePool);
       dispatch({ type: "SET_ANSWER_MODE", mode: "choice", choices });
@@ -218,7 +220,7 @@ export default function QuizScreen({
           className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center"
           aria-hidden
         >
-          <div className="correct-effect-circle flex h-44 w-44 items-center justify-center rounded-full bg-emerald-500 shadow-2xl dark:bg-emerald-950 dark:shadow-none sm:h-52 sm:w-52">
+          <div className="correct-effect-circle flex h-44 w-44 items-center justify-center rounded-full bg-emerald-500 shadow-lg dark:bg-emerald-950 dark:shadow-none sm:h-52 sm:w-52">
             <span className="text-3xl font-bold text-white dark:text-emerald-300 sm:text-4xl">正解！</span>
           </div>
         </div>
@@ -241,7 +243,7 @@ export default function QuizScreen({
               学習を中断しますか？
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              設定画面に戻ります。記録は保存されません。
+              設定画面に戻ります。途中の結果は残りません。終わった学習の記録は、この端末の中にだけ保存されます。
             </p>
             <div className="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
               <Button
@@ -421,7 +423,9 @@ export default function QuizScreen({
                         );
                       })}
                     </div>
-                    <p className="text-xs text-slate-600 dark:text-slate-300">1〜4のキーで選択、Enterで回答</p>
+                    <p className="hidden text-xs text-slate-600 dark:text-slate-300 [@media(pointer:fine)]:block">
+                      1〜4のキーで選択、Enterで回答
+                    </p>
                     <Button type="submit" disabled={!question.selectedChoice} className="w-full">
                       回答する
                     </Button>
@@ -457,23 +461,18 @@ export default function QuizScreen({
                 role="status"
                 className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-lg px-4 py-3 ring-1 ring-inset ${
                   outcomeMeta[question.outcome].className
-                }`}
+                } ${question.outcome === "incorrect" ? "incorrect-shake" : ""}`}
               >
                 <span className="text-sm font-bold">{outcomeMeta[question.outcome].label}</span>
-                <span className="text-sm text-slate-700 dark:text-slate-200">
-                  {question.method === "free" && question.userAnswerText && (
-                    <>あなたの回答：{question.userAnswerText}</>
-                  )}
-                  {question.method === "choice" && question.selectedChoice && (
-                    <>選択した回答：{question.selectedChoice}</>
-                  )}
-                </span>
+                {question.method === "free" && question.userAnswerText && (
+                  <span className="text-sm text-slate-700 dark:text-slate-200">
+                    あなたの回答：{question.userAnswerText}
+                  </span>
+                )}
               </div>
 
               {question.outcome === "incorrect" && (
-                <p className="text-sm text-slate-600 dark:text-slate-300">
-                  惜しい。正解と解説を確認して、次へ進みましょう。
-                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-300">正解と解説を確認しましょう。</p>
               )}
 
               {question.method === "choice" && question.choices && (
@@ -513,15 +512,25 @@ export default function QuizScreen({
                 </div>
               )}
 
-              <div className="rounded-lg border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 px-4 py-3.5">
-                <p className="text-sm text-slate-600 dark:text-slate-300">正解</p>
-                <p className="mt-0.5 text-lg font-bold text-slate-900 dark:text-slate-100">{currentWord.term}</p>
-                {currentWord.aliases.length > 0 && (
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                    別解：{currentWord.aliases.join(" / ")}
-                  </p>
-                )}
-              </div>
+              {question.method === "choice" ? (
+                currentWord.aliases.length > 0 && (
+                  <div className="rounded-lg border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 px-4 py-3.5">
+                    <p className="text-sm text-slate-600 dark:text-slate-300">
+                      別解：{currentWord.aliases.join(" / ")}
+                    </p>
+                  </div>
+                )
+              ) : (
+                <div className="rounded-lg border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 px-4 py-3.5">
+                  <p className="text-sm text-slate-600 dark:text-slate-300">正解</p>
+                  <p className="mt-0.5 text-lg font-bold text-slate-900 dark:text-slate-100">{currentWord.term}</p>
+                  {currentWord.aliases.length > 0 && (
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                      別解：{currentWord.aliases.join(" / ")}
+                    </p>
+                  )}
+                </div>
+              )}
 
               <div className="rounded-lg bg-indigo-50 dark:bg-indigo-950 px-4 py-3.5 ring-1 ring-inset ring-indigo-100 dark:ring-indigo-800">
                 <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">解説</p>

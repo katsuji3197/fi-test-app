@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import type { AnsweredRecord, QuizSettings, QuizStats, WordEntry } from "@/lib/types";
 import { ALL_WORDS } from "@/lib/words";
 import { filterWords, pickQuizWords } from "@/lib/quiz";
+import { saveHistoryEntry } from "@/lib/history";
 import SetupScreen from "./SetupScreen";
 import QuizScreen from "./QuizScreen";
 import ResultScreen from "./ResultScreen";
@@ -14,6 +15,7 @@ interface RunState {
   settings: QuizSettings;
   sourcePool: WordEntry[];
   quizWords: WordEntry[];
+  isRetry: boolean;
 }
 
 export default function QuizApp() {
@@ -22,6 +24,7 @@ export default function QuizApp() {
   const [resultData, setResultData] = useState<{
     stats: QuizStats;
     history: AnsweredRecord[];
+    savedLocally: boolean;
   } | null>(null);
   // key を変えて QuizScreen を強制的に再マウントし、内部状態をリセットする
   const [runKey, setRunKey] = useState(0);
@@ -29,15 +32,27 @@ export default function QuizApp() {
   const startWithSettings = useCallback((settings: QuizSettings) => {
     const sourcePool = filterWords(ALL_WORDS, settings.difficulties, settings.categoryIds);
     const quizWords = pickQuizWords(sourcePool, settings.questionCount);
-    setRun({ settings, sourcePool, quizWords });
+    setRun({ settings, sourcePool, quizWords, isRetry: false });
     setRunKey((k) => k + 1);
     setScreen("quiz");
   }, []);
 
   const handleFinish = useCallback((stats: QuizStats, history: AnsweredRecord[]) => {
-    setResultData({ stats, history });
+    const correctCount = stats.correctFree + stats.correctChoice;
+    const savedLocally = run
+      ? saveHistoryEntry({
+          finishedAt: new Date().toISOString(),
+          questionCount: history.length,
+          correctCount,
+          incorrectCount: stats.incorrect,
+          giveUpCount: stats.giveUp,
+          difficulties: [...run.settings.difficulties],
+          categoryCount: run.settings.categoryIds.size,
+        })
+      : false;
+    setResultData({ stats, history, savedLocally });
     setScreen("result");
-  }, []);
+  }, [run]);
 
   const handleBackToSetup = useCallback(() => {
     setScreen("setup");
@@ -45,7 +60,7 @@ export default function QuizApp() {
 
   const handleRetryMistakes = useCallback((words: WordEntry[]) => {
     if (!run || words.length === 0) return;
-    setRun({ ...run, quizWords: pickQuizWords(words, words.length) });
+    setRun({ ...run, quizWords: pickQuizWords(words, words.length), isRetry: true });
     setRunKey((k) => k + 1);
     setScreen("quiz");
   }, [run]);
@@ -74,6 +89,8 @@ export default function QuizApp() {
           onRestartSame={handleRestartSame}
           onRetryMistakes={handleRetryMistakes}
           onBackToSetup={handleBackToSetup}
+          savedLocally={resultData.savedLocally}
+          isRetry={run?.isRetry ?? false}
         />
       )}
     </div>
