@@ -107,22 +107,22 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
       <header className="mb-8 text-center">
-        <p className="text-sm font-semibold tracking-wide text-indigo-600">
+        <p className="text-sm font-semibold tracking-wide text-indigo-600 dark:text-indigo-300">
           基本情報技術者試験 対策
         </p>
-        <h1 className="mt-1 text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h1 className="mt-1 text-2xl font-bold text-slate-900 dark:text-slate-100 sm:text-3xl">
           単語暗記トレーニング
         </h1>
-        <p className="mt-2 text-sm text-slate-600">
+        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
           出題数・難易度・分野を選んで、自由記述で用語を答えましょう。
         </p>
       </header>
 
       <div className="space-y-6">
-        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-base font-semibold text-slate-900">出題数</h2>
-          <p className="mt-1 text-sm text-slate-600">
-            <span className="font-semibold text-indigo-600">{filteredCount}語</span>
+        <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
+          <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">出題数</h2>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+            <span className="font-semibold text-indigo-600 dark:text-indigo-300">{filteredCount}語</span>
             から出題できます。
           </p>
           {questionCountOptions.length > 0 ? (
@@ -133,22 +133,22 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   onClick={() => stepQuestionCount(-1)}
                   disabled={!canDecrease}
                   aria-label="出題数を減らす"
-                  className={`flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none font-medium text-slate-700 shadow-sm transition-colors hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-300 disabled:shadow-none sm:size-12 ${focusRing}`}
+                  className={`flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 dark:border-slate-500 bg-white dark:bg-slate-800 text-2xl leading-none font-medium text-slate-700 dark:text-slate-200 shadow-sm dark:shadow-none transition-colors hover:border-indigo-300 dark:hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 hover:text-indigo-600 dark:hover:text-indigo-300 disabled:cursor-not-allowed disabled:border-slate-200 dark:disabled:border-slate-600 disabled:bg-slate-50 dark:disabled:bg-slate-800 disabled:text-slate-300 dark:disabled:text-slate-500 disabled:shadow-none sm:size-12 ${focusRing}`}
                 >
                   −
                 </button>
                 <p className="min-w-24 text-center" aria-live="polite">
-                  <span className="text-3xl font-bold tabular-nums text-indigo-600">
+                  <span className="text-3xl font-bold tabular-nums text-indigo-600 dark:text-indigo-300">
                     {questionCount}
                   </span>
-                  <span className="ml-1 text-lg font-semibold text-indigo-600">問</span>
+                  <span className="ml-1 text-lg font-semibold text-indigo-600 dark:text-indigo-300">問</span>
                 </p>
                 <button
                   type="button"
                   onClick={() => stepQuestionCount(1)}
                   disabled={!canIncrease}
                   aria-label="出題数を増やす"
-                  className={`flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 bg-white text-2xl leading-none font-medium text-slate-700 shadow-sm transition-colors hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-300 disabled:shadow-none sm:size-12 ${focusRing}`}
+                  className={`flex size-11 shrink-0 items-center justify-center rounded-full border border-slate-300 dark:border-slate-500 bg-white dark:bg-slate-800 text-2xl leading-none font-medium text-slate-700 dark:text-slate-200 shadow-sm dark:shadow-none transition-colors hover:border-indigo-300 dark:hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 hover:text-indigo-600 dark:hover:text-indigo-300 disabled:cursor-not-allowed disabled:border-slate-200 dark:disabled:border-slate-600 disabled:bg-slate-50 dark:disabled:bg-slate-800 disabled:text-slate-300 dark:disabled:text-slate-500 disabled:shadow-none sm:size-12 ${focusRing}`}
                 >
                   +
                 </button>
@@ -173,9 +173,9 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   aria-label="出題数"
                 />
               ) : (
-                <div className="mt-4 h-2 rounded-full bg-indigo-100" aria-hidden />
+                <div className="mt-4 h-2 rounded-full bg-indigo-100 dark:bg-indigo-950" aria-hidden />
               )}
-              <div className="mt-2 flex justify-between text-xs tabular-nums text-slate-500">
+              <div className="mt-2 flex justify-between text-xs tabular-nums text-slate-500 dark:text-slate-400">
                 <span>{questionCountOptions[0]}問</span>
                 <span>
                   {questionCountOptions[questionCountOptions.length - 1]}問
@@ -183,15 +183,15 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
               </div>
             </div>
           ) : (
-            <p className="mt-4 text-sm font-medium text-rose-600">
+            <p className="mt-4 text-sm font-medium text-rose-600 dark:text-rose-300">
               出題可能な単語がありません。難易度・出題範囲の選択を見直してください。
             </p>
           )}
         </section>
 
-        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-base font-semibold text-slate-900">難易度</h2>
-          <p className="mt-1 text-sm text-slate-600">
+        <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
+          <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">難易度</h2>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
             出題する問題の難易度を選択してください（複数選択可）。
           </p>
           <div className="mt-4 flex flex-wrap gap-1">
@@ -205,8 +205,8 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   onClick={() => toggleDifficulty(d)}
                   className={`inline-flex min-h-11 items-center gap-1 rounded-full border px-3 text-sm font-medium transition-colors ${focusRing} ${
                     selected
-                      ? "border-indigo-300 bg-indigo-50 text-indigo-700"
-                      : "border-slate-300 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600"
+                      ? "border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300"
+                      : "border-slate-300 dark:border-slate-500 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-indigo-300 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300"
                   }`}
                 >
                   {selected && <span aria-hidden>✓</span>}
@@ -217,13 +217,13 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-base font-semibold text-slate-900">
+              <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">
                 出題範囲（シラバス中分類）
               </h2>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
                 学習したい分野を選んでください。
               </p>
             </div>
@@ -247,18 +247,18 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
               const allSelected = selectedCount === groupIds.length;
 
               return (
-                <details key={major.id} className="group rounded-xl border border-slate-200">
+                <details key={major.id} className="group rounded-xl border border-slate-200 dark:border-slate-500">
                   <summary
                     className={`flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 [&::-webkit-details-marker]:hidden ${focusRing}`}
                   >
-                    <span className="text-sm font-semibold text-slate-800">{major.name}</span>
-                    <span className="flex items-center gap-2 text-xs font-medium text-slate-600">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">{major.name}</span>
+                    <span className="flex items-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300">
                       {selectedCount}/{groupIds.length} 選択中
                       <svg
                         aria-hidden
                         viewBox="0 0 20 20"
                         fill="currentColor"
-                        className="size-4 text-slate-500 motion-safe:transition-transform group-open:rotate-180"
+                        className="size-4 text-slate-500 dark:text-slate-400 motion-safe:transition-transform group-open:rotate-180"
                       >
                         <path
                           fillRule="evenodd"
@@ -281,8 +281,8 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                               empty ? "cursor-not-allowed" : "cursor-pointer"
                             } ${
                               checked
-                                ? "border-indigo-200 bg-indigo-50/70 text-slate-800"
-                                : "border-slate-200 bg-white text-slate-600"
+                                ? "border-indigo-200 dark:border-indigo-800 bg-indigo-50/70 dark:bg-indigo-950/70 text-slate-800 dark:text-slate-100"
+                                : "border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300"
                             } ${empty ? "opacity-60" : ""}`}
                           >
                             <span className="flex items-center gap-2">
@@ -295,7 +295,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                               />
                               {category.name}
                             </span>
-                            <span className="shrink-0 text-xs tabular-nums text-slate-600">
+                            <span className="shrink-0 text-xs tabular-nums text-slate-600 dark:text-slate-300">
                               {empty ? "この難易度では0語" : `${count}語`}
                             </span>
                           </label>
@@ -304,7 +304,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                       <button
                         type="button"
                         onClick={() => toggleMajorGroup(groupIds, allSelected)}
-                        className={`min-h-11 rounded-lg px-3 text-left text-sm font-medium text-indigo-700 hover:bg-indigo-50 ${focusRing}`}
+                        className={`min-h-11 rounded-lg px-3 text-left text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-950 ${focusRing}`}
                       >
                         {allSelected ? "この分類を全解除" : "この分類を全選択"}
                       </button>
@@ -318,7 +318,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
       </div>
 
       {/* 開始ボタンが画面外に出るときは下端へ固定する。収まる高さでは通常の位置のまま */}
-      <div className="sticky bottom-0 z-10 -mx-4 mt-8 border-t border-slate-200 bg-slate-50/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:mx-0">
+      <div className="sticky bottom-0 z-10 -mx-4 mt-8 border-t border-slate-200 dark:border-slate-500 bg-slate-50/95 dark:bg-slate-900/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:mx-0">
         <Button
           size="lg"
           disabled={!canStart}
@@ -333,7 +333,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
         </Button>
       </div>
 
-      <p className="mt-6 text-center text-xs text-slate-600">
+      <p className="mt-6 text-center text-xs text-slate-600 dark:text-slate-300">
         全{ALL_WORDS.length}語収録 ・ IPA基本情報技術者試験シラバス準拠
       </p>
       <StudyHistory />

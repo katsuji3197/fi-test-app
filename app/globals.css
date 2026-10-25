@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a; /* slate-900。未定義だと本文色がブラウザ既定に依存する */
-  color-scheme: light; /* ダークモードは未対応のため、ネイティブ UI もライトに固定する */
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a; /* slate-900。純黒は使わない */
+    --foreground: #e2e8f0; /* slate-200。純白は使わない */
+    color-scheme: dark;
+  }
 }
 
 @theme inline {
@@ -21,6 +29,15 @@ body {
     var(--font-geist-sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN",
     "BIZ UDPGothic", "Yu Gothic UI", Meiryo, "Noto Sans JP", sans-serif;
   line-break: strict;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  body * {
+    transition-property: background-color, color, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
 }
 
 /* 見出しは文節で折り返す（未対応ブラウザは無視する） */
@@ -155,4 +172,24 @@ h3 {
   height: 0.5rem;
   border-radius: 9999px;
   background: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .question-count-slider,
+  .question-count-slider::-moz-range-track {
+    background: #334155;
+  }
+
+  .question-count-slider:focus-visible {
+    box-shadow:
+      0 0 0 2px #0f172a,
+      0 0 0 4px #818cf8;
+  }
+
+  .question-count-slider::-webkit-slider-thumb,
+  .question-count-slider::-moz-range-thumb {
+    border-color: #1e293b;
+    background: #818cf8;
+    box-shadow: none;
+  }
 }

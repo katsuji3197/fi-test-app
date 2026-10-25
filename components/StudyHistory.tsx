@@ -42,20 +42,20 @@ export default function StudyHistory() {
   return (
     <section className="mt-8" aria-labelledby="study-history-title">
       <div className="flex items-center justify-between gap-3">
-        <h2 id="study-history-title" className="text-sm font-semibold text-slate-700">
+        <h2 id="study-history-title" className="text-sm font-semibold text-slate-700 dark:text-slate-200">
           この端末の記録
         </h2>
         {entries.length > 0 && (
           <button
             type="button"
             onClick={handleClear}
-            className={`min-h-11 px-2 text-xs font-medium text-slate-600 hover:text-slate-800 ${focusRing}`}
+            className={`min-h-11 px-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 ${focusRing}`}
           >
             記録を消す
           </button>
         )}
       </div>
-      <p className="mt-1 text-xs leading-relaxed text-slate-500">
+      <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
         終わった学習は、この端末の中にだけ保存されます。外部には送られません。
       </p>
       {entries.length > 0 && (
@@ -68,15 +68,15 @@ export default function StudyHistory() {
             return (
               <li
                 key={`${entry.finishedAt}-${index}`}
-                className="flex items-baseline justify-between gap-3 text-sm text-slate-600"
+                className="flex items-baseline justify-between gap-3 text-sm text-slate-600 dark:text-slate-300"
               >
                 <span>
                   {formatWhen(entry.finishedAt)}
-                  <span className="ml-2 text-xs text-slate-500">{formatConditions(entry)}</span>
+                  <span className="ml-2 text-xs text-slate-500 dark:text-slate-400">{formatConditions(entry)}</span>
                 </span>
                 <span className="shrink-0 tabular-nums">
                   {entry.correctCount}/{entry.questionCount}問
-                  <span className="ml-1 text-xs text-slate-500">{accuracy}%</span>
+                  <span className="ml-1 text-xs text-slate-500 dark:text-slate-400">{accuracy}%</span>
                 </span>
               </li>
             );
