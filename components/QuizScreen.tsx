@@ -146,6 +146,8 @@ export default function QuizScreen({
   }
 
   function handleSelectAnswerMode(mode: "free" | "choice") {
+    // すでに有効な回答方法をもう一度押しても、選んだ選択肢を消さない
+    if (mode === question.answerMode) return;
     if (mode === "choice") {
       const choices = question.choices ?? generateChoices(currentWord, sourcePool);
       dispatch({ type: "SET_ANSWER_MODE", mode: "choice", choices });
