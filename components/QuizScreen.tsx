@@ -288,7 +288,7 @@ export default function QuizScreen({
                 />
               </svg>
             </button>
-            <p className="min-w-[8.5rem] text-center text-sm font-semibold text-slate-700 dark:text-slate-200">
+            <p className="min-w-0 text-center text-sm font-semibold text-slate-700 sm:min-w-[8.5rem] dark:text-slate-200">
               第 {state.currentIndex + 1} 問 / 全 {state.words.length} 問
             </p>
             <button

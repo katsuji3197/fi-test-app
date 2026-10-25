@@ -183,7 +183,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           ) : null}
         </section>
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-800 p-5 shadow-sm dark:shadow-none">
+        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm max-[389px]:px-3 dark:border-slate-500 dark:bg-slate-800 dark:shadow-none">
           <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">難易度</h2>
           <div className="mt-4 flex flex-nowrap gap-1">
             {ALL_DIFFICULTIES.map((d) => {
@@ -194,13 +194,13 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
                   type="button"
                   aria-pressed={selected}
                   onClick={() => toggleDifficulty(d)}
-                  className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1 rounded-full border px-2 text-sm font-medium transition-colors ${focusRing} ${
+                  className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1 whitespace-nowrap rounded-full border px-2 text-sm font-medium transition-colors ${focusRing} ${
                     selected
                       ? "border-indigo-300 bg-indigo-50 text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950 dark:text-indigo-300"
                       : "border-slate-300 dark:border-slate-500 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-indigo-300 dark:hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300"
                   }`}
                 >
-                  {selected && <span aria-hidden>✓</span>}
+                  {selected && <span aria-hidden className="max-[389px]:hidden">✓</span>}
                   {DIFFICULTY_LABELS[d]}
                 </button>
               );
