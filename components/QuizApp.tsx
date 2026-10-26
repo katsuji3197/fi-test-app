@@ -24,7 +24,6 @@ export default function QuizApp() {
   const [resultData, setResultData] = useState<{
     stats: QuizStats;
     history: AnsweredRecord[];
-    savedLocally: boolean;
   } | null>(null);
   // key を変えて QuizScreen を強制的に再マウントし、内部状態をリセットする
   const [runKey, setRunKey] = useState(0);
@@ -38,19 +37,18 @@ export default function QuizApp() {
   }, []);
 
   const handleFinish = useCallback((stats: QuizStats, history: AnsweredRecord[]) => {
-    const correctCount = stats.correctFree + stats.correctChoice;
-    const savedLocally = run
-      ? saveHistoryEntry({
-          finishedAt: new Date().toISOString(),
-          questionCount: history.length,
-          correctCount,
-          incorrectCount: stats.incorrect,
-          giveUpCount: stats.giveUp,
-          difficulties: [...run.settings.difficulties],
-          categoryCount: run.settings.categoryIds.size,
-        })
-      : false;
-    setResultData({ stats, history, savedLocally });
+    if (run && !run.isRetry) {
+      saveHistoryEntry({
+        finishedAt: new Date().toISOString(),
+        questionCount: history.length,
+        correctCount: stats.correctFree + stats.correctChoice,
+        incorrectCount: stats.incorrect,
+        giveUpCount: stats.giveUp,
+        difficulties: [...run.settings.difficulties],
+        categoryCount: run.settings.categoryIds.size,
+      });
+    }
+    setResultData({ stats, history });
     setScreen("result");
   }, [run]);
 
@@ -89,7 +87,6 @@ export default function QuizApp() {
           onRestartSame={handleRestartSame}
           onRetryMistakes={handleRetryMistakes}
           onBackToSetup={handleBackToSetup}
-          savedLocally={resultData.savedLocally}
           isRetry={run?.isRetry ?? false}
         />
       )}

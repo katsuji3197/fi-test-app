@@ -29,6 +29,7 @@ export interface QuizSessionState {
   questionStates: CurrentQuestionState[];
   finished: boolean;
   pendingCorrectEffectIndex: number | null;
+  pendingIncorrectShakeIndex: number | null;
 }
 
 function freshQuestionState(): CurrentQuestionState {
@@ -55,6 +56,7 @@ export function createInitialSessionState(words: WordEntry[]): QuizSessionState 
     questionStates: words.map(() => freshQuestionState()),
     finished: words.length === 0,
     pendingCorrectEffectIndex: null,
+    pendingIncorrectShakeIndex: null,
   };
 }
 
@@ -118,21 +120,27 @@ function resolve(
     stats: nextStats,
     history: [...state.history, record],
     questionStates,
-    pendingCorrectEffectIndex:
-      outcome === "correct" ? state.currentIndex : null,
+    pendingCorrectEffectIndex: outcome === "correct" ? state.currentIndex : null,
+    pendingIncorrectShakeIndex: outcome === "incorrect" ? state.currentIndex : null,
   };
 }
 
 function advanceFromResolved(state: QuizSessionState): QuizSessionState {
   const nextIndex = state.currentIndex + 1;
   if (nextIndex >= state.words.length) {
-    return { ...state, finished: true, pendingCorrectEffectIndex: null };
+    return {
+      ...state,
+      finished: true,
+      pendingCorrectEffectIndex: null,
+      pendingIncorrectShakeIndex: null,
+    };
   }
   return {
     ...state,
     currentIndex: nextIndex,
     visitedMaxIndex: nextIndex,
     pendingCorrectEffectIndex: null,
+    pendingIncorrectShakeIndex: null,
   };
 }
 
@@ -212,6 +220,7 @@ export function quizReducer(
         ...state,
         currentIndex: state.currentIndex - 1,
         pendingCorrectEffectIndex: null,
+        pendingIncorrectShakeIndex: null,
       };
     }
     case "NAV_NEXT": {
@@ -220,6 +229,7 @@ export function quizReducer(
           ...state,
           currentIndex: state.currentIndex + 1,
           pendingCorrectEffectIndex: null,
+          pendingIncorrectShakeIndex: null,
         };
       }
       if (question.status !== "resolved") return state;

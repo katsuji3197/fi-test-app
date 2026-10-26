@@ -37,6 +37,8 @@ export const MAJOR_CATEGORY_ORDER: { id: Category["majorCategoryId"]; name: stri
   { id: "strategy", name: "ストラテジ系" },
 ];
 
+export const ALL_CATEGORY_IDS = CATEGORIES.map((category) => category.id);
+
 export function getCategoryById(id: string): Category | undefined {
   return CATEGORIES.find((c) => c.id === id);
 }

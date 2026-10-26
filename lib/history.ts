@@ -47,6 +47,7 @@ function isEntry(value: unknown): value is QuizHistoryEntry {
   const entry = value as Record<string, unknown>;
   return (
     typeof entry.finishedAt === "string" &&
+    !Number.isNaN(Date.parse(entry.finishedAt)) &&
     Number.isFinite(entry.questionCount) &&
     Number.isFinite(entry.correctCount) &&
     Number.isFinite(entry.incorrectCount) &&

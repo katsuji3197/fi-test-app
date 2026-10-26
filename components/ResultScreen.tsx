@@ -18,7 +18,6 @@ interface ResultScreenProps {
   onRestartSame: () => void;
   onRetryMistakes: (words: WordEntry[]) => void;
   onBackToSetup: () => void;
-  savedLocally?: boolean;
   isRetry?: boolean;
 }
 
@@ -29,9 +28,9 @@ const OUTCOME_LABEL: Record<AnsweredRecord["outcome"], string> = {
 };
 
 const OUTCOME_DOT: Record<AnsweredRecord["outcome"], string> = {
-  correct: "bg-emerald-500",
-  incorrect: "bg-rose-500",
-  giveup: "bg-amber-500",
+  correct: "bg-emerald-500 dark:bg-emerald-400",
+  incorrect: "bg-rose-500 dark:bg-rose-400",
+  giveup: "bg-amber-500 dark:bg-amber-400",
 };
 
 export default function ResultScreen({
@@ -40,7 +39,6 @@ export default function ResultScreen({
   onRestartSame,
   onRetryMistakes,
   onBackToSetup,
-  savedLocally = false,
   isRetry = false,
 }: ResultScreenProps) {
   const total = history.length;
@@ -67,11 +65,6 @@ export default function ResultScreen({
           全{total}問中 {totalCorrect}問正解
         </p>
         <p className="mt-3 text-sm text-slate-700 dark:text-slate-200">{resultMessage(accuracy, reviewItems.length)}</p>
-        {savedLocally && (
-          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-            この結果は、この端末の中にだけ保存しました。
-          </p>
-        )}
 
         <div className="mt-6">
           <StatsBar stats={stats} />
