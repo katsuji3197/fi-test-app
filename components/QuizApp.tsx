@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import type { AnsweredRecord, QuizSettings, QuizStats, WordEntry } from "@/lib/types";
 import { ALL_WORDS } from "@/lib/words";
 import { filterWords, pickQuizWords } from "@/lib/quiz";
-import { saveHistoryEntry } from "@/lib/history";
+import { categoryResults, saveHistoryEntry } from "@/lib/history";
 import SetupScreen from "./SetupScreen";
 import QuizScreen from "./QuizScreen";
 import ResultScreen from "./ResultScreen";
@@ -46,6 +46,7 @@ export default function QuizApp() {
         giveUpCount: stats.giveUp,
         difficulties: [...run.settings.difficulties],
         categoryCount: run.settings.categoryIds.size,
+        categories: categoryResults(history),
       });
     }
     setResultData({ stats, history });

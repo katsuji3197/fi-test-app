@@ -8,6 +8,7 @@ import {
   parseHistory,
   readHistorySnapshot,
   subscribeHistory,
+  weakestCategory,
   type QuizHistoryEntry,
 } from "@/lib/history";
 import { focusRing } from "./ui/Button";
@@ -33,7 +34,12 @@ function formatConditions(entry: QuizHistoryEntry): string {
   return `${difficulty}・${scope}`;
 }
 
-export default function StudyHistory() {
+interface StudyHistoryProps {
+  hasWords?: (categoryId: string) => boolean;
+  onRetryCategory?: (categoryId: string) => void;
+}
+
+export default function StudyHistory({ hasWords, onRetryCategory }: StudyHistoryProps) {
   const raw = useSyncExternalStore(subscribeHistory, readHistorySnapshot, () => "");
   const entries = parseHistory(raw);
 
@@ -42,6 +48,10 @@ export default function StudyHistory() {
   }
 
   if (entries.length === 0) return null;
+
+  const weakest = weakestCategory(entries);
+  const retry =
+    weakest && (!hasWords || hasWords(weakest.categoryId)) ? weakest : null;
 
   return (
     <section className="mt-8" aria-labelledby="study-history-title">
@@ -84,6 +94,24 @@ export default function StudyHistory() {
           );
         })}
       </ul>
+      <div className="min-h-11">
+        <button
+          type="button"
+          aria-hidden={retry ? undefined : true}
+          tabIndex={retry ? 0 : -1}
+          disabled={!retry}
+          onClick={() => {
+            if (retry) onRetryCategory?.(retry.categoryId);
+          }}
+          className={`inline-flex min-h-11 max-w-full items-center whitespace-nowrap text-left text-sm font-semibold text-indigo-700 underline decoration-indigo-300 underline-offset-4 transition-opacity duration-200 motion-reduce:transition-none dark:text-indigo-300 dark:decoration-indigo-500 ${focusRing} ${
+            retry ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <span className="truncate">
+            {retry ? `${retry.name}をもう一度` : "分野をもう一度"}
+          </span>
+        </button>
+      </div>
     </section>
   );
 }
