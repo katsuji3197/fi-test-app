@@ -50,6 +50,11 @@ export type QuizHistoryEntry = {
 /** 1〜2問だと正答率が偶然で決まるので、5問以上の分野だけを比べる */
 export const MIN_CATEGORY_ANSWERS = 5;
 
+/** 1問も解いていない回と、間違えた問題だけの解き直しは記録しない */
+export function shouldSaveFinishedSession(answeredCount: number, isRetry: boolean): boolean {
+  return !isRetry && answeredCount > 0;
+}
+
 export type WeakestCategory = {
   categoryId: string;
   name: string;

@@ -103,13 +103,12 @@ export default function StudyHistory({ hasWords, onRetryCategory }: StudyHistory
           onClick={() => {
             if (retry) onRetryCategory?.(retry.categoryId);
           }}
-          className={`inline-flex min-h-11 max-w-full items-center whitespace-nowrap text-left text-sm font-semibold text-indigo-700 underline decoration-indigo-300 underline-offset-4 transition-opacity duration-200 motion-reduce:transition-none dark:text-indigo-300 dark:decoration-indigo-500 ${focusRing} ${
+          className={`inline-flex min-h-11 w-full max-w-full flex-wrap items-center text-left text-sm font-semibold text-indigo-700 underline decoration-indigo-400 underline-offset-4 transition-opacity duration-500 ease-out motion-reduce:transition-none dark:text-indigo-300 dark:decoration-indigo-500 ${focusRing} ${
             retry ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
-          <span className="truncate">
-            {retry ? `${retry.name}をもう一度` : "分野をもう一度"}
-          </span>
+          <span className="inline-block">{retry ? retry.name : "分野"}</span>
+          <span className="inline-block">をもう一度</span>
         </button>
       </div>
     </section>

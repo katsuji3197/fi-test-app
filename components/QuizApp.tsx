@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import type { AnsweredRecord, QuizSettings, QuizStats, WordEntry } from "@/lib/types";
 import { ALL_WORDS } from "@/lib/words";
 import { filterWords, pickQuizWords } from "@/lib/quiz";
-import { categoryResults, saveHistoryEntry } from "@/lib/history";
+import { categoryResults, saveHistoryEntry, shouldSaveFinishedSession } from "@/lib/history";
 import SetupScreen from "./SetupScreen";
 import QuizScreen from "./QuizScreen";
 import ResultScreen from "./ResultScreen";
@@ -31,13 +31,14 @@ export default function QuizApp() {
   const startWithSettings = useCallback((settings: QuizSettings) => {
     const sourcePool = filterWords(ALL_WORDS, settings.difficulties, settings.categoryIds);
     const quizWords = pickQuizWords(sourcePool, settings.questionCount);
+    if (quizWords.length === 0) return;
     setRun({ settings, sourcePool, quizWords, isRetry: false });
     setRunKey((k) => k + 1);
     setScreen("quiz");
   }, []);
 
   const handleFinish = useCallback((stats: QuizStats, history: AnsweredRecord[]) => {
-    if (run && !run.isRetry) {
+    if (run && shouldSaveFinishedSession(history.length, run.isRetry)) {
       saveHistoryEntry({
         finishedAt: new Date().toISOString(),
         questionCount: history.length,

@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { parseHistory, weakestCategory, type QuizHistoryEntry } from "./history";
+import { parseHistory, shouldSaveFinishedSession, weakestCategory, type QuizHistoryEntry } from "./history";
+import { pickQuizWords, questionCountForCategory } from "./quiz";
+import type { WordEntry } from "./types";
 
 const oldEntry = {
   finishedAt: "2026-10-01T00:00:00.000Z",
@@ -89,5 +91,39 @@ describe("weakestCategory", () => {
 
   it("returns nothing when history has only the old format", () => {
     assert.equal(weakestCategory([entry({ finishedAt: "2026-11-01T00:00:00.000Z" })]), null);
+  });
+});
+
+const sampleWord: WordEntry = {
+  id: "w1",
+  term: "TCP",
+  aliases: [],
+  question: "転送を確かめる通信の約束事",
+  hint: "ティー",
+  explanation: "Transmission Control Protocol",
+  categoryId: "network",
+  difficulty: "easy",
+};
+
+describe("questionCountForCategory", () => {
+  it("uses the smaller of the chosen count and the words left in that category", () => {
+    assert.equal(questionCountForCategory(10, 28), 10);
+    assert.equal(questionCountForCategory(10, 8), 8);
+    assert.equal(questionCountForCategory(10, 0), 0);
+  });
+});
+
+describe("starting with no words", () => {
+  it("does not build a quiz when the pool or the count is empty", () => {
+    assert.equal(pickQuizWords([], 10).length, 0);
+    assert.equal(pickQuizWords([sampleWord], 0).length, 0);
+  });
+});
+
+describe("shouldSaveFinishedSession", () => {
+  it("skips a session nobody answered and a mistake-only retry", () => {
+    assert.equal(shouldSaveFinishedSession(0, false), false);
+    assert.equal(shouldSaveFinishedSession(10, true), false);
+    assert.equal(shouldSaveFinishedSession(10, false), true);
   });
 });

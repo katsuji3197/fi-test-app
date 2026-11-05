@@ -4,7 +4,12 @@ import { useMemo, useState } from "react";
 import { CATEGORIES, MAJOR_CATEGORY_ORDER } from "@/lib/categories";
 import { ALL_WORDS } from "@/lib/words";
 import type { Difficulty, QuizSettings } from "@/lib/types";
-import { DIFFICULTY_LABELS, buildQuestionCountOptions, filterWords } from "@/lib/quiz";
+import {
+  DIFFICULTY_LABELS,
+  buildQuestionCountOptions,
+  filterWords,
+  questionCountForCategory,
+} from "@/lib/quiz";
 import Button, { focusRing } from "./ui/Button";
 import StudyHistory from "./StudyHistory";
 
@@ -330,7 +335,10 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           onStart({
             difficulties,
             categoryIds: new Set([categoryId]),
-            questionCount,
+            questionCount: questionCountForCategory(
+              selectedCount,
+              categoryCounts.get(categoryId) ?? 0
+            ),
           })
         }
       />
