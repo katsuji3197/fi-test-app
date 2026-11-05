@@ -4,7 +4,12 @@ import { useMemo, useState } from "react";
 import { CATEGORIES, MAJOR_CATEGORY_ORDER } from "@/lib/categories";
 import { ALL_WORDS } from "@/lib/words";
 import type { Difficulty, QuizSettings } from "@/lib/types";
-import { DIFFICULTY_LABELS, buildQuestionCountOptions, filterWords } from "@/lib/quiz";
+import {
+  DIFFICULTY_LABELS,
+  buildQuestionCountOptions,
+  filterWords,
+  questionCountForCategory,
+} from "@/lib/quiz";
 import Button, { focusRing } from "./ui/Button";
 import StudyHistory from "./StudyHistory";
 
@@ -324,7 +329,19 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
       <p className="mt-6 text-center text-xs text-slate-600 dark:text-slate-300">
         全{ALL_WORDS.length}語収録 ・ IPA基本情報技術者試験シラバス準拠
       </p>
-      <StudyHistory />
+      <StudyHistory
+        hasWords={(categoryId) => (categoryCounts.get(categoryId) ?? 0) > 0}
+        onRetryCategory={(categoryId) =>
+          onStart({
+            difficulties,
+            categoryIds: new Set([categoryId]),
+            questionCount: questionCountForCategory(
+              selectedCount,
+              categoryCounts.get(categoryId) ?? 0
+            ),
+          })
+        }
+      />
     </div>
   );
 }

@@ -103,6 +103,12 @@ export function pickQuizWords(pool: WordEntry[], count: number): WordEntry[] {
   return shuffle(pool).slice(0, Math.min(count, pool.length));
 }
 
+/** 選んだ出題数を、その分野で今の難易度に残っている語数まで落とす */
+export function questionCountForCategory(selectedCount: number, available: number): number {
+  if (!Number.isFinite(selectedCount) || !Number.isFinite(available)) return 0;
+  return Math.max(0, Math.min(selectedCount, available));
+}
+
 export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   easy: "やさしい",
   medium: "ふつう",

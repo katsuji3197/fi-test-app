@@ -1,4 +1,5 @@
-import type { Difficulty } from "./types";
+import { getCategoryById } from "./categories";
+import type { Difficulty, QuestionOutcome } from "./types";
 
 /** 壊れた古いデータと区別するためのキー。中身の形を変えたら数字を上げる */
 export const HISTORY_STORAGE_KEY = "fi-test-app.history.v1";
@@ -28,6 +29,12 @@ export function readHistorySnapshot(): string {
   }
 }
 
+export type CategoryResult = {
+  correct: number;
+  incorrect: number;
+  giveUp: number;
+};
+
 export type QuizHistoryEntry = {
   finishedAt: string;
   questionCount: number;
@@ -36,10 +43,48 @@ export type QuizHistoryEntry = {
   giveUpCount: number;
   difficulties: Difficulty[];
   categoryCount: number;
+  /** 無い場合は古い記録。分野別のやり直し対象にはしない */
+  categories?: Record<string, CategoryResult>;
+};
+
+/** 1〜2問だと正答率が偶然で決まるので、5問以上の分野だけを比べる */
+export const MIN_CATEGORY_ANSWERS = 5;
+
+/** 1問も解いていない回と、間違えた問題だけの解き直しは記録しない */
+export function shouldSaveFinishedSession(answeredCount: number, isRetry: boolean): boolean {
+  return !isRetry && answeredCount > 0;
+}
+
+export type WeakestCategory = {
+  categoryId: string;
+  name: string;
 };
 
 function isDifficulty(value: unknown): value is Difficulty {
   return typeof value === "string" && DIFFICULTIES.includes(value as Difficulty);
+}
+
+function isCount(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+
+function readCategories(value: unknown): Record<string, CategoryResult> | undefined {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+  const categories: Record<string, CategoryResult> = {};
+  for (const [id, raw] of Object.entries(value)) {
+    if (!id || !raw || typeof raw !== "object" || Array.isArray(raw)) continue;
+    const counts = raw as Record<string, unknown>;
+    if (!isCount(counts.correct) || !isCount(counts.incorrect) || !isCount(counts.giveUp)) {
+      continue;
+    }
+    if (counts.correct + counts.incorrect + counts.giveUp === 0) continue;
+    categories[id] = {
+      correct: counts.correct,
+      incorrect: counts.incorrect,
+      giveUp: counts.giveUp,
+    };
+  }
+  return Object.keys(categories).length > 0 ? categories : undefined;
 }
 
 function isEntry(value: unknown): value is QuizHistoryEntry {
@@ -58,15 +103,72 @@ function isEntry(value: unknown): value is QuizHistoryEntry {
   );
 }
 
+export function categoryResults(
+  records: { word: { categoryId: string }; outcome: QuestionOutcome }[]
+): Record<string, CategoryResult> {
+  const categories: Record<string, CategoryResult> = {};
+  for (const record of records) {
+    const id = record.word.categoryId;
+    const bucket = categories[id] ?? { correct: 0, incorrect: 0, giveUp: 0 };
+    if (record.outcome === "correct") bucket.correct += 1;
+    else if (record.outcome === "incorrect") bucket.incorrect += 1;
+    else bucket.giveUp += 1;
+    categories[id] = bucket;
+  }
+  return categories;
+}
+
 export function parseHistory(raw: string): QuizHistoryEntry[] {
   if (!raw) return [];
   try {
     const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(isEntry).slice(0, MAX_ENTRIES);
+    const entries: QuizHistoryEntry[] = [];
+    for (const item of parsed) {
+      if (!isEntry(item)) continue;
+      const categories = readCategories(item.categories);
+      entries.push(categories ? { ...item, categories } : { ...item, categories: undefined });
+      if (entries.length >= MAX_ENTRIES) break;
+    }
+    return entries;
   } catch {
     return [];
   }
+}
+
+export function weakestCategory(entries: QuizHistoryEntry[]): WeakestCategory | null {
+  const totals = new Map<string, { correct: number; total: number; latest: number }>();
+  entries.forEach((entry, index) => {
+    if (!entry.categories) return;
+    const recency = entries.length - index;
+    for (const [id, counts] of Object.entries(entry.categories)) {
+      const total = counts.correct + counts.incorrect + counts.giveUp;
+      if (total <= 0) continue;
+      const current = totals.get(id) ?? { correct: 0, total: 0, latest: 0 };
+      current.correct += counts.correct;
+      current.total += total;
+      current.latest = Math.max(current.latest, recency);
+      totals.set(id, current);
+    }
+  });
+
+  let selected: { id: string; accuracy: number; total: number; latest: number } | null = null;
+  for (const [id, stat] of totals) {
+    if (stat.total < MIN_CATEGORY_ANSWERS) continue;
+    if (!getCategoryById(id)) continue;
+    const accuracy = stat.correct / stat.total;
+    const better =
+      !selected ||
+      accuracy < selected.accuracy ||
+      (accuracy === selected.accuracy && stat.total > selected.total) ||
+      (accuracy === selected.accuracy &&
+        stat.total === selected.total &&
+        stat.latest > selected.latest);
+    if (better) selected = { id, accuracy, total: stat.total, latest: stat.latest };
+  }
+  if (!selected) return null;
+  const category = getCategoryById(selected.id);
+  return category ? { categoryId: category.id, name: category.name } : null;
 }
 
 export function loadHistory(): QuizHistoryEntry[] {

@@ -32,11 +32,14 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body,
-  body * {
-    transition-property: background-color, color, border-color;
-    transition-duration: 250ms;
-    transition-timing-function: ease;
+  /* utilities より弱いレイヤに置き、transition-opacity などが勝つようにする */
+  @layer base {
+    body,
+    body * {
+      transition-property: background-color, color, border-color;
+      transition-duration: 250ms;
+      transition-timing-function: ease;
+    }
   }
 }
 
