@@ -130,7 +130,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
           </div>
           {questionCountOptions.length > 0 ? (
             <div className="mt-5">
-              <div className="flex items-center justify-center gap-3 sm:gap-5">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
                 <button
                   type="button"
                   onClick={() => stepQuestionCount(-1)}
@@ -190,7 +190,7 @@ export default function SetupScreen({ onStart }: SetupScreenProps) {
 
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm max-[389px]:px-3 dark:border-slate-500 dark:bg-slate-800 dark:shadow-none">
           <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">難易度</h2>
-          <div className="mt-4 flex flex-nowrap gap-1">
+          <div className="mt-4 flex flex-wrap gap-1">
             {ALL_DIFFICULTIES.map((d) => {
               const selected = difficulties.has(d);
               return (
